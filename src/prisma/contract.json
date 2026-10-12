@@ -8,10 +8,6 @@
       "model": "Key",
       "namespace": "public"
     },
-    "Language": {
-      "model": "Language",
-      "namespace": "public"
-    },
     "Project": {
       "model": "Project",
       "namespace": "public"
@@ -28,29 +24,6 @@
   "domain": {
     "namespaces": {
       "public": {
-        "enum": {
-          "TranslationStatus": {
-            "codecId": "pg/text@1",
-            "members": [
-              {
-                "name": "Pending",
-                "value": "Pending"
-              },
-              {
-                "name": "Translated",
-                "value": "Translated"
-              },
-              {
-                "name": "Review",
-                "value": "Review"
-              },
-              {
-                "name": "Approved",
-                "value": "Approved"
-              }
-            ]
-          }
-        },
         "models": {
           "Key": {
             "fields": {
@@ -155,108 +128,10 @@
               "table": "Key"
             }
           },
-          "Language": {
-            "fields": {
-              "code": {
-                "nullable": false,
-                "type": {
-                  "codecId": "pg/text@1",
-                  "kind": "scalar"
-                }
-              },
-              "id": {
-                "nullable": false,
-                "type": {
-                  "codecId": "pg/int4@1",
-                  "kind": "scalar"
-                }
-              },
-              "name": {
-                "nullable": false,
-                "type": {
-                  "codecId": "pg/text@1",
-                  "kind": "scalar"
-                }
-              },
-              "projectId": {
-                "nullable": false,
-                "type": {
-                  "codecId": "pg/int4@1",
-                  "kind": "scalar"
-                }
-              }
-            },
-            "relations": {
-              "project": {
-                "cardinality": "N:1",
-                "nullable": false,
-                "on": {
-                  "localFields": [
-                    "projectId"
-                  ],
-                  "targetFields": [
-                    "id"
-                  ]
-                },
-                "to": {
-                  "model": "Project",
-                  "namespace": "public"
-                }
-              },
-              "sourceForProjects": {
-                "cardinality": "1:N",
-                "on": {
-                  "localFields": [
-                    "id"
-                  ],
-                  "targetFields": [
-                    "sourceLanguageId"
-                  ]
-                },
-                "to": {
-                  "model": "Project",
-                  "namespace": "public"
-                }
-              },
-              "translations": {
-                "cardinality": "1:N",
-                "on": {
-                  "localFields": [
-                    "id"
-                  ],
-                  "targetFields": [
-                    "languageId"
-                  ]
-                },
-                "to": {
-                  "model": "Translation",
-                  "namespace": "public"
-                }
-              }
-            },
-            "storage": {
-              "fields": {
-                "code": {
-                  "column": "code"
-                },
-                "id": {
-                  "column": "id"
-                },
-                "name": {
-                  "column": "name"
-                },
-                "projectId": {
-                  "column": "projectId"
-                }
-              },
-              "namespaceId": "public",
-              "table": "Language"
-            }
-          },
           "Project": {
             "fields": {
               "authorId": {
-                "nullable": false,
+                "nullable": true,
                 "type": {
                   "codecId": "pg/int4@1",
                   "kind": "scalar"
@@ -276,10 +151,27 @@
                   "kind": "scalar"
                 }
               },
-              "sourceLanguageId": {
-                "nullable": true,
+              "slug": {
+                "nullable": false,
                 "type": {
-                  "codecId": "pg/int4@1",
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "sourceLanguage": {
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
+              },
+              "targetLanguages": {
+                "many": {
+                  "elementNullable": false
+                },
+                "nullable": false,
+                "type": {
+                  "codecId": "pg/text@1",
                   "kind": "scalar"
                 }
               },
@@ -296,12 +188,19 @@
                   "codecId": "pg/timestamptz-string@1",
                   "kind": "scalar"
                 }
+              },
+              "websiteUrl": {
+                "nullable": true,
+                "type": {
+                  "codecId": "pg/text@1",
+                  "kind": "scalar"
+                }
               }
             },
             "relations": {
               "author": {
                 "cardinality": "N:1",
-                "nullable": false,
+                "nullable": true,
                 "on": {
                   "localFields": [
                     "authorId"
@@ -329,37 +228,6 @@
                   "model": "Key",
                   "namespace": "public"
                 }
-              },
-              "languages": {
-                "cardinality": "1:N",
-                "on": {
-                  "localFields": [
-                    "id"
-                  ],
-                  "targetFields": [
-                    "projectId"
-                  ]
-                },
-                "to": {
-                  "model": "Language",
-                  "namespace": "public"
-                }
-              },
-              "sourceLanguage": {
-                "cardinality": "N:1",
-                "nullable": true,
-                "on": {
-                  "localFields": [
-                    "sourceLanguageId"
-                  ],
-                  "targetFields": [
-                    "id"
-                  ]
-                },
-                "to": {
-                  "model": "Language",
-                  "namespace": "public"
-                }
               }
             },
             "storage": {
@@ -373,14 +241,23 @@
                 "id": {
                   "column": "id"
                 },
-                "sourceLanguageId": {
-                  "column": "sourceLanguageId"
+                "slug": {
+                  "column": "slug"
+                },
+                "sourceLanguage": {
+                  "column": "sourceLanguage"
+                },
+                "targetLanguages": {
+                  "column": "targetLanguages"
                 },
                 "title": {
                   "column": "title"
                 },
                 "updatedAt": {
                   "column": "updatedAt"
+                },
+                "websiteUrl": {
+                  "column": "websiteUrl"
                 }
               },
               "namespaceId": "public",
@@ -410,24 +287,11 @@
                   "kind": "scalar"
                 }
               },
-              "languageId": {
-                "nullable": false,
-                "type": {
-                  "codecId": "pg/int4@1",
-                  "kind": "scalar"
-                }
-              },
-              "status": {
+              "language": {
                 "nullable": false,
                 "type": {
                   "codecId": "pg/text@1",
                   "kind": "scalar"
-                },
-                "valueSet": {
-                  "entityKind": "enum",
-                  "entityName": "TranslationStatus",
-                  "namespaceId": "public",
-                  "plane": "domain"
                 }
               },
               "text": {
@@ -461,22 +325,6 @@
                   "model": "Key",
                   "namespace": "public"
                 }
-              },
-              "language": {
-                "cardinality": "N:1",
-                "nullable": false,
-                "on": {
-                  "localFields": [
-                    "languageId"
-                  ],
-                  "targetFields": [
-                    "id"
-                  ]
-                },
-                "to": {
-                  "model": "Language",
-                  "namespace": "public"
-                }
               }
             },
             "storage": {
@@ -490,11 +338,8 @@
                 "keyId": {
                   "column": "keyId"
                 },
-                "languageId": {
-                  "column": "languageId"
-                },
-                "status": {
-                  "column": "status"
+                "language": {
+                  "column": "language"
                 },
                 "text": {
                   "column": "text"
@@ -677,82 +522,19 @@
                 }
               ]
             },
-            "Language": {
-              "columns": {
-                "code": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": false
-                },
-                "id": {
-                  "codecId": "pg/int4@1",
-                  "dataType": "pg/int4",
-                  "default": {
-                    "expression": "autoincrement()",
-                    "kind": "function"
-                  },
-                  "nullable": false
-                },
-                "name": {
-                  "codecId": "pg/text@1",
-                  "dataType": "pg/text",
-                  "nullable": false
-                },
-                "projectId": {
-                  "codecId": "pg/int4@1",
-                  "dataType": "pg/int4",
-                  "nullable": false
-                }
-              },
-              "foreignKeys": [
-                {
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "projectId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Language"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Project"
-                  }
-                }
-              ],
-              "indexes": [
-                {
-                  "columns": [
-                    "projectId"
-                  ],
-                  "name": "Language_projectId_idx_a96e4d92",
-                  "prefix": "Language_projectId_idx",
-                  "unique": false
-                }
-              ],
-              "primaryKey": {
-                "columns": [
-                  "id"
-                ]
-              },
-              "uniques": [
-                {
-                  "columns": [
-                    "projectId",
-                    "code"
-                  ]
-                }
-              ]
-            },
             "Project": {
+              "checks": [
+                {
+                  "expression": "array_position(\"targetLanguages\", NULL) IS NULL",
+                  "name": "Project_targetLanguages_elem_not_null_10f915a7",
+                  "prefix": "Project_targetLanguages_elem_not_null"
+                }
+              ],
               "columns": {
                 "authorId": {
                   "codecId": "pg/int4@1",
                   "dataType": "pg/int4",
-                  "nullable": false
+                  "nullable": true
                 },
                 "createdAt": {
                   "codecId": "pg/timestamptz-string@1",
@@ -772,10 +554,23 @@
                   },
                   "nullable": false
                 },
-                "sourceLanguageId": {
-                  "codecId": "pg/int4@1",
-                  "dataType": "pg/int4",
-                  "nullable": true
+                "slug": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "sourceLanguage": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": false
+                },
+                "targetLanguages": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "many": {
+                    "elementNullable": false
+                  },
+                  "nullable": false
                 },
                 "title": {
                   "codecId": "pg/text@1",
@@ -786,6 +581,11 @@
                   "codecId": "pg/timestamptz-string@1",
                   "dataType": "pg/timestamptz",
                   "nullable": false
+                },
+                "websiteUrl": {
+                  "codecId": "pg/text@1",
+                  "dataType": "pg/text",
+                  "nullable": true
                 }
               },
               "foreignKeys": [
@@ -804,22 +604,6 @@
                     "namespaceId": "public",
                     "tableName": "User"
                   }
-                },
-                {
-                  "source": {
-                    "columns": [
-                      "sourceLanguageId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Project"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Language"
-                  }
                 }
               ],
               "indexes": [
@@ -830,14 +614,6 @@
                   "name": "Project_authorId_idx_e47547ed",
                   "prefix": "Project_authorId_idx",
                   "unique": false
-                },
-                {
-                  "columns": [
-                    "sourceLanguageId"
-                  ],
-                  "name": "Project_sourceLanguageId_idx_7e7e5b07",
-                  "prefix": "Project_sourceLanguageId_idx",
-                  "unique": false
                 }
               ],
               "primaryKey": {
@@ -845,16 +621,15 @@
                   "id"
                 ]
               },
-              "uniques": []
+              "uniques": [
+                {
+                  "columns": [
+                    "slug"
+                  ]
+                }
+              ]
             },
             "Translation": {
-              "checks": [
-                {
-                  "expression": "\"status\" IN ('Pending', 'Translated', 'Review', 'Approved')",
-                  "name": "Translation_status_check_9beca31d",
-                  "prefix": "Translation_status_check"
-                }
-              ],
               "columns": {
                 "createdAt": {
                   "codecId": "pg/timestamptz-string@1",
@@ -879,21 +654,10 @@
                   "dataType": "pg/int4",
                   "nullable": false
                 },
-                "languageId": {
-                  "codecId": "pg/int4@1",
-                  "dataType": "pg/int4",
-                  "nullable": false
-                },
-                "status": {
+                "language": {
                   "codecId": "pg/text@1",
                   "dataType": "pg/text",
-                  "nullable": false,
-                  "valueSet": {
-                    "entityKind": "valueSet",
-                    "entityName": "TranslationStatus",
-                    "namespaceId": "public",
-                    "plane": "storage"
-                  }
+                  "nullable": false
                 },
                 "text": {
                   "codecId": "pg/text@1",
@@ -923,23 +687,6 @@
                     "namespaceId": "public",
                     "tableName": "Key"
                   }
-                },
-                {
-                  "onDelete": "cascade",
-                  "source": {
-                    "columns": [
-                      "languageId"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Translation"
-                  },
-                  "target": {
-                    "columns": [
-                      "id"
-                    ],
-                    "namespaceId": "public",
-                    "tableName": "Language"
-                  }
                 }
               ],
               "indexes": [
@@ -949,14 +696,6 @@
                   ],
                   "name": "Translation_keyId_idx_c75a7d57",
                   "prefix": "Translation_keyId_idx",
-                  "unique": false
-                },
-                {
-                  "columns": [
-                    "languageId"
-                  ],
-                  "name": "Translation_languageId_idx_7aa66047",
-                  "prefix": "Translation_languageId_idx",
                   "unique": false
                 }
               ],
@@ -969,7 +708,7 @@
                 {
                   "columns": [
                     "keyId",
-                    "languageId"
+                    "language"
                   ]
                 }
               ]
@@ -1025,24 +764,13 @@
                 }
               ]
             }
-          },
-          "valueSet": {
-            "TranslationStatus": {
-              "kind": "valueSet",
-              "values": [
-                "Pending",
-                "Translated",
-                "Review",
-                "Approved"
-              ]
-            }
           }
         },
         "id": "public",
         "kind": "postgres-schema"
       }
     },
-    "storageHash": "3870d204b8403b30b6cf4d03b39fb031c312d9204524bed4def10d1c58e432f8"
+    "storageHash": "ad1beeb24bb7a355a29215a0b6310a5b51ac871eb39a69ec06ee2c602e7bb60c"
   },
   "execution": {
     "executionHash": "a7098f33259ee27b3c4a8e020fb28813c0591c5a583d7e709e0ef7ad9f8fa6d2",

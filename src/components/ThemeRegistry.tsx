@@ -9,7 +9,7 @@ export default function ThemeRegistry({
     children: React.ReactNode;
 }) {
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme} defaultMode="system">
             <CssBaseline />
             {children}
         </ThemeProvider>

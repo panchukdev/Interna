@@ -1,0 +1,86 @@
+[
+  {
+    "id": "dropCheckConstraint.Translation.Translation_status_check_9beca31d",
+    "label": "Drop check constraint \"Translation_status_check_9beca31d\" on \"Translation\"",
+    "operationClass": "destructive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "checkConstraint",
+        "name": "Translation_status_check_9beca31d",
+        "table": "Translation"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure constraint \"Translation_status_check_9beca31d\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "Translation_status_check_9beca31d",
+          "public",
+          "\"public\".\"Translation\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "drop check constraint \"Translation_status_check_9beca31d\"",
+        "sql": "ALTER TABLE \"public\".\"Translation\" DROP CONSTRAINT \"Translation_status_check_9beca31d\""
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify constraint \"Translation_status_check_9beca31d\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "Translation_status_check_9beca31d",
+          "public",
+          "\"public\".\"Translation\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dropColumn.Translation.status",
+    "label": "Drop column \"status\" from \"Translation\"",
+    "operationClass": "destructive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "column",
+        "name": "status",
+        "table": "Translation"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure column \"status\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"information_schema\".\"columns\" WHERE (\"table_schema\" = $1 AND \"table_name\" = $2 AND \"column_name\" = $3)) AS \"result\"",
+        "params": [
+          "public",
+          "Translation",
+          "status"
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "drop column \"status\"",
+        "sql": "ALTER TABLE \"public\".\"Translation\" DROP COLUMN \"status\""
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify column \"status\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"information_schema\".\"columns\" WHERE (\"table_schema\" = $1 AND \"table_name\" = $2 AND \"column_name\" = $3)) AS \"result\"",
+        "params": [
+          "public",
+          "Translation",
+          "status"
+        ]
+      }
+    ]
+  }
+]

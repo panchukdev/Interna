@@ -1,13 +1,16 @@
+import { getProjects } from "@/src/lib/projects";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import Link from "next/link";
 
-export default function Projects() {
+export default async function Projects() {
+    const projects = await getProjects();
+
     return (
         <Box
             sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
+                alignItems: "flex-start",
                 gap: 2,
                 p: 3,
             }}
@@ -16,53 +19,73 @@ export default function Projects() {
                 Projects List
             </Typography>
 
-            <Box component="div" sx={{ width: "100%", maxWidth: 500 }}>
-                <Link
-                    href="/projects/1"
-                    style={{
-                        display: "block",
-                        textDecoration: "none",
-                        color: "inherit",
+            {!projects || projects.length === 0 ? (
+                <Typography variant="body1" sx={{ fontWeight: 300 }}>
+                    You have no projects
+                </Typography>
+            ) : (
+                <Box
+                    sx={{
+                        width: "100%",
+                        maxWidth: "xl",
+                        display: "flex",
+                        gap: 2,
                     }}
                 >
-                    <Card
-                        sx={{
-                            transition: "0.2s",
-                            borderRadius: 2,
-                            overflow: "hidden",
-                            "&:hover": {
-                                transform: "translateY(-2px)",
-                                boxShadow: 4,
-                            },
-                        }}
-                    >
-                        <CardMedia
-                            component="img"
-                            height={200}
-                            image="/images/template.svg"
-                            alt="Project preview"
-                            sx={{
-                                objectFit: "cover",
-                                objectPosition: "top",
+                    {projects.map((project) => (
+                        <Link
+                            key={project.id}
+                            href={`/projects/${project.slug}`}
+                            style={{
+                                display: "block",
+                                textDecoration: "none",
+                                color: "inherit",
                             }}
-                        />
-
-                        <CardContent>
-                            <Typography
-                                variant="h6"
-                                component="h2"
-                                gutterBottom
+                        >
+                            <Card
+                                sx={{
+                                    transition: "0.2s",
+                                    borderRadius: 2,
+                                    overflow: "hidden",
+                                    "&:hover": {
+                                        transform: "translateY(-2px)",
+                                        boxShadow: 4,
+                                    },
+                                }}
                             >
-                                Project 1
-                            </Typography>
+                                <CardMedia
+                                    component="img"
+                                    height={200}
+                                    image="/images/template.svg"
+                                    alt={`${project.title} preview`}
+                                    sx={{
+                                        objectFit: "cover",
+                                        objectPosition: "top",
+                                    }}
+                                />
 
-                            <Typography variant="body2" color="text.secondary">
-                                Manage project languages and translations.
-                            </Typography>
-                        </CardContent>
-                    </Card>
-                </Link>
-            </Box>
+                                <CardContent>
+                                    <Typography
+                                        variant="h6"
+                                        component="h2"
+                                        gutterBottom
+                                    >
+                                        {project.title}
+                                    </Typography>
+
+                                    <Typography
+                                        variant="body2"
+                                        color="text.secondary"
+                                    >
+                                        Manage project languages and
+                                        translations.
+                                    </Typography>
+                                </CardContent>
+                            </Card>
+                        </Link>
+                    ))}
+                </Box>
+            )}
         </Box>
     );
 }

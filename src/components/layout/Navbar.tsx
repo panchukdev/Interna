@@ -16,7 +16,10 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import TranslateIcon from "@mui/icons-material/Translate";
 
-const pages = [{ name: "Projects", href: "/projects" }];
+const pages = [
+    { name: "My projects", href: "/projects" },
+    { name: "New project", href: "/create" },
+];
 const avatarMenu = [
     { page: "Profile", href: "/profile" },
     { page: "Settings", href: "/settings" },
@@ -47,8 +50,8 @@ export default function Navbar() {
     };
 
     return (
-        <AppBar position="static">
-            <Container maxWidth="xl">
+        <AppBar position="fixed">
+            <Container maxWidth={false}>
                 <Toolbar
                     disableGutters
                     sx={{
@@ -147,6 +150,7 @@ export default function Navbar() {
                         sx={{
                             flexGrow: 1,
                             display: { xs: "none", md: "flex" },
+                            gap: 1,
                         }}
                     >
                         {pages.map((page) => (
@@ -155,7 +159,11 @@ export default function Navbar() {
                                 href={page.href}
                                 key={page.name}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: "white", display: "block" }}
+                                sx={{
+                                    my: 2,
+                                    color: "white",
+                                    display: "block",
+                                }}
                             >
                                 {page.name}
                             </Button>

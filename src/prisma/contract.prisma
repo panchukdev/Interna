@@ -1,12 +1,5 @@
 // use prisma-8
 
-enum TranslationStatus {
-  Pending
-  Translated
-  Review
-  Approved
-}
-
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
@@ -19,26 +12,18 @@ model User {
 model Project {
   id        Int      @id @default(autoincrement())
   title     String
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-  sourceLanguage   Language? @relation("SourceLanguage", fields: [sourceLanguageId], references: [id])
-  sourceLanguageId Int?
-  languages Language[] @relation("ProjectLanguages")
+  slug String @unique
+  websiteUrl String?
+
+  author    User?     @relation(fields: [authorId], references: [id])
+  authorId  Int?
+  
+  sourceLanguage   String
+  targetLanguages String[]
+  
   keys Key[]
   createdAt TimestamptzString @default(now())
   updatedAt temporal.updatedAtString()
-}
-
-model Language {
-  id        Int      @id @default(autoincrement())
-  code String
-  name String
-  project    Project     @relation("ProjectLanguages", fields: [projectId], references: [id], onDelete: Cascade)
-  projectId  Int
-  sourceForProjects Project[] @relation("SourceLanguage")
-  translations Translation[]
-
-  @@unique([projectId, code])
 }
 
 model Key {
@@ -58,12 +43,10 @@ model Translation {
   id Int @id @default(autoincrement())
   key Key @relation(fields: [keyId], references: [id],  onDelete: Cascade)
   keyId Int
-  language Language @relation(fields: [languageId], references: [id], onDelete: Cascade)
-  languageId Int
+  language String
   text String?
-  status TranslationStatus
   createdAt TimestamptzString @default(now())
   updatedAt temporal.updatedAtString()
 
-  @@unique([keyId, languageId])
+  @@unique([keyId, language])
 }

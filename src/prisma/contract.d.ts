@@ -18,7 +18,7 @@ import type {
 } from '@prisma/orm-postgres/contract/types';
 
 export type StorageHash =
-  StorageHashBase<'3870d204b8403b30b6cf4d03b39fb031c312d9204524bed4def10d1c58e432f8'>;
+  StorageHashBase<'ad1beeb24bb7a355a29215a0b6310a5b51ac871eb39a69ec06ee2c602e7bb60c'>;
 export type ExecutionHash =
   ExecutionHashBase<'a7098f33259ee27b3c4a8e020fb28813c0591c5a583d7e709e0ef7ad9f8fa6d2'>;
 export type ProfileHash =
@@ -242,26 +242,22 @@ export type FieldOutputTypes = {
       readonly sourceText: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     };
-    readonly Language: {
-      readonly code: CodecTypes['pg/text@1']['output'];
-      readonly id: CodecTypes['pg/int4@1']['output'];
-      readonly name: CodecTypes['pg/text@1']['output'];
-      readonly projectId: CodecTypes['pg/int4@1']['output'];
-    };
     readonly Project: {
-      readonly authorId: CodecTypes['pg/int4@1']['output'];
+      readonly authorId: CodecTypes['pg/int4@1']['output'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly id: CodecTypes['pg/int4@1']['output'];
-      readonly sourceLanguageId: CodecTypes['pg/int4@1']['output'] | null;
+      readonly slug: CodecTypes['pg/text@1']['output'];
+      readonly sourceLanguage: CodecTypes['pg/text@1']['output'];
+      readonly targetLanguages: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
       readonly title: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
+      readonly websiteUrl: CodecTypes['pg/text@1']['output'] | null;
     };
     readonly Translation: {
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly id: CodecTypes['pg/int4@1']['output'];
       readonly keyId: CodecTypes['pg/int4@1']['output'];
-      readonly languageId: CodecTypes['pg/int4@1']['output'];
-      readonly status: 'Pending' | 'Translated' | 'Review' | 'Approved';
+      readonly language: CodecTypes['pg/text@1']['output'];
       readonly text: CodecTypes['pg/text@1']['output'] | null;
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     };
@@ -284,26 +280,22 @@ export type FieldInputTypes = {
       readonly sourceText: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
     };
-    readonly Language: {
-      readonly code: CodecTypes['pg/text@1']['input'];
-      readonly id: CodecTypes['pg/int4@1']['input'];
-      readonly name: CodecTypes['pg/text@1']['input'];
-      readonly projectId: CodecTypes['pg/int4@1']['input'];
-    };
     readonly Project: {
-      readonly authorId: CodecTypes['pg/int4@1']['input'];
+      readonly authorId: CodecTypes['pg/int4@1']['input'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly id: CodecTypes['pg/int4@1']['input'];
-      readonly sourceLanguageId: CodecTypes['pg/int4@1']['input'] | null;
+      readonly slug: CodecTypes['pg/text@1']['input'];
+      readonly sourceLanguage: CodecTypes['pg/text@1']['input'];
+      readonly targetLanguages: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
       readonly title: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
+      readonly websiteUrl: CodecTypes['pg/text@1']['input'] | null;
     };
     readonly Translation: {
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly id: CodecTypes['pg/int4@1']['input'];
       readonly keyId: CodecTypes['pg/int4@1']['input'];
-      readonly languageId: CodecTypes['pg/int4@1']['input'];
-      readonly status: 'Pending' | 'Translated' | 'Review' | 'Approved';
+      readonly language: CodecTypes['pg/text@1']['input'];
       readonly text: CodecTypes['pg/text@1']['input'] | null;
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
     };
@@ -326,26 +318,22 @@ export type StorageColumnTypes = {
       readonly sourceText: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     };
-    readonly Language: {
-      readonly code: CodecTypes['pg/text@1']['output'];
-      readonly id: CodecTypes['pg/int4@1']['output'];
-      readonly name: CodecTypes['pg/text@1']['output'];
-      readonly projectId: CodecTypes['pg/int4@1']['output'];
-    };
     readonly Project: {
-      readonly authorId: CodecTypes['pg/int4@1']['output'];
+      readonly authorId: CodecTypes['pg/int4@1']['output'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly id: CodecTypes['pg/int4@1']['output'];
-      readonly sourceLanguageId: CodecTypes['pg/int4@1']['output'] | null;
+      readonly slug: CodecTypes['pg/text@1']['output'];
+      readonly sourceLanguage: CodecTypes['pg/text@1']['output'];
+      readonly targetLanguages: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
       readonly title: CodecTypes['pg/text@1']['output'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
+      readonly websiteUrl: CodecTypes['pg/text@1']['output'] | null;
     };
     readonly Translation: {
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
       readonly id: CodecTypes['pg/int4@1']['output'];
       readonly keyId: CodecTypes['pg/int4@1']['output'];
-      readonly languageId: CodecTypes['pg/int4@1']['output'];
-      readonly status: 'Pending' | 'Translated' | 'Review' | 'Approved';
+      readonly language: CodecTypes['pg/text@1']['output'];
       readonly text: CodecTypes['pg/text@1']['output'] | null;
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     };
@@ -368,26 +356,22 @@ export type StorageColumnInputTypes = {
       readonly sourceText: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
     };
-    readonly Language: {
-      readonly code: CodecTypes['pg/text@1']['input'];
-      readonly id: CodecTypes['pg/int4@1']['input'];
-      readonly name: CodecTypes['pg/text@1']['input'];
-      readonly projectId: CodecTypes['pg/int4@1']['input'];
-    };
     readonly Project: {
-      readonly authorId: CodecTypes['pg/int4@1']['input'];
+      readonly authorId: CodecTypes['pg/int4@1']['input'] | null;
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly id: CodecTypes['pg/int4@1']['input'];
-      readonly sourceLanguageId: CodecTypes['pg/int4@1']['input'] | null;
+      readonly slug: CodecTypes['pg/text@1']['input'];
+      readonly sourceLanguage: CodecTypes['pg/text@1']['input'];
+      readonly targetLanguages: ReadonlyArray<CodecTypes['pg/text@1']['input']>;
       readonly title: CodecTypes['pg/text@1']['input'];
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
+      readonly websiteUrl: CodecTypes['pg/text@1']['input'] | null;
     };
     readonly Translation: {
       readonly createdAt: CodecTypes['pg/timestamptz-string@1']['input'];
       readonly id: CodecTypes['pg/int4@1']['input'];
       readonly keyId: CodecTypes['pg/int4@1']['input'];
-      readonly languageId: CodecTypes['pg/int4@1']['input'];
-      readonly status: 'Pending' | 'Translated' | 'Review' | 'Approved';
+      readonly language: CodecTypes['pg/text@1']['input'];
       readonly text: CodecTypes['pg/text@1']['input'] | null;
       readonly updatedAt: CodecTypes['pg/timestamptz-string@1']['input'];
     };
@@ -413,40 +397,29 @@ export namespace Models {
     translations: public_Translation[];
     readonly [RelationKeys]?: 'project' | 'translations';
   };
-  export type public_Language = {
-    code: CodecTypes['pg/text@1']['output'];
-    id: CodecTypes['pg/int4@1']['output'];
-    name: CodecTypes['pg/text@1']['output'];
-    projectId: CodecTypes['pg/int4@1']['output'];
-    project: public_Project;
-    sourceForProjects: public_Project[];
-    translations: public_Translation[];
-    readonly [RelationKeys]?: 'project' | 'sourceForProjects' | 'translations';
-  };
   export type public_Project = {
-    authorId: CodecTypes['pg/int4@1']['output'];
+    authorId: CodecTypes['pg/int4@1']['output'] | null;
     createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
     id: CodecTypes['pg/int4@1']['output'];
-    sourceLanguageId: CodecTypes['pg/int4@1']['output'] | null;
+    slug: CodecTypes['pg/text@1']['output'];
+    sourceLanguage: CodecTypes['pg/text@1']['output'];
+    targetLanguages: ReadonlyArray<CodecTypes['pg/text@1']['output']>;
     title: CodecTypes['pg/text@1']['output'];
     updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
-    author: public_User;
+    websiteUrl: CodecTypes['pg/text@1']['output'] | null;
+    author: public_User | null;
     keys: public_Key[];
-    languages: public_Language[];
-    sourceLanguage: public_Language | null;
-    readonly [RelationKeys]?: 'author' | 'keys' | 'languages' | 'sourceLanguage';
+    readonly [RelationKeys]?: 'author' | 'keys';
   };
   export type public_Translation = {
     createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
     id: CodecTypes['pg/int4@1']['output'];
     keyId: CodecTypes['pg/int4@1']['output'];
-    languageId: CodecTypes['pg/int4@1']['output'];
-    status: 'Pending' | 'Translated' | 'Review' | 'Approved';
+    language: CodecTypes['pg/text@1']['output'];
     text: CodecTypes['pg/text@1']['output'] | null;
     updatedAt: CodecTypes['pg/timestamptz-string@1']['output'];
     key: public_Key;
-    language: public_Language;
-    readonly [RelationKeys]?: 'key' | 'language';
+    readonly [RelationKeys]?: 'key';
   };
   export type public_User = {
     createdAt: CodecTypes['pg/timestamptz-string@1']['output'];
@@ -462,7 +435,6 @@ export namespace Models {
 export declare const models: {
   public: {
     Key: Models.public_Key;
-    Language: Models.public_Language;
     Project: Models.public_Project;
     Translation: Models.public_Translation;
     User: Models.public_User;
@@ -556,68 +528,12 @@ type ContractBase = Omit<
                 },
               ];
             };
-            readonly Language: {
-              columns: {
-                readonly code: {
-                  readonly dataType: 'pg/text';
-                  readonly codecId: 'pg/text@1';
-                  readonly nullable: false;
-                  readonly many: false;
-                };
-                readonly id: {
-                  readonly dataType: 'pg/int4';
-                  readonly codecId: 'pg/int4@1';
-                  readonly nullable: false;
-                  readonly default: {
-                    readonly kind: 'function';
-                    readonly expression: 'autoincrement()';
-                  };
-                  readonly many: false;
-                };
-                readonly name: {
-                  readonly dataType: 'pg/text';
-                  readonly codecId: 'pg/text@1';
-                  readonly nullable: false;
-                  readonly many: false;
-                };
-                readonly projectId: {
-                  readonly dataType: 'pg/int4';
-                  readonly codecId: 'pg/int4@1';
-                  readonly nullable: false;
-                  readonly many: false;
-                };
-              };
-              primaryKey: { readonly columns: readonly ['id'] };
-              uniques: readonly [{ readonly columns: readonly ['projectId', 'code'] }];
-              indexes: readonly [
-                {
-                  readonly name: 'Language_projectId_idx_a96e4d92';
-                  readonly prefix: 'Language_projectId_idx';
-                  readonly columns: readonly ['projectId'];
-                  readonly unique: false;
-                },
-              ];
-              foreignKeys: readonly [
-                {
-                  readonly source: {
-                    readonly namespaceId: 'public' & NamespaceId;
-                    readonly tableName: 'Language';
-                    readonly columns: readonly ['projectId'];
-                  };
-                  readonly target: {
-                    readonly namespaceId: 'public' & NamespaceId;
-                    readonly tableName: 'Project';
-                    readonly columns: readonly ['id'];
-                  };
-                },
-              ];
-            };
             readonly Project: {
               columns: {
                 readonly authorId: {
                   readonly dataType: 'pg/int4';
                   readonly codecId: 'pg/int4@1';
-                  readonly nullable: false;
+                  readonly nullable: true;
                   readonly many: false;
                 };
                 readonly createdAt: {
@@ -637,11 +553,23 @@ type ContractBase = Omit<
                   };
                   readonly many: false;
                 };
-                readonly sourceLanguageId: {
-                  readonly dataType: 'pg/int4';
-                  readonly codecId: 'pg/int4@1';
-                  readonly nullable: true;
+                readonly slug: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
                   readonly many: false;
+                };
+                readonly sourceLanguage: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: false;
+                };
+                readonly targetLanguages: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: false;
+                  readonly many: { readonly elementNullable: false };
                 };
                 readonly title: {
                   readonly dataType: 'pg/text';
@@ -655,20 +583,20 @@ type ContractBase = Omit<
                   readonly nullable: false;
                   readonly many: false;
                 };
+                readonly websiteUrl: {
+                  readonly dataType: 'pg/text';
+                  readonly codecId: 'pg/text@1';
+                  readonly nullable: true;
+                  readonly many: false;
+                };
               };
               primaryKey: { readonly columns: readonly ['id'] };
-              uniques: readonly [];
+              uniques: readonly [{ readonly columns: readonly ['slug'] }];
               indexes: readonly [
                 {
                   readonly name: 'Project_authorId_idx_e47547ed';
                   readonly prefix: 'Project_authorId_idx';
                   readonly columns: readonly ['authorId'];
-                  readonly unique: false;
-                },
-                {
-                  readonly name: 'Project_sourceLanguageId_idx_7e7e5b07';
-                  readonly prefix: 'Project_sourceLanguageId_idx';
-                  readonly columns: readonly ['sourceLanguageId'];
                   readonly unique: false;
                 },
               ];
@@ -682,18 +610,6 @@ type ContractBase = Omit<
                   readonly target: {
                     readonly namespaceId: 'public' & NamespaceId;
                     readonly tableName: 'User';
-                    readonly columns: readonly ['id'];
-                  };
-                },
-                {
-                  readonly source: {
-                    readonly namespaceId: 'public' & NamespaceId;
-                    readonly tableName: 'Project';
-                    readonly columns: readonly ['sourceLanguageId'];
-                  };
-                  readonly target: {
-                    readonly namespaceId: 'public' & NamespaceId;
-                    readonly tableName: 'Language';
                     readonly columns: readonly ['id'];
                   };
                 },
@@ -724,13 +640,7 @@ type ContractBase = Omit<
                   readonly nullable: false;
                   readonly many: false;
                 };
-                readonly languageId: {
-                  readonly dataType: 'pg/int4';
-                  readonly codecId: 'pg/int4@1';
-                  readonly nullable: false;
-                  readonly many: false;
-                };
-                readonly status: {
+                readonly language: {
                   readonly dataType: 'pg/text';
                   readonly codecId: 'pg/text@1';
                   readonly nullable: false;
@@ -750,18 +660,12 @@ type ContractBase = Omit<
                 };
               };
               primaryKey: { readonly columns: readonly ['id'] };
-              uniques: readonly [{ readonly columns: readonly ['keyId', 'languageId'] }];
+              uniques: readonly [{ readonly columns: readonly ['keyId', 'language'] }];
               indexes: readonly [
                 {
                   readonly name: 'Translation_keyId_idx_c75a7d57';
                   readonly prefix: 'Translation_keyId_idx';
                   readonly columns: readonly ['keyId'];
-                  readonly unique: false;
-                },
-                {
-                  readonly name: 'Translation_languageId_idx_7aa66047';
-                  readonly prefix: 'Translation_languageId_idx';
-                  readonly columns: readonly ['languageId'];
                   readonly unique: false;
                 },
               ];
@@ -775,18 +679,6 @@ type ContractBase = Omit<
                   readonly target: {
                     readonly namespaceId: 'public' & NamespaceId;
                     readonly tableName: 'Key';
-                    readonly columns: readonly ['id'];
-                  };
-                },
-                {
-                  readonly source: {
-                    readonly namespaceId: 'public' & NamespaceId;
-                    readonly tableName: 'Translation';
-                    readonly columns: readonly ['languageId'];
-                  };
-                  readonly target: {
-                    readonly namespaceId: 'public' & NamespaceId;
-                    readonly tableName: 'Language';
                     readonly columns: readonly ['id'];
                   };
                 },
@@ -836,12 +728,6 @@ type ContractBase = Omit<
               foreignKeys: readonly [];
             };
           };
-          readonly valueSet: {
-            readonly TranslationStatus: {
-              readonly kind: 'valueSet';
-              readonly values: readonly ['Pending', 'Translated', 'Review', 'Approved'];
-            };
-          };
         };
       };
     };
@@ -853,7 +739,6 @@ type ContractBase = Omit<
   readonly targetFamily: 'sql';
   readonly roots: {
     readonly Key: { readonly namespace: 'public' & NamespaceId; readonly model: 'Key' };
-    readonly Language: { readonly namespace: 'public' & NamespaceId; readonly model: 'Language' };
     readonly Project: { readonly namespace: 'public' & NamespaceId; readonly model: 'Project' };
     readonly Translation: {
       readonly namespace: 'public' & NamespaceId;
@@ -936,76 +821,10 @@ type ContractBase = Omit<
               };
             };
           };
-          readonly Language: {
-            readonly fields: {
-              readonly code: {
-                readonly nullable: false;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
-              };
-              readonly id: {
-                readonly nullable: false;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
-              };
-              readonly name: {
-                readonly nullable: false;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
-              };
-              readonly projectId: {
-                readonly nullable: false;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
-              };
-            };
-            readonly relations: {
-              readonly project: {
-                readonly to: {
-                  readonly namespace: 'public' & NamespaceId;
-                  readonly model: 'Project';
-                };
-                readonly cardinality: 'N:1';
-                readonly nullable: false;
-                readonly on: {
-                  readonly localFields: readonly ['projectId'];
-                  readonly targetFields: readonly ['id'];
-                };
-              };
-              readonly sourceForProjects: {
-                readonly to: {
-                  readonly namespace: 'public' & NamespaceId;
-                  readonly model: 'Project';
-                };
-                readonly cardinality: '1:N';
-                readonly on: {
-                  readonly localFields: readonly ['id'];
-                  readonly targetFields: readonly ['sourceLanguageId'];
-                };
-              };
-              readonly translations: {
-                readonly to: {
-                  readonly namespace: 'public' & NamespaceId;
-                  readonly model: 'Translation';
-                };
-                readonly cardinality: '1:N';
-                readonly on: {
-                  readonly localFields: readonly ['id'];
-                  readonly targetFields: readonly ['languageId'];
-                };
-              };
-            };
-            readonly storage: {
-              readonly table: 'Language';
-              readonly namespaceId: 'public';
-              readonly fields: {
-                readonly code: { readonly column: 'code' };
-                readonly id: { readonly column: 'id' };
-                readonly name: { readonly column: 'name' };
-                readonly projectId: { readonly column: 'projectId' };
-              };
-            };
-          };
           readonly Project: {
             readonly fields: {
               readonly authorId: {
-                readonly nullable: false;
+                readonly nullable: true;
                 readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
               };
               readonly createdAt: {
@@ -1019,9 +838,18 @@ type ContractBase = Omit<
                 readonly nullable: false;
                 readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
               };
-              readonly sourceLanguageId: {
-                readonly nullable: true;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
+              readonly slug: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly sourceLanguage: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
+              readonly targetLanguages: {
+                readonly nullable: false;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+                readonly many: { readonly elementNullable: false };
               };
               readonly title: {
                 readonly nullable: false;
@@ -1034,12 +862,16 @@ type ContractBase = Omit<
                   readonly codecId: 'pg/timestamptz-string@1';
                 };
               };
+              readonly websiteUrl: {
+                readonly nullable: true;
+                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
+              };
             };
             readonly relations: {
               readonly author: {
                 readonly to: { readonly namespace: 'public' & NamespaceId; readonly model: 'User' };
                 readonly cardinality: 'N:1';
-                readonly nullable: false;
+                readonly nullable: true;
                 readonly on: {
                   readonly localFields: readonly ['authorId'];
                   readonly targetFields: readonly ['id'];
@@ -1053,29 +885,6 @@ type ContractBase = Omit<
                   readonly targetFields: readonly ['projectId'];
                 };
               };
-              readonly languages: {
-                readonly to: {
-                  readonly namespace: 'public' & NamespaceId;
-                  readonly model: 'Language';
-                };
-                readonly cardinality: '1:N';
-                readonly on: {
-                  readonly localFields: readonly ['id'];
-                  readonly targetFields: readonly ['projectId'];
-                };
-              };
-              readonly sourceLanguage: {
-                readonly to: {
-                  readonly namespace: 'public' & NamespaceId;
-                  readonly model: 'Language';
-                };
-                readonly cardinality: 'N:1';
-                readonly nullable: true;
-                readonly on: {
-                  readonly localFields: readonly ['sourceLanguageId'];
-                  readonly targetFields: readonly ['id'];
-                };
-              };
             };
             readonly storage: {
               readonly table: 'Project';
@@ -1084,9 +893,12 @@ type ContractBase = Omit<
                 readonly authorId: { readonly column: 'authorId' };
                 readonly createdAt: { readonly column: 'createdAt' };
                 readonly id: { readonly column: 'id' };
-                readonly sourceLanguageId: { readonly column: 'sourceLanguageId' };
+                readonly slug: { readonly column: 'slug' };
+                readonly sourceLanguage: { readonly column: 'sourceLanguage' };
+                readonly targetLanguages: { readonly column: 'targetLanguages' };
                 readonly title: { readonly column: 'title' };
                 readonly updatedAt: { readonly column: 'updatedAt' };
+                readonly websiteUrl: { readonly column: 'websiteUrl' };
               };
             };
           };
@@ -1107,11 +919,7 @@ type ContractBase = Omit<
                 readonly nullable: false;
                 readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
               };
-              readonly languageId: {
-                readonly nullable: false;
-                readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/int4@1' };
-              };
-              readonly status: {
+              readonly language: {
                 readonly nullable: false;
                 readonly type: { readonly kind: 'scalar'; readonly codecId: 'pg/text@1' };
               };
@@ -1137,18 +945,6 @@ type ContractBase = Omit<
                   readonly targetFields: readonly ['id'];
                 };
               };
-              readonly language: {
-                readonly to: {
-                  readonly namespace: 'public' & NamespaceId;
-                  readonly model: 'Language';
-                };
-                readonly cardinality: 'N:1';
-                readonly nullable: false;
-                readonly on: {
-                  readonly localFields: readonly ['languageId'];
-                  readonly targetFields: readonly ['id'];
-                };
-              };
             };
             readonly storage: {
               readonly table: 'Translation';
@@ -1157,8 +953,7 @@ type ContractBase = Omit<
                 readonly createdAt: { readonly column: 'createdAt' };
                 readonly id: { readonly column: 'id' };
                 readonly keyId: { readonly column: 'keyId' };
-                readonly languageId: { readonly column: 'languageId' };
-                readonly status: { readonly column: 'status' };
+                readonly language: { readonly column: 'language' };
                 readonly text: { readonly column: 'text' };
                 readonly updatedAt: { readonly column: 'updatedAt' };
               };
@@ -1217,17 +1012,6 @@ type ContractBase = Omit<
                 readonly updatedAt: { readonly column: 'updatedAt' };
               };
             };
-          };
-        };
-        readonly enum: {
-          readonly TranslationStatus: {
-            readonly codecId: 'pg/text@1';
-            readonly members: readonly [
-              { readonly name: 'Pending'; readonly value: 'Pending' },
-              { readonly name: 'Translated'; readonly value: 'Translated' },
-              { readonly name: 'Review'; readonly value: 'Review' },
-              { readonly name: 'Approved'; readonly value: 'Approved' },
-            ];
           };
         };
       };
