@@ -2,7 +2,7 @@
 
 import { redirect } from "next/navigation";
 import { db } from "../prisma/db";
-import { getTranslations } from "../lib/translations";
+import { getProjectTranslations } from "../lib/translations";
 import { auth } from "../lib/auth";
 import { headers } from "next/headers";
 
@@ -56,7 +56,7 @@ export async function editKey(keyId: number, slug: string, formData: FormData) {
         languages.map((language) => [language, formData.get(language)]),
     );
 
-    const existingTranslations = await getTranslations(keyId);
+    const existingTranslations = await getProjectTranslations(keyId);
 
     const updatedTranslations = languages.map((language) => {
         const existingTranslation = existingTranslations.find(

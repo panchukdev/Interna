@@ -14,6 +14,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { Box, Slide } from "@mui/material";
 import { TransitionProps } from "@mui/material/transitions";
 import DownloadIcon from "@mui/icons-material/Download";
+import { useTranslations } from "next-intl";
 
 type ExportProps = {
     projectSlug: string;
@@ -30,6 +31,9 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function Export({ projectSlug, languages }: ExportProps) {
+    const t = useTranslations("project.export");
+    const tNav = useTranslations("navigation");
+
     const [open, setOpen] = React.useState(false);
     const [selectedLanguages, setSelectedLanguages] =
         React.useState<string[]>(languages);
@@ -89,7 +93,7 @@ export default function Export({ projectSlug, languages }: ExportProps) {
     return (
         <>
             <Button variant="outlined" onClick={() => setOpen(true)}>
-                Export
+                {t("export")}
             </Button>
 
             <Dialog
@@ -112,7 +116,7 @@ export default function Export({ projectSlug, languages }: ExportProps) {
                     },
                 }}
             >
-                <DialogTitle>Export translations</DialogTitle>
+                <DialogTitle>{t("title")}</DialogTitle>
 
                 <DialogContent>
                     <Box
@@ -123,8 +127,7 @@ export default function Export({ projectSlug, languages }: ExportProps) {
                         }}
                     >
                         <DialogContentText>
-                            Select the languages you want to export as JSON
-                            files.
+                            {t("description")}
                         </DialogContentText>
 
                         <FormGroup>
@@ -155,7 +158,7 @@ export default function Export({ projectSlug, languages }: ExportProps) {
 
                 <DialogActions>
                     <Button onClick={handleClose} disabled={loading}>
-                        Cancel
+                        {tNav("cancel")}
                     </Button>
 
                     <Button
@@ -170,7 +173,8 @@ export default function Export({ projectSlug, languages }: ExportProps) {
                             )
                         }
                     >
-                        {loading ? "Exporting..." : "Export JSON"}
+                        {t("exportJSON")}
+                        {/* {loading ? "Exporting..." : t("exportJSON")} */}
                     </Button>
                 </DialogActions>
             </Dialog>

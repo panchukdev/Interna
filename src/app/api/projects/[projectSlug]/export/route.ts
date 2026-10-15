@@ -1,15 +1,26 @@
 import { NextRequest } from "next/server";
 import JSZip from "jszip";
+import { auth } from "@/src/lib/auth";
 import { getProject } from "@/src/lib/projects";
 import { getExportData } from "@/src/lib/export";
+import { headers } from "next/headers";
 
 export async function GET(
     request: NextRequest,
     { params }: { params: Promise<{ projectSlug: string }> },
 ) {
-    const { projectSlug } = await params;
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
 
-    const project = await getProject(projectSlug);
+    if (!session) {
+        return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const { projectSlug } = await params;
+    const authorId = session.user.id;
+
+    const project = await getProject(projectSlug, authorId);
 
     if (!project) {
         return Response.json({ error: "Project not found" }, { status: 404 });
@@ -41,7 +52,7 @@ export async function GET(
         );
     }
 
-    const exportData = await getExportData(projectSlug, languages);
+    const exportData = await getExportData(projectSlug, authorId, languages);
 
     const zip = new JSZip();
 

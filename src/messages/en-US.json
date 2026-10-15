@@ -1,0 +1,157 @@
+{
+    "navigation": {
+        "myProjects": "My projects",
+        "newProject": "New project",
+        "profile": "Profile",
+        "settings": "Settings",
+        "signOut": "Sign out",
+        "singIn": "Sign in",
+        "signUp": "Sign up",
+        "openMenu": "Open menu",
+        "cancel": "Cancel",
+        "signIn": "Sign in"
+    },
+    "footer": {
+        "rights": "All rights reserved."
+    },
+    "landing": {
+        "greeting": {
+            "morning": "Good morning,",
+            "afternoon": "Good afternoon,",
+            "evening": "Good evening,",
+            "late": "Staying up late?"
+        },
+        "question": "What would you like to do now?"
+    },
+    "projects": {
+        "title": "Projects list",
+        "empty": "You have no projects."
+    },
+    "project": {
+        "sourceLanguage": "Source language",
+        "key": {
+            "key": "Key",
+            "source": "Source",
+            "namespace": "Namespace",
+            "languages": "Languages",
+            "status": "Status",
+            "noKeys": "No keys",
+            "translated": "Translated",
+            "untranslated": "Untranslated",
+            "showColumn": "Show column"
+        },
+        "export": {
+            "title": "Export translations",
+            "description": "Select the languages you want to export as JSON files.",
+            "exportJSON": "Export JSON",
+            "export": "Export"
+        },
+        "import": {
+            "title": "Import translations",
+            "description": "Upload JSON translation files to add new keys or update existing translations.",
+            "example": "File names must match the language codes, as shown in this example:",
+            "dropActive": "Drop JSON files here...",
+            "dragAndDrop": "Drag & drop JSON files here, or click to browse",
+            "selected": "Selected files:",
+            "importJSON": "Import JSON",
+            "import": "Import"
+        },
+        "addKeyButton": "Add key",
+        "addKey": {
+            "title": "Add translation key",
+            "description": "Create a new translation key with source text and translations in your target languages.",
+            "key": {
+                "title": "Key",
+                "description": "Enter a unique key to identify this text across your project.",
+                "label": "Translation key"
+            },
+            "source": {
+                "title": "Source language",
+                "description": "Enter a source text for your key."
+            },
+            "target": {
+                "title": "Target languages",
+                "description": "Enter translations for each target language or use AI for auto-translation.",
+                "translateAllButton": "Translate All",
+                "translateButton": "Translate"
+            },
+            "addKeyButton": "Add key",
+            "titleEdit": "Edit translation key",
+            "descriptionEdit": "Change your translation key name, source language text or translations for target languages.",
+            "date": {
+                "created": "Created at:",
+                "updated": "Last updated:"
+            },
+            "saveChangesButton": "Save changes"
+        }
+    },
+    "create": {
+        "title": "Create project",
+        "description": "Set up a translation space for your website.",
+        "details": {
+            "title": "Project details",
+            "description": "Give your project a recognizable name and website reference.",
+            "projectName": {
+                "placeholder": "Personal website",
+                "title": "Project name"
+            },
+            "website": "Website URL"
+        },
+        "languages": {
+            "description": "Your source language is the reference for every translation.",
+            "sourceLanguage": "Source Language",
+            "targetLanguage": "Target language",
+            "noTarget": "No target languages selected yet.",
+            "noTargetError": "Select at least one target language.",
+            "title": "Languages"
+        },
+        "import": {
+            "title": "Import existing translations",
+            "label": "Import translations from JSON files",
+            "description": "Upload JSON locale files to import translation keys, source texts, and existing translations into your project."
+        },
+        "required": "Required fields",
+        "create": "Create"
+    },
+    "profile": {
+        "since": "With Interna since"
+    },
+    "settings": {
+        "currentPassword": "Current password",
+        "newPassword": "New password",
+        "confirmNewPassword": "Confirm new password",
+        "changeButton": "Change",
+        "changePassword": "Change Password",
+        "required": "Required fields"
+    },
+    "error": {
+        "notFound": {
+            "title": "Page not found",
+            "description": "The page you’re looking for doesn’t exist or may have been moved.",
+            "backButton": "Back to home"
+        },
+        "projectNotFound": {
+            "title": "Project not found",
+            "description": "The project you’re looking for doesn’t exist or may have been deleted.",
+            "backButton": "Back to projects"
+        }
+    },
+    "auth": {
+        "signIn": {
+            "title": "Sign in to your account",
+            "email": "Email",
+            "password": "Password",
+            "required": "Required fields",
+            "signInButton": "Sign in"
+        },
+        "signUp": {
+            "title": "Create new account",
+            "email": "Email",
+            "name": "Name",
+            "password": "Password",
+            "signUpButton": "Sign up",
+            "required": "Required fields",
+            "confirmPassword": "Confirm password"
+        }
+    }
+}

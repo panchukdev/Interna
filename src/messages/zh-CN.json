@@ -1,0 +1,157 @@
+{
+    "navigation": {
+        "myProjects": "我的项目",
+        "newProject": "新项目",
+        "profile": "个人简介",
+        "settings": "设置",
+        "signOut": "注销",
+        "singIn": "登录",
+        "signUp": "注册",
+        "openMenu": "打开菜单",
+        "cancel": "取消",
+        "signIn": "登录"
+    },
+    "footer": {
+        "rights": "保留所有权利。"
+    },
+    "landing": {
+        "greeting": {
+            "morning": "早上好，",
+            "afternoon": "大家下午好，",
+            "evening": "大家晚上好，",
+            "late": "要熬夜吗？"
+        },
+        "question": "您现在想做什么？"
+    },
+    "projects": {
+        "title": "项目列表",
+        "empty": "您没有项目。"
+    },
+    "project": {
+        "sourceLanguage": "源语言",
+        "key": {
+            "key": "关键",
+            "source": "来源",
+            "namespace": "命名空间",
+            "languages": "语言",
+            "status": "状态",
+            "noKeys": "没有钥匙",
+            "translated": "已翻译",
+            "untranslated": "未翻译",
+            "showColumn": "显示列"
+        },
+        "export": {
+            "title": "导出翻译",
+            "description": "选择您要导出为 JSON 文件的语言。",
+            "exportJSON": "导出JSON",
+            "export": "导出"
+        },
+        "import": {
+            "title": "导入翻译",
+            "description": "上传 JSON 翻译文件以添加新键或更新现有翻译。",
+            "example": "文件名必须与语言代码一致，如下例所示：",
+            "dropActive": "请将JSON文件拖放到此处...",
+            "dragAndDrop": "将 JSON 文件拖放到此处，或点击浏览",
+            "selected": "选定的文件：",
+            "importJSON": "导入 JSON",
+            "import": "导入"
+        },
+        "addKeyButton": "添加密钥",
+        "addKey": {
+            "title": "添加翻译键",
+            "description": "创建一个新的翻译键，其中包含源文本及其目标语言的翻译。",
+            "key": {
+                "title": "关键",
+                "description": "请输入一个唯一键，以便在整个项目中识别此文本。",
+                "label": "翻译键"
+            },
+            "source": {
+                "title": "源语言",
+                "description": "请输入密钥的源文本。"
+            },
+            "target": {
+                "title": "目标语言",
+                "description": "请输入各目标语言的译文，或使用人工智能进行自动翻译。",
+                "translateAllButton": "翻译全部",
+                "translateButton": "翻译"
+            },
+            "addKeyButton": "添加密钥",
+            "titleEdit": "编辑翻译键",
+            "descriptionEdit": "更改翻译键名称、源语言文本或目标语言的翻译内容。",
+            "date": {
+                "created": "创建于：",
+                "updated": "最后更新时间："
+            },
+            "saveChangesButton": "保存更改"
+        }
+    },
+    "create": {
+        "title": "创建项目",
+        "description": "为您的网站设置一个翻译空间",
+        "details": {
+            "title": "项目详情",
+            "description": "为您的项目起一个易于辨识的名称，并提供网站链接。",
+            "projectName": {
+                "placeholder": "个人网站",
+                "title": "项目名称"
+            },
+            "website": "网站网址"
+        },
+        "languages": {
+            "description": "源语言是每份翻译的参考依据。",
+            "sourceLanguage": "源语言",
+            "targetLanguage": "目标语言",
+            "noTarget": "尚未选择目标语言。",
+            "noTargetError": "请至少选择一种目标语言。",
+            "title": "语言"
+        },
+        "import": {
+            "title": "导入现有翻译",
+            "label": "从 JSON 文件导入翻译",
+            "description": "上传 JSON 语言环境文件，将翻译键、源文本和现有翻译导入到您的项目中。"
+        },
+        "required": "必填字段",
+        "create": "创建"
+    },
+    "profile": {
+        "since": "自开始使用 Interna 起"
+    },
+    "settings": {
+        "currentPassword": "当前密码",
+        "newPassword": "新密码",
+        "confirmNewPassword": "确认新密码",
+        "changeButton": "更改",
+        "changePassword": "更改密码",
+        "required": "必填字段"
+    },
+    "error": {
+        "notFound": {
+            "title": "页面未找到",
+            "description": "您要查找的页面不存在，或者可能已被移动。",
+            "backButton": "返回首页"
+        },
+        "projectNotFound": {
+            "title": "未找到该项目",
+            "description": "您要查找的项目不存在，或者可能已被删除。",
+            "backButton": "返回项目列表"
+        }
+    },
+    "auth": {
+        "signIn": {
+            "title": "登录您的账户",
+            "email": "电子邮件",
+            "password": "密码",
+            "required": "必填字段",
+            "signInButton": "登录"
+        },
+        "signUp": {
+            "title": "创建新账户",
+            "email": "电子邮件",
+            "name": "姓名",
+            "password": "密码",
+            "signUpButton": "注册",
+            "required": "必填字段",
+            "confirmPassword": "确认密码"
+        }
+    }
+}

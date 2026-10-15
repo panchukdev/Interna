@@ -1,32 +1,25 @@
 "use client";
 
-import { Button } from "@mui/material";
+import { Button, type ButtonProps } from "@mui/material";
 import { useFormStatus } from "react-dom";
 
-type SubmitButtonProps = {
+type SubmitButtonProps = Omit<ButtonProps, "type" | "variant"> & {
     children: React.ReactNode;
-    endIcon?: React.ReactNode;
-    disabled?: boolean;
-    size?: "small" | "medium" | "large";
 };
 
 export default function SubmitButton({
     children,
-    endIcon,
-    disabled,
-    size,
+    ...props
 }: SubmitButtonProps) {
     const { pending } = useFormStatus();
 
     return (
         <Button
+            {...props}
             type="submit"
             variant="contained"
             loading={pending}
             loadingPosition="start"
-            endIcon={endIcon}
-            disabled={disabled}
-            size={size}
         >
             {children}
         </Button>

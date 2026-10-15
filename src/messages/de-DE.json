@@ -1,0 +1,157 @@
+{
+    "navigation": {
+        "myProjects": "Meine Projekte",
+        "newProject": "Neues Projekt",
+        "profile": "Profil",
+        "settings": "Einstellungen",
+        "signOut": "Abmelden",
+        "singIn": "Anmelden",
+        "signUp": "Anmelden",
+        "openMenu": "Menü öffnen",
+        "cancel": "Abbrechen",
+        "signIn": "Anmelden"
+    },
+    "footer": {
+        "rights": "Alle Rechte vorbehalten."
+    },
+    "landing": {
+        "greeting": {
+            "morning": "Guten Morgen,",
+            "afternoon": "Guten Nachmittag,",
+            "evening": "Guten Abend,",
+            "late": "Bleibst du lange auf?"
+        },
+        "question": "Was möchtest du jetzt gerne tun?"
+    },
+    "projects": {
+        "title": "Projektliste",
+        "empty": "Du hast keine Projekte."
+    },
+    "project": {
+        "sourceLanguage": "Ausgangssprache",
+        "key": {
+            "key": "Schlüssel",
+            "source": "Quelle",
+            "namespace": "Namensraum",
+            "languages": "Sprachen",
+            "status": "Status",
+            "noKeys": "Keine Schlüssel",
+            "translated": "Übersetzt",
+            "untranslated": "Nicht übersetzt",
+            "showColumn": "Spalte anzeigen"
+        },
+        "export": {
+            "title": "Übersetzungen exportieren",
+            "description": "Wählen Sie die Sprachen aus, die Sie als JSON-Dateien exportieren möchten.",
+            "exportJSON": "JSON exportieren",
+            "export": "Exportieren"
+        },
+        "import": {
+            "title": "Übersetzungen importieren",
+            "description": "Laden Sie JSON-Übersetzungsdateien hoch, um neue Schlüssel hinzuzufügen oder bestehende Übersetzungen zu aktualisieren.",
+            "example": "Die Dateinamen müssen mit den Sprachcodes übereinstimmen, wie in diesem Beispiel gezeigt:",
+            "dropActive": "Z JSON-Dateien hier ablegen...",
+            "dragAndDrop": "Ziehen Sie JSON-Dateien per Drag & Drop hierher oder klicken Sie hier, um nach einer Datei zu suchen",
+            "selected": "Ausgewählte Dateien:",
+            "importJSON": "JSON importieren",
+            "import": "Importieren"
+        },
+        "addKeyButton": "Schlüssel hinzufügen",
+        "addKey": {
+            "title": "Übersetzungsschlüssel hinzufügen",
+            "description": "Erstellen Sie einen neuen Übersetzungsschlüssel mit dem Quelltext und den Übersetzungen in Ihre Zielsprachen.",
+            "key": {
+                "title": "Schlüssel",
+                "description": "Geben Sie einen eindeutigen Schlüssel ein, um diesen Text in Ihrem gesamten Projekt zu identifizieren.",
+                "label": "Übersetzungsschlüssel"
+            },
+            "source": {
+                "title": "Ausgangssprache",
+                "description": "Geben Sie einen Quelltext für Ihren Schlüssel ein."
+            },
+            "target": {
+                "title": "Zielsprachen",
+                "description": "Geben Sie Übersetzungen für jede Zielsprache ein oder nutzen Sie KI für die automatische Übersetzung.",
+                "translateAllButton": "Alles übersetzen",
+                "translateButton": "Übersetzen"
+            },
+            "addKeyButton": "Schlüssel hinzufügen",
+            "titleEdit": "Übersetzungsschlüssel bearbeiten",
+            "descriptionEdit": "Ändern Sie den Namen Ihres Übersetzungsschlüssels, den Text in der Ausgangssprache oder die Übersetzungen für die Zielsprachen.",
+            "date": {
+                "created": "Erstellt am:",
+                "updated": "Zuletzt aktualisiert:"
+            },
+            "saveChangesButton": "Änderungen speichern"
+        }
+    },
+    "create": {
+        "title": "Projekt erstellen",
+        "description": "Richten Sie einen Übersetzungsbereich für Ihre Website ein.",
+        "details": {
+            "title": "Projektdetails",
+            "description": "Geben Sie Ihrem Projekt einen einprägsamen Namen und einen Link zur Website.",
+            "projectName": {
+                "placeholder": "Persönliche Website",
+                "title": "Projektname"
+            },
+            "website": "URL der Website"
+        },
+        "languages": {
+            "description": "Ihre Ausgangssprache dient als Grundlage für jede Übersetzung.",
+            "sourceLanguage": "Ausgangssprache",
+            "targetLanguage": "Zielsprache",
+            "noTarget": "Es wurden noch keine Zielsprachen ausgewählt.",
+            "noTargetError": "Wählen Sie mindestens eine Zielsprache aus.",
+            "title": "Sprachen"
+        },
+        "import": {
+            "title": "Vorhandene Übersetzungen importieren",
+            "label": "Übersetzungen aus JSON-Dateien importieren",
+            "description": "Laden Sie JSON-Lokalisierungsdateien hoch, um Übersetzungsschlüssel, Quelltexte und vorhandene Übersetzungen in Ihr Projekt zu importieren."
+        },
+        "required": "Pflichtfelder",
+        "create": "Erstellen"
+    },
+    "profile": {
+        "since": "Bei Interna seit"
+    },
+    "settings": {
+        "currentPassword": "Aktuelles Passwort",
+        "newPassword": "Neues Passwort",
+        "confirmNewPassword": "Neues Passwort bestätigen",
+        "changeButton": "Ändern",
+        "changePassword": "Passwort ändern",
+        "required": "Pflichtfelder"
+    },
+    "error": {
+        "notFound": {
+            "title": "Seite nicht gefunden",
+            "description": "Die gesuchte Seite existiert nicht oder wurde möglicherweise verschoben.",
+            "backButton": "Zurück zur Startseite"
+        },
+        "projectNotFound": {
+            "title": "Projekt nicht gefunden",
+            "description": "Das gesuchte Projekt existiert nicht oder wurde möglicherweise gelöscht.",
+            "backButton": "Zurück zu den Projekten"
+        }
+    },
+    "auth": {
+        "signIn": {
+            "title": "Melden Sie sich bei Ihrem Konto an",
+            "email": "E-Mail",
+            "password": "Passwort",
+            "required": "Pflichtfelder",
+            "signInButton": "Anmelden"
+        },
+        "signUp": {
+            "title": "Neues Konto erstellen",
+            "email": "E-Mail",
+            "name": "Name",
+            "password": "Passwort",
+            "signUpButton": "Anmelden",
+            "required": "Pflichtfelder",
+            "confirmPassword": "Passwort bestätigen"
+        }
+    }
+}

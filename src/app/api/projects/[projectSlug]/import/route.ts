@@ -1,15 +1,27 @@
 import { NextRequest } from "next/server";
 import { getProject } from "@/src/lib/projects";
 import { importTranslations } from "@/src/lib/import";
+import { auth } from "@/src/lib/auth";
+import { headers } from "next/headers";
 
 export async function POST(
     request: NextRequest,
     { params }: { params: Promise<{ projectSlug: string }> },
 ) {
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
+    if (!session) {
+        return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    const authorId = session.user.id;
+
     try {
         const { projectSlug } = await params;
 
-        const project = await getProject(projectSlug);
+        const project = await getProject(projectSlug, authorId);
 
         if (!project) {
             return Response.json(
@@ -98,6 +110,7 @@ export async function POST(
         for (const item of importItems) {
             const result = await importTranslations(
                 projectSlug,
+                authorId,
                 item.language,
                 item.data,
             );

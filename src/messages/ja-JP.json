@@ -1,0 +1,157 @@
+{
+    "navigation": {
+        "myProjects": "私のプロジェクト",
+        "newProject": "新しいプロジェクト",
+        "profile": "プロフィール",
+        "settings": "設定",
+        "signOut": "ログアウト",
+        "singIn": "ログイン",
+        "signUp": "登録する",
+        "openMenu": "メニューを開く",
+        "cancel": "キャンセル",
+        "signIn": "ログイン"
+    },
+    "footer": {
+        "rights": "無断転載・複製を禁じます。"
+    },
+    "landing": {
+        "greeting": {
+            "morning": "おはようございます、",
+            "afternoon": "こんにちは、",
+            "evening": "こんばんは、",
+            "late": "夜更かししてるの？"
+        },
+        "question": "これから何をしたいですか？"
+    },
+    "projects": {
+        "title": "プロジェクト一覧",
+        "empty": "プロジェクトはありません。"
+    },
+    "project": {
+        "sourceLanguage": "原文",
+        "key": {
+            "key": "キー",
+            "source": "出典",
+            "namespace": "名前空間",
+            "languages": "言語",
+            "status": "ステータス",
+            "noKeys": "鍵なし",
+            "translated": "翻訳済み",
+            "untranslated": "未翻訳",
+            "showColumn": "列を表示"
+        },
+        "export": {
+            "title": "翻訳をエクスポートする",
+            "description": "JSONファイルとしてエクスポートしたい言語を選択してください。",
+            "exportJSON": "JSONのエクスポート",
+            "export": "エクスポート"
+        },
+        "import": {
+            "title": "翻訳をインポートする",
+            "description": "JSON翻訳ファイルをアップロードして、新しいキーを追加したり、既存の翻訳を更新したりします。",
+            "example": "ファイル名は、次の例に示すように、言語コードと一致している必要があります：",
+            "dropActive": "JSONファイルはここにドロップしてください...",
+            "dragAndDrop": "JSONファイルをここにドラッグ＆ドロップするか、クリックしてファイルを選択してください",
+            "selected": "選択されたファイル：",
+            "importJSON": "JSONのインポート",
+            "import": "インポート"
+        },
+        "addKeyButton": "キーを追加",
+        "addKey": {
+            "title": "翻訳キーを追加する",
+            "description": "原文と、対象言語への翻訳を記載して、新しい翻訳キーを作成してください。",
+            "key": {
+                "title": "キー",
+                "description": "プロジェクト全体でこのテキストを識別するための一意のキーを入力してください。",
+                "label": "翻訳キー"
+            },
+            "source": {
+                "title": "原文",
+                "description": "キーの原文を入力してください。"
+            },
+            "target": {
+                "title": "対象言語",
+                "description": "各対象言語の翻訳を入力するか、AI を使用して自動翻訳を行ってください。",
+                "translateAllButton": "すべて翻訳",
+                "translateButton": "翻訳"
+            },
+            "addKeyButton": "キーを追加",
+            "titleEdit": "翻訳キーを編集する",
+            "descriptionEdit": "翻訳キー名、原文、または各ターゲット言語の翻訳内容を変更してください。",
+            "date": {
+                "created": "作成日時：",
+                "updated": "最終更新日："
+            },
+            "saveChangesButton": "変更を保存"
+        }
+    },
+    "create": {
+        "title": "プロジェクトを作成する",
+        "description": "ウェブサイトの翻訳スペースを設定する",
+        "details": {
+            "title": "プロジェクトの詳細",
+            "description": "プロジェクトには、一目でわかる名前とウェブサイトのURLを付けてください。",
+            "projectName": {
+                "placeholder": "個人ウェブサイト",
+                "title": "プロジェクト名"
+            },
+            "website": "ウェブサイトのURL"
+        },
+        "languages": {
+            "description": "原文は、すべての翻訳の基準となります。",
+            "sourceLanguage": "原文",
+            "targetLanguage": "対象言語",
+            "noTarget": "まだ対象言語が選択されていません。",
+            "noTargetError": "少なくとも1つの対象言語を選択してください。",
+            "title": "言語"
+        },
+        "import": {
+            "title": "既存の翻訳をインポートする",
+            "label": "JSONファイルから翻訳をインポートする",
+            "description": "JSONロケールファイルをアップロードして、翻訳キー、原文、および既存の翻訳をプロジェクトに取り込みます。"
+        },
+        "required": "必須項目",
+        "create": "作成"
+    },
+    "profile": {
+        "since": "Internaの利用開始日："
+    },
+    "settings": {
+        "currentPassword": "現在のパスワード",
+        "newPassword": "新しいパスワード",
+        "confirmNewPassword": "新しいパスワードの確認",
+        "changeButton": "変更",
+        "changePassword": "パスワードの変更",
+        "required": "必須項目"
+    },
+    "error": {
+        "notFound": {
+            "title": "ページが見つかりません",
+            "description": "お探しのページは存在しません。あるいは、別の場所へ移動された可能性があります。",
+            "backButton": "ホームに戻る"
+        },
+        "projectNotFound": {
+            "title": "プロジェクトが見つかりません",
+            "description": "お探しのプロジェクトは存在しないか、削除された可能性があります。",
+            "backButton": "プロジェクト一覧に戻る"
+        }
+    },
+    "auth": {
+        "signIn": {
+            "title": "アカウントにログインしてください",
+            "email": "Eメール",
+            "password": "パスワード",
+            "required": "必須項目",
+            "signInButton": "ログイン"
+        },
+        "signUp": {
+            "title": "新しいアカウントを作成する",
+            "email": "Eメール",
+            "name": "名前",
+            "password": "パスワード",
+            "signUpButton": "登録する",
+            "required": "必須項目",
+            "confirmPassword": "パスワードの確認"
+        }
+    }
+}

@@ -48,10 +48,11 @@ function flattenTranslations(data: unknown, prefix = ""): FlatTranslation[] {
 
 export async function importTranslations(
     projectSlug: string,
+    authorId,
     language: string,
     data: unknown,
 ): Promise<ImportResult> {
-    const project = await getProject(projectSlug);
+    const project = await getProject(projectSlug, authorId);
 
     if (!project) {
         throw new Error("Project not found.");

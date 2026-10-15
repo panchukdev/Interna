@@ -1,11 +1,50 @@
 import "server-only";
 import { getProject } from "./projects";
 import { getKeys } from "./keys";
-import { getTranslationsByKeys } from "./translations";
+import { getProjectTranslationsByKeys } from "./translations";
 
 type NestedTranslations = {
     [key: string]: string | NestedTranslations;
 };
+
+// function setNestedValue(
+//     target: NestedTranslations,
+//     key: string,
+//     value: string,
+// ) {
+//     const parts = key.split(".");
+//     let current = target;
+
+//     for (let i = 0; i < parts.length - 1; i++) {
+//         const part = parts[i];
+
+//         if (!part) {
+//             throw new Error(`Invalid translation key: "${key}"`);
+//         }
+
+//         const existing = current[part];
+
+//         if (existing === undefined) {
+//             current[part] = {};
+//         } else if (typeof existing === "string") {
+//             throw new Error(`Conflicting translation key: "${key}"`);
+//         }
+
+//         current = current[part] as NestedTranslations;
+//     }
+
+//     const lastPart = parts[parts.length - 1];
+
+//     if (!lastPart) {
+//         throw new Error(`Invalid translation key: "${key}"`);
+//     }
+
+//     if (current[lastPart] !== undefined) {
+//         throw new Error(`Conflicting translation key: "${key}"`);
+//     }
+
+//     current[lastPart] = value;
+// }
 
 function setNestedValue(
     target: NestedTranslations,
@@ -15,39 +54,47 @@ function setNestedValue(
     const parts = key.split(".");
     let current = target;
 
+    if (parts.some((part) => !part)) {
+        throw new Error(`Invalid translation key: "${key}"`);
+    }
+
     for (let i = 0; i < parts.length - 1; i++) {
         const part = parts[i];
-
-        if (!part) {
-            throw new Error(`Invalid translation key: "${key}"`);
-        }
-
         const existing = current[part];
 
         if (existing === undefined) {
             current[part] = {};
         } else if (typeof existing === "string") {
-            throw new Error(`Conflicting translation key: "${key}"`);
+            throw new Error(
+                `Translation key conflict: "${parts.slice(0, i + 1).join(".")}" ` +
+                    `is a string, but "${key}" requires it to be an object.`,
+            );
         }
 
         current = current[part] as NestedTranslations;
     }
 
     const lastPart = parts[parts.length - 1];
+    const existing = current[lastPart];
 
-    if (!lastPart) {
-        throw new Error(`Invalid translation key: "${key}"`);
-    }
+    if (existing !== undefined) {
+        const existingKey = key;
 
-    if (current[lastPart] !== undefined) {
-        throw new Error(`Conflicting translation key: "${key}"`);
+        throw new Error(
+            `Translation key conflict at "${existingKey}": ` +
+                `a value or object already exists at this path.`,
+        );
     }
 
     current[lastPart] = value;
 }
 
-export async function getExportData(projectSlug: string, languages: string[]) {
-    const project = await getProject(projectSlug);
+export async function getExportData(
+    projectSlug: string,
+    authorId: string,
+    languages: string[],
+) {
+    const project = await getProject(projectSlug, authorId);
 
     if (!project) {
         throw new Error("Project not found");
@@ -55,7 +102,7 @@ export async function getExportData(projectSlug: string, languages: string[]) {
 
     const keys = await getKeys(project.id);
 
-    const allTranslations = await getTranslationsByKeys(
+    const allTranslations = await getProjectTranslationsByKeys(
         keys.map((key) => key.id),
     );
 

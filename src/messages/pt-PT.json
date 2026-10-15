@@ -1,0 +1,157 @@
+{
+    "navigation": {
+        "myProjects": "Os meus projetos",
+        "newProject": "Novo projeto",
+        "profile": "Perfil",
+        "settings": "Definições",
+        "signOut": "Sair",
+        "singIn": "Iniciar sessão",
+        "signUp": "Inscreva-se",
+        "openMenu": "Abrir menu",
+        "cancel": "Cancelar",
+        "signIn": "Iniciar sessão"
+    },
+    "footer": {
+        "rights": "Todos os direitos reservados."
+    },
+    "landing": {
+        "greeting": {
+            "morning": "Bom dia,",
+            "afternoon": "Boa tarde,",
+            "evening": "Boa noite,",
+            "late": "Vais ficar acordado até tarde?"
+        },
+        "question": "O que gostarias de fazer agora?"
+    },
+    "projects": {
+        "title": "Lista de projetos",
+        "empty": "Não tens projetos."
+    },
+    "project": {
+        "sourceLanguage": "Língua de origem",
+        "key": {
+            "key": "Chave",
+            "source": "Fonte",
+            "namespace": "Espaço de nomes",
+            "languages": "Idiomas",
+            "status": "Estado",
+            "noKeys": "Sem chaves",
+            "translated": "Traduzido",
+            "untranslated": "Não traduzido",
+            "showColumn": "Mostrar coluna"
+        },
+        "export": {
+            "title": "Exportar traduções",
+            "description": "Selecione os idiomas que pretende exportar como ficheiros JSON.",
+            "exportJSON": "Exportar JSON",
+            "export": "Exportar"
+        },
+        "import": {
+            "title": "Importar traduções",
+            "description": "Carregue ficheiros de tradução em formato JSON para adicionar novas chaves ou atualizar traduções existentes.",
+            "example": "Os nomes dos ficheiros devem corresponder aos códigos de idioma, tal como se pode ver neste exemplo:",
+            "dropActive": "Coloque aqui os ficheiros JSON...",
+            "dragAndDrop": "Arraste e solte ficheiros JSON aqui ou clique para procurar",
+            "selected": "Ficheiros selecionados:",
+            "importJSON": "Importar JSON",
+            "import": "Importar"
+        },
+        "addKeyButton": "Adicionar chave",
+        "addKey": {
+            "title": "Adicionar chave de tradução",
+            "description": "Crie uma nova chave de tradução com o texto original e as traduções nos seus idiomas de destino.",
+            "key": {
+                "title": "Chave",
+                "description": "Introduza uma chave única para identificar este texto em todo o seu projeto.",
+                "label": "Chave de tradução"
+            },
+            "source": {
+                "title": "Língua de origem",
+                "description": "Introduza um texto de origem para a sua chave."
+            },
+            "target": {
+                "title": "Línguas de destino",
+                "description": "Introduza as traduções para cada língua de destino ou utilize a IA para a tradução automática.",
+                "translateAllButton": "Traduzir tudo",
+                "translateButton": "Traduzir"
+            },
+            "addKeyButton": "Adicionar chave",
+            "titleEdit": "Editar chave de tradução",
+            "descriptionEdit": "Altere o nome da chave de tradução, o texto na língua de origem ou as traduções para as línguas de destino.",
+            "date": {
+                "created": "Criado em:",
+                "updated": "Última atualização:"
+            },
+            "saveChangesButton": "Guardar alterações"
+        }
+    },
+    "create": {
+        "title": "Criar projeto",
+        "description": "Crie um espaço de tradução para o seu site.",
+        "details": {
+            "title": "Detalhes do projeto",
+            "description": "Dê ao seu projeto um nome identificativo e indique o endereço do site.",
+            "projectName": {
+                "placeholder": "Site pessoal",
+                "title": "Nome do projeto"
+            },
+            "website": "URL do site"
+        },
+        "languages": {
+            "description": "A sua língua de origem é a referência para todas as traduções.",
+            "sourceLanguage": "Língua de origem",
+            "targetLanguage": "Língua-alvo",
+            "noTarget": "Ainda não foram selecionados idiomas de destino.",
+            "noTargetError": "Selecione pelo menos uma língua de destino.",
+            "title": "Idiomas"
+        },
+        "import": {
+            "title": "Importar traduções existentes",
+            "label": "Importar traduções a partir de ficheiros JSON",
+            "description": "Carregue ficheiros JSON de localização para importar chaves de tradução, textos de origem e traduções existentes para o seu projeto."
+        },
+        "required": "Campos obrigatórios",
+        "create": "Criar"
+    },
+    "profile": {
+        "since": "Na Interna desde"
+    },
+    "settings": {
+        "currentPassword": "Palavra-passe atual",
+        "newPassword": "Nova palavra-passe",
+        "confirmNewPassword": "Confirmar nova palavra-passe",
+        "changeButton": "Alterar",
+        "changePassword": "Alterar palavra-passe",
+        "required": "Campos obrigatórios"
+    },
+    "error": {
+        "notFound": {
+            "title": "Página não encontrada",
+            "description": "A página que procura não existe ou pode ter sido movida.",
+            "backButton": "Voltar à página inicial"
+        },
+        "projectNotFound": {
+            "title": "Projeto não encontrado",
+            "description": "O projeto que está a procurar não existe ou pode ter sido eliminado.",
+            "backButton": "Voltar aos projetos"
+        }
+    },
+    "auth": {
+        "signIn": {
+            "title": "Inicie sessão na sua conta",
+            "email": "E-mail",
+            "password": "Palavra-passe",
+            "required": "Campos obrigatórios",
+            "signInButton": "Iniciar sessão"
+        },
+        "signUp": {
+            "title": "Criar uma nova conta",
+            "email": "E-mail",
+            "name": "Nome",
+            "password": "Palavra-passe",
+            "signUpButton": "Inscreva-se",
+            "required": "Campos obrigatórios",
+            "confirmPassword": "Confirmar palavra-passe"
+        }
+    }
+}

@@ -1,0 +1,157 @@
+{
+    "navigation": {
+        "myProjects": "Mijn projecten",
+        "newProject": "Nieuw project",
+        "profile": "Profiel",
+        "settings": "Instellingen",
+        "signOut": "Uitloggen",
+        "singIn": "Inloggen",
+        "signUp": "Aanmelden",
+        "openMenu": "Open menu",
+        "cancel": "Annuleren",
+        "signIn": "Inloggen"
+    },
+    "footer": {
+        "rights": "Alle rechten voorbehouden."
+    },
+    "landing": {
+        "greeting": {
+            "morning": "Goedemorgen,",
+            "afternoon": "Goedemiddag,",
+            "evening": "Goedenavond,",
+            "late": "Blijf je laat op?"
+        },
+        "question": "Wat wil je nu doen?"
+    },
+    "projects": {
+        "title": "Lijst met projecten",
+        "empty": "Je hebt geen projecten."
+    },
+    "project": {
+        "sourceLanguage": "Brontaal",
+        "key": {
+            "key": "Sleutel",
+            "source": "Bron",
+            "namespace": "Naamruimte",
+            "languages": "Talen",
+            "status": "Status",
+            "noKeys": "Geen sleutels",
+            "translated": "Vertaald",
+            "untranslated": "Niet vertaald",
+            "showColumn": "Kolom weergeven"
+        },
+        "export": {
+            "title": "Vertalingen exporteren",
+            "description": "Selecteer de talen die u als JSON-bestanden wilt exporteren.",
+            "exportJSON": "JSON exporteren",
+            "export": "Exporteren"
+        },
+        "import": {
+            "title": "Vertalingen importeren",
+            "description": "Upload JSON-vertaalbestanden om nieuwe sleutels toe te voegen of bestaande vertalingen bij te werken.",
+            "example": "Bestandsnamen moeten overeenkomen met de taalcodes, zoals in dit voorbeeld te zien is:",
+            "dropActive": "Plaats hier JSON-bestanden...",
+            "dragAndDrop": "Sleep JSON-bestanden hierheen, of klik om te bladeren",
+            "selected": "Geselecteerde bestanden:",
+            "importJSON": "JSON importeren",
+            "import": "Importeren"
+        },
+        "addKeyButton": "Sleutel toevoegen",
+        "addKey": {
+            "title": "Vertaalsleutel toevoegen",
+            "description": "Maak een nieuwe vertaalsleutel aan met de brontekst en vertalingen in uw doeltalen.",
+            "key": {
+                "title": "Sleutel",
+                "description": "Voer een unieke sleutel in om deze tekst binnen je project te identificeren.",
+                "label": "Vertaalsleutel"
+            },
+            "source": {
+                "title": "Brontaal",
+                "description": "Voer een brontekst in voor je sleutel."
+            },
+            "target": {
+                "title": "Doeltalen",
+                "description": "Voer vertalingen in voor elke doeltaal of gebruik AI voor automatische vertaling.",
+                "translateAllButton": "Alles vertalen",
+                "translateButton": "Vertalen"
+            },
+            "addKeyButton": "Sleutel toevoegen",
+            "titleEdit": "Vertaalsleutel bewerken",
+            "descriptionEdit": "Wijzig de naam van je vertaalsleutel, de tekst in de brontaal of de vertalingen voor de doeltalen.",
+            "date": {
+                "created": "Gemaakt op:",
+                "updated": "Laatst bijgewerkt:"
+            },
+            "saveChangesButton": "Wijzigingen opslaan"
+        }
+    },
+    "create": {
+        "title": "Project aanmaken",
+        "description": "Richt een vertaalomgeving voor je website in.",
+        "details": {
+            "title": "Projectgegevens",
+            "description": "Geef je project een herkenbare naam en een verwijzing naar de website.",
+            "projectName": {
+                "placeholder": "Persoonlijke website",
+                "title": "Naam van het project"
+            },
+            "website": "Website URL"
+        },
+        "languages": {
+            "description": "Uw brontaal vormt het uitgangspunt voor elke vertaling.",
+            "sourceLanguage": "Brontaal",
+            "targetLanguage": "Doeltaal",
+            "noTarget": "Er zijn nog geen doeltalen geselecteerd.",
+            "noTargetError": "Kies ten minste één doeltaal.",
+            "title": "Talen"
+        },
+        "import": {
+            "title": "Bestaande vertalingen importeren",
+            "label": "Vertalingen uit JSON-bestanden importeren",
+            "description": "Upload JSON-lokalisatiebestanden om vertaalsleutels, bronteksten en bestaande vertalingen in je project te importeren."
+        },
+        "required": "Verplichte velden",
+        "create": "Aanmaken"
+    },
+    "profile": {
+        "since": "Op Interna sinds"
+    },
+    "settings": {
+        "currentPassword": "Huidig wachtwoord",
+        "newPassword": "Nieuw wachtwoord",
+        "confirmNewPassword": "Bevestig het nieuwe wachtwoord",
+        "changeButton": "Wijzigen",
+        "changePassword": "Wachtwoord wijzigen",
+        "required": "Verplichte velden"
+    },
+    "error": {
+        "notFound": {
+            "title": "Pagina niet gevonden",
+            "description": "De pagina die u zoekt, bestaat niet of is mogelijk verplaatst.",
+            "backButton": "Terug naar de startpagina"
+        },
+        "projectNotFound": {
+            "title": "Project niet gevonden",
+            "description": "Het project dat je zoekt, bestaat niet of is mogelijk verwijderd.",
+            "backButton": "Terug naar projecten"
+        }
+    },
+    "auth": {
+        "signIn": {
+            "title": "Log in op je account",
+            "email": "E-mail",
+            "password": "Wachtwoord",
+            "required": "Verplichte velden",
+            "signInButton": "Inloggen"
+        },
+        "signUp": {
+            "title": "Nieuw account aanmaken",
+            "email": "E-mail",
+            "name": "Naam",
+            "password": "Wachtwoord",
+            "signUpButton": "Aanmelden",
+            "required": "Verplichte velden",
+            "confirmPassword": "Wachtwoord bevestigen"
+        }
+    }
+}

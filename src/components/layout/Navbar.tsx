@@ -18,18 +18,21 @@ import TranslateIcon from "@mui/icons-material/Translate";
 import { useRouter } from "next/navigation";
 import { authClient } from "@/src/lib/auth-client";
 import LinkButton from "../LinkButton";
-
-const pages = [
-    { name: "My projects", href: "/projects" },
-    { name: "New project", href: "/create" },
-];
-const avatarMenu = [
-    { page: "Profile", href: "/profile" },
-    { page: "Settings", href: "/settings" },
-    { page: "Sign Out", action: "signOut" },
-];
+import { useTranslations } from "next-intl";
 
 export default function Navbar({ session }) {
+    const t = useTranslations("navigation");
+
+    const pages = [
+        { name: t("myProjects"), href: "/projects" },
+        { name: t("newProject"), href: "/create" },
+    ];
+    const avatarMenu = [
+        { page: t("profile"), href: "/profile" },
+        { page: t("settings"), href: "/settings" },
+        { page: t("signOut"), action: "signOut" },
+    ];
+
     const router = useRouter();
 
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -209,6 +212,8 @@ export default function Navbar({ session }) {
                                             sx={{
                                                 backgroundColor: "primary.main",
                                                 color: "primary.contrastText",
+                                                border: 1,
+                                                borderColor: "divider",
                                             }}
                                         >
                                             {initials}
@@ -262,16 +267,24 @@ export default function Navbar({ session }) {
                         <Box sx={{ display: "flex", gap: 2, ml: "auto" }}>
                             <LinkButton href="/sign-in">
                                 <Typography
-                                    sx={{ textAlign: "center", color: "white" }}
+                                    sx={{
+                                        textAlign: "center",
+                                        color: "white",
+                                        fontSize: { xs: 14, md: "1rem" },
+                                    }}
                                 >
-                                    Sign In
+                                    {t("signIn")}
                                 </Typography>
                             </LinkButton>
                             <LinkButton href="/sign-up">
                                 <Typography
-                                    sx={{ textAlign: "center", color: "white" }}
+                                    sx={{
+                                        textAlign: "center",
+                                        color: "white",
+                                        fontSize: { xs: 14, md: "1rem" },
+                                    }}
                                 >
-                                    Sign up
+                                    {t("signUp")}
                                 </Typography>
                             </LinkButton>
                         </Box>

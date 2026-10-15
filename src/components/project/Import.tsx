@@ -22,6 +22,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import IconButton from "@mui/material/IconButton";
 import { useRouter } from "next/navigation";
 import UploadFileIcon from "@mui/icons-material/UploadFile";
+import { useTranslations } from "next-intl";
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -37,6 +38,9 @@ type ImportProps = {
 };
 
 export default function Import({ projectSlug }: ImportProps) {
+    const t = useTranslations("project.import");
+    const tNav = useTranslations("navigation");
+
     const router = useRouter();
     const [open, setOpen] = React.useState(false);
     const [files, setFiles] = React.useState<File[]>([]);
@@ -126,7 +130,7 @@ export default function Import({ projectSlug }: ImportProps) {
     return (
         <>
             <Button variant="outlined" onClick={handleClickOpen}>
-                Import
+                {t("import")}
             </Button>
 
             <Dialog
@@ -149,7 +153,7 @@ export default function Import({ projectSlug }: ImportProps) {
                     },
                 }}
             >
-                <DialogTitle>Import translations</DialogTitle>
+                <DialogTitle>{t("title")}</DialogTitle>
                 <DialogContent>
                     <Box
                         sx={{
@@ -166,16 +170,14 @@ export default function Import({ projectSlug }: ImportProps) {
                             }}
                         >
                             <DialogContentText>
-                                Upload JSON translation files to add new keys or
-                                update existing translations.
+                                {t("description")}
                             </DialogContentText>
 
                             <DialogContentText
                                 variant="body2"
                                 color="text.secondary"
                             >
-                                File names must match the language code, for
-                                example{" "}
+                                {t("example")}{" "}
                                 <Box
                                     component="span"
                                     sx={{
@@ -208,8 +210,8 @@ export default function Import({ projectSlug }: ImportProps) {
 
                             <Typography>
                                 {isDragActive
-                                    ? "Drop JSON files here..."
-                                    : "Drag & drop JSON files here, or click to browse"}
+                                    ? t("dropActive")
+                                    : t("dragAndDrop")}
                             </Typography>
                         </Box>
                         {files.length > 0 && (
@@ -224,7 +226,7 @@ export default function Import({ projectSlug }: ImportProps) {
                                     variant="body1"
                                     sx={{ fontWeight: 300 }}
                                 >
-                                    Selected files:
+                                    {t("selected")}
                                 </Typography>
                                 <List
                                     sx={{
@@ -300,7 +302,7 @@ export default function Import({ projectSlug }: ImportProps) {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={handleClose} disabled={loading}>
-                        Cancel
+                        {tNav("cancel")}
                     </Button>
 
                     <Button
@@ -315,7 +317,8 @@ export default function Import({ projectSlug }: ImportProps) {
                             )
                         }
                     >
-                        {loading ? "Importing..." : "Import JSON"}
+                        {/* {loading ? "Importing..." : "Import JSON"} */}
+                        {t("importJSON")}
                     </Button>
                 </DialogActions>
             </Dialog>

@@ -1,6 +1,8 @@
 import { Box, Container, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 
 export default function Footer() {
+    const t = useTranslations("footer");
     return (
         <Box component="footer" sx={{ py: 3, bgcolor: "background.paper" }}>
             <Container maxWidth="xl">
@@ -9,7 +11,7 @@ export default function Footer() {
                     color="text.secondary"
                     align="center"
                 >
-                    © 2026 INTERNA. All rights reserved.
+                    © 2026 INTERNA. {t("rights")}
                 </Typography>
             </Container>
         </Box>
