@@ -1,7 +1,7 @@
 import { getProject } from "@/src/lib/projects";
 import { Box, Container, Typography } from "@mui/material";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { getLanguageName } from "@/src/lib/languages";
 import AddIcon from "@mui/icons-material/Add";
 import LinkButton from "@/src/components/LinkButton";
@@ -10,14 +10,24 @@ import KeysDataGrid from "./KeysDataGrid";
 import { getTranslations } from "@/src/lib/translations";
 import Export from "@/src/components/project/Export";
 import Import from "@/src/components/project/Import";
+import { auth } from "@/src/lib/auth";
+import { headers } from "next/headers";
 
 export default async function Project({
     params,
 }: {
     params: Promise<{ projectSlug: string }>;
 }) {
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
+    if (!session) {
+        redirect("/sign-in");
+    }
+
     const { projectSlug } = await params;
-    const project = await getProject(projectSlug);
+    const project = await getProject(projectSlug, session.user.id);
 
     if (!project) {
         notFound();

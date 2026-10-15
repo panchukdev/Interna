@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { db } from "../prisma/db";
 
-export async function createProject(formData: FormData) {
+export async function createProject(userId: string, formData: FormData) {
     // await new Promise((resolve) => setTimeout(resolve, 5000));
 
     const projectName = formData.get("projectName");
@@ -56,6 +56,7 @@ export async function createProject(formData: FormData) {
             websiteUrl,
             sourceLanguage,
             targetLanguages: targetLanguages as string[],
+            authorId: userId,
         });
         return project;
     });

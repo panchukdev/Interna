@@ -1,9 +1,20 @@
+import { auth } from "@/src/lib/auth";
 import { getProjects } from "@/src/lib/projects";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import { headers } from "next/headers";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
 export default async function Projects() {
-    const projects = await getProjects();
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
+    if (!session) {
+        redirect("/sign-in");
+    }
+
+    const projects = await getProjects(session.user.id);
 
     return (
         <Box

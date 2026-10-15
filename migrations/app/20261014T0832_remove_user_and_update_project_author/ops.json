@@ -1,0 +1,166 @@
+[
+  {
+    "id": "dropConstraint.Project.Project_authorId_fkey",
+    "label": "Drop constraint \"Project_authorId_fkey\" on \"Project\"",
+    "operationClass": "destructive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "foreignKey",
+        "name": "Project_authorId_fkey",
+        "table": "Project"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure constraint \"Project_authorId_fkey\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "Project_authorId_fkey",
+          "public",
+          "\"public\".\"Project\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "drop constraint \"Project_authorId_fkey\"",
+        "sql": "ALTER TABLE \"public\".\"Project\" DROP CONSTRAINT \"Project_authorId_fkey\""
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify constraint \"Project_authorId_fkey\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "Project_authorId_fkey",
+          "public",
+          "\"public\".\"Project\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dropIndex.Project.Project_authorId_idx_e47547ed",
+    "label": "Drop index \"Project_authorId_idx_e47547ed\"",
+    "operationClass": "destructive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "index",
+        "name": "Project_authorId_idx_e47547ed",
+        "table": "Project"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure index \"Project_authorId_idx_e47547ed\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"Project_authorId_idx_e47547ed\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "drop index \"Project_authorId_idx_e47547ed\"",
+        "sql": "DROP INDEX \"public\".\"Project_authorId_idx_e47547ed\"",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify index \"Project_authorId_idx_e47547ed\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"Project_authorId_idx_e47547ed\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dropTable.User",
+    "label": "Drop table \"User\"",
+    "operationClass": "destructive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "table",
+        "name": "User"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"User\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"User\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "drop table \"User\"",
+        "sql": "DROP TABLE \"public\".\"User\""
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify table \"User\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"User\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "alterType.Project.authorId",
+    "label": "Alter type of \"Project\".\"authorId\" to text",
+    "operationClass": "destructive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "column",
+        "name": "authorId",
+        "table": "Project"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure column \"authorId\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"information_schema\".\"columns\" WHERE (\"table_schema\" = $1 AND \"table_name\" = $2 AND \"column_name\" = $3)) AS \"result\"",
+        "params": [
+          "public",
+          "Project",
+          "authorId"
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "alter type of \"authorId\"",
+        "sql": "ALTER TABLE \"public\".\"Project\" ALTER COLUMN \"authorId\" TYPE text USING \"authorId\"::text"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify column \"authorId\" has type \"text\"",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_attribute\" AS \"a\" INNER JOIN \"pg_class\" AS \"c\" ON \"c\".\"oid\" = \"a\".\"attrelid\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"relnamespace\" WHERE (\"n\".\"nspname\" = $1 AND \"c\".\"relname\" = $2 AND \"a\".\"attname\" = $3 AND (format_type(\"a\".\"atttypid\", \"a\".\"atttypmod\")) = $4 AND NOT (\"a\".\"attisdropped\"))) AS \"result\"",
+        "params": [
+          "public",
+          "Project",
+          "authorId",
+          "text"
+        ]
+      }
+    ],
+    "meta": {
+      "warning": "TABLE_REWRITE"
+    }
+  }
+]

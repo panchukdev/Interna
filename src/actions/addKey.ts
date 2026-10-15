@@ -1,14 +1,33 @@
 "use server";
 
-import { redirect } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { db } from "../prisma/db";
+import { auth } from "../lib/auth";
+import { headers } from "next/headers";
 
 export async function addKey(
     projectId: number,
     slug: string,
-    targetLanguages: readonly string[],
     formData: FormData,
 ) {
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
+    if (!session) {
+        redirect("/sign-in");
+    }
+
+    const project = await db.orm.public.Project.where({
+        id: projectId,
+        slug,
+        authorId: session.user.id,
+    }).first();
+
+    if (!project) {
+        notFound();
+    }
+
     const key = formData.get("key");
     const sourceText = formData.get("sourceText");
 
@@ -21,7 +40,7 @@ export async function addKey(
         throw new Error("Key and source text are required.");
     }
 
-    const allowedLanguages = new Set(targetLanguages);
+    const allowedLanguages = new Set(project.targetLanguages);
 
     const translations = [...formData.entries()]
         .filter(([name]) => allowedLanguages.has(name))
@@ -41,7 +60,7 @@ export async function addKey(
         await db.transaction(async (tx) => {
             const keyRecord = await tx.orm.public.Key.create({
                 key: key.trim(),
-                projectId,
+                projectId: project.id,
                 sourceText: sourceText.trim(),
             });
 

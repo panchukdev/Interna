@@ -6,6 +6,8 @@ import ThemeRegistry from "../components/ThemeRegistry";
 import Footer from "../components/layout/Footer";
 import Box from "@mui/material/Box";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
+import { auth } from "../lib/auth";
+import { headers } from "next/headers";
 
 export const metadata: Metadata = {
     title: "interna",
@@ -13,18 +15,22 @@ export const metadata: Metadata = {
         "Internationalization manager for adapting your projects to different languages",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
     return (
         <html lang="en" suppressHydrationWarning>
             <body>
                 <InitColorSchemeScript attribute="data" defaultMode="system" />
                 <AppRouterCacheProvider>
                     <ThemeRegistry>
-                        <Navbar />
+                        <Navbar session={session} />
 
                         <Box
                             component="main"
