@@ -1,0 +1,14 @@
+{
+    "navigation.myProjects": "My projects",
+    "navigation.newProject": "New project",
+    "navigation.profile": "Profile",
+    "navigation.settings": "Settings",
+    "navigation.signOut": "Sign Out",
+    "navigation.singIn": "Sign in",
+    "navigation.signUp": "Sign up",
+    "footer.rights": "All rights reserved.",
+    "landing.greeting.morning": "Good morning,",
+    "landing.greeting.afternoon": "Good afternoon,",
+    "landing.greeting.evening": "Good evening,",
+    "landing.greeting.late": "Staying up late,"
+}

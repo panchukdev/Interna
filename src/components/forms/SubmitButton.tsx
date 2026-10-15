@@ -5,14 +5,16 @@ import { useFormStatus } from "react-dom";
 
 type SubmitButtonProps = {
     children: React.ReactNode;
-    endIcon: React.ReactNode;
+    endIcon?: React.ReactNode;
     disabled?: boolean;
+    size?: "small" | "medium" | "large";
 };
 
 export default function SubmitButton({
     children,
     endIcon,
     disabled,
+    size,
 }: SubmitButtonProps) {
     const { pending } = useFormStatus();
 
@@ -24,6 +26,7 @@ export default function SubmitButton({
             loadingPosition="start"
             endIcon={endIcon}
             disabled={disabled}
+            size={size}
         >
             {children}
         </Button>

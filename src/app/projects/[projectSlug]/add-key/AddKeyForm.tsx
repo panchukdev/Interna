@@ -4,11 +4,15 @@ import SubmitButton from "@/src/components/forms/SubmitButton";
 import {
     getLanguageName,
     getLanguagePlaceholder,
+    type SupportedLocale,
 } from "../../../../lib/languages";
-import { Box, Container, TextField, Typography } from "@mui/material";
+import { Box, Button, Container, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import { addKey } from "@/src/actions/addKey";
+import { translateText } from "@/src/actions/translateText";
+import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export default function AddKeyForm({
     project,
@@ -21,12 +25,48 @@ export default function AddKeyForm({
         targetLanguages: readonly string[];
     };
 }) {
-    const addKeyWithProject = addKey.bind(
-        null,
-        project.id,
-        project.slug,
-        project.targetLanguages,
-    );
+    async function handleTranslateAll() {
+        if (!sourceText.trim()) return;
+
+        try {
+            setTranslatingAll(true);
+
+            for (const language of project.targetLanguages) {
+                await handleTranslate(language);
+            }
+        } catch (error) {
+            throw new Error("Error during translating all target languages.", {
+                cause: error,
+            });
+        } finally {
+            setTranslatingAll(false);
+        }
+    }
+
+    async function handleTranslate(language: string) {
+        if (!sourceText.trim()) return;
+
+        try {
+            setTranslating(language);
+
+            const translatedText = await translateText(
+                sourceText,
+                language as SupportedLocale,
+            );
+
+            setTranslations((prev) => ({
+                ...prev,
+                [language]: translatedText,
+            }));
+        } catch (error) {
+            throw new Error("Error during translating target language.", {
+                cause: error,
+            });
+        } finally {
+            setTranslating(null);
+        }
+    }
+    const addKeyWithProject = addKey.bind(null, project.id, project.slug);
 
     const sourceLanguageName = getLanguageName(project.sourceLanguage);
     const targetLanguagesNames: string[] = [];
@@ -36,6 +76,12 @@ export default function AddKeyForm({
     }
 
     const [key, setKey] = useState("");
+    const [sourceText, setSourceText] = useState("");
+    const [translations, setTranslations] = useState<Record<string, string>>(
+        {},
+    );
+    const [translating, setTranslating] = useState<string | null>(null);
+    const [translatingAll, setTranslatingAll] = useState(false);
 
     return (
         <Container
@@ -153,6 +199,10 @@ export default function AddKeyForm({
                                 variant="outlined"
                                 required
                                 sx={{ width: "100%" }}
+                                value={sourceText}
+                                onChange={(event) => {
+                                    setSourceText(event.target.value);
+                                }}
                             />
                         </Box>
                     </Container>
@@ -168,21 +218,53 @@ export default function AddKeyForm({
                             borderRadius: 1,
                         }}
                     >
-                        <Typography
-                            variant="h6"
-                            component="h2"
-                            sx={{ fontWeight: 500 }}
+                        <Box
+                            sx={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                            }}
                         >
-                            Target languages
-                        </Typography>
-                        <Typography
-                            variant="body1"
-                            color="text.secondary"
-                            sx={{ fontWeight: 300 }}
-                        >
-                            Enter translations for each target language or use
-                            DeepL AI for auto-translation.
-                        </Typography>
+                            <Box>
+                                <Typography
+                                    variant="h6"
+                                    component="h2"
+                                    sx={{ fontWeight: 500 }}
+                                >
+                                    Target languages
+                                </Typography>
+                                <Typography
+                                    variant="body1"
+                                    color="text.secondary"
+                                    sx={{ fontWeight: 300 }}
+                                >
+                                    Enter translations for each target language
+                                    or use DeepL AI for auto-translation.
+                                </Typography>
+                            </Box>
+                            <Button
+                                type="button"
+                                size="small"
+                                variant="contained"
+                                onClick={handleTranslateAll}
+                                endIcon={
+                                    translatingAll ? (
+                                        <CircularProgress
+                                            size={18}
+                                            color="inherit"
+                                        />
+                                    ) : (
+                                        <AutoAwesomeIcon />
+                                    )
+                                }
+                                disabled={
+                                    !sourceText.trim() ||
+                                    translating !== null ||
+                                    translatingAll
+                                }
+                            >
+                                Translate All
+                            </Button>
+                        </Box>
                         <Box
                             sx={{
                                 my: 2,
@@ -192,23 +274,69 @@ export default function AddKeyForm({
                             }}
                         >
                             {project.targetLanguages.map((lang) => (
-                                <TextField
+                                <Box
                                     key={lang}
-                                    name={lang}
-                                    id={lang}
-                                    label={`${lang} - ${getLanguageName(lang)}`}
-                                    variant="outlined"
+                                    sx={{ display: "flex", gap: 2 }}
+                                >
+                                    <TextField
+                                        key={lang}
+                                        name={lang}
+                                        id={lang}
+                                        label={`${lang} - ${getLanguageName(lang)}`}
+                                        variant="outlined"
 
-                                    placeholder={getLanguagePlaceholder(lang)}
-                                    sx={{ width: "100%" }}
+                                        value={translations[lang] ?? ""}
+                                        onChange={(event) => {
+                                            setTranslations((prev) => ({
+                                                ...prev,
+                                                [lang]: event.target.value,
+                                            }));
+                                        }}
 
-                                    // value={key}
-                                    // onChange={(event) => setKey(event.target.value)}
-                                />
+                                        placeholder={getLanguagePlaceholder(
+                                            lang,
+                                        )}
+                                        sx={{ width: "100%" }}
+                                    />
+                                    <Button
+                                        type="button"
+                                        onClick={() => handleTranslate(lang)}
+                                        sx={{ px: 2 }}
+                                        endIcon={
+                                            translating === lang ||
+                                            translatingAll ? (
+                                                <CircularProgress
+                                                    size={18}
+                                                    color="inherit"
+                                                />
+                                            ) : (
+                                                <AutoAwesomeIcon />
+                                            )
+                                        }
+                                        disabled={
+                                            !sourceText.trim() ||
+                                            translating !== null ||
+                                            translatingAll
+                                        }
+                                    >
+                                        Translate
+                                    </Button>
+                                </Box>
                             ))}
                         </Box>
                     </Container>
-                    <SubmitButton endIcon={<AddIcon />}>Add</SubmitButton>
+                    <SubmitButton
+                        disabled={
+                            !key.trim() ||
+                            !sourceText.trim() ||
+                            translating !== null ||
+                            translatingAll
+                        }
+                        endIcon={<AddIcon />}
+                        size="large"
+                    >
+                        Add key
+                    </SubmitButton>
                 </form>
             </Container>
         </Container>

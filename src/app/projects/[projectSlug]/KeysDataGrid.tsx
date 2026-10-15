@@ -55,7 +55,7 @@ export default function KeysDataGrid({
                 <Chip
                     label={params.value}
                     size="small"
-                    color={params.value === "Translated" ? "success" : "error"}
+                    color={params.value === "Translated" ? "primary" : "error"}
                 />
             ),
         },

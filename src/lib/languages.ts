@@ -19,6 +19,25 @@ export const supportedLocales = [
     "zh-CN",
 ] as const;
 
+export type SupportedLocale = (typeof supportedLocales)[number];
+
+export const deeplLanguageMap = {
+    "en-US": "en-US",
+    "en-GB": "en-GB",
+    "de-DE": "de",
+    "pl-PL": "pl",
+    "uk-UA": "uk",
+    "ru-RU": "ru",
+    "fr-FR": "fr",
+    "es-ES": "es",
+    "it-IT": "it",
+    "pt-PT": "pt-PT",
+    "pt-BR": "pt-BR",
+    "nl-NL": "nl",
+    "ja-JP": "ja",
+    "zh-CN": "zh-HANS",
+} as const;
+
 const languagePlaceholders: Record<string, string> = {
     en: "Hello, World!",
     de: "Hallo, Welt!",

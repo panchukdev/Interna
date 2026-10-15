@@ -1,22 +1,12 @@
 // use prisma-8
 
-model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  name      String
-  projects  Project[]
-  createdAt TimestamptzString @default(now())
-  updatedAt temporal.updatedAtString()
-}
-
 model Project {
   id        Int      @id @default(autoincrement())
   title     String
   slug String @unique
   websiteUrl String?
 
-  author    User?     @relation(fields: [authorId], references: [id])
-  authorId  Int?
+  authorId  String?
   
   sourceLanguage   String
   targetLanguages String[]
