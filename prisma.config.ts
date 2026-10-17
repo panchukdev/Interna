@@ -7,6 +7,7 @@ import {
     prismaCloud,
     prismaState,
 } from "@prisma/composer-prisma-cloud/control";
+import "dotenv/config";
 
 export default definePrismaConfig({
     skills: {

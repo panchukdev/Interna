@@ -6,7 +6,7 @@ import { i18n, locales } from "@better-auth/i18n";
 export const auth = betterAuth({
     database: new Pool({
         connectionString: process.env.DATABASE_URL,
-        options: "-c search_path=auth",
+        options: "-c search_path=custom_auth",
     }),
     emailAndPassword: {
         enabled: true,
