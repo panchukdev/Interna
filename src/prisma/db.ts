@@ -2,7 +2,7 @@ import postgres from "@prisma/orm-postgres/runtime";
 
 import "temporal-polyfill/global";
 
-import service from "@/service";
+import service from "@/service.ts";
 import type { Contract } from "./contract.d.ts";
 import contractJson from "./contract.json" with { type: "json" };
 

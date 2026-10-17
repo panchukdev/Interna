@@ -34,3 +34,5 @@ pnpm-debug.log*
 # Prisma
 /.prisma-composer
 /.alchemy
+.vercel
+.env*
