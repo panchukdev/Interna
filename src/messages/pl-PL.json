@@ -15,17 +15,80 @@
         "rights": "Wszelkie prawa zastrzeżone."
     },
     "landing": {
-        "greeting": {
+        "question": "Co chciałbyś teraz zrobić?",
+        "hero": {
+            "eyebrow": "STWORZONE Z MYŚLĄ O PROJEKTACH WIELOJĘZYCZNYCH",
+            "title": "Zarządzanie tłumaczeniami dla programistów",
+            "description": "Zarządzaj kluczami tłumaczeniowymi, porządkuj treści wielojęzyczne i śledź postępy w tłumaczeniu — wszystko w jednym miejscu.",
+            "getStarted": "Zacznij",
+            "card": {
+                "title": "Obszar roboczy projektu",
+                "description": "Zarządzaj kluczami tłumaczeń, porządkuj języki oraz importuj lub eksportuj tłumaczenia."
+            }
+        },
+        "features": {
+            "eyebrow": "CECHY",
+            "title": "Wszystko, czego potrzebujesz do zarządzania tłumaczeniami",
+            "description": "Zadbaj o porządek w swoich wielojęzycznych projektach dzięki narzędziom zaprojektowanym z myślą o uproszczeniu procesu tłumaczenia.",
+            "translationKeys": {
+                "title": "Klucze tłumaczeniowe",
+                "excerpt": "Dbaj o porządek w swoich tłumaczeniach.",
+                "description": "Twórz klucze tłumaczeniowe i zarządzaj nimi wraz z tekstem źródłowym – wszystko w jednym miejscu."
+            },
+            "multilingualSupport": {
+                "title": "Obsługa wielu języków",
+                "excerpt": "Jeden projekt, wiele języków.",
+                "description": "Zorganizuj tłumaczenia dla każdego języka obsługiwanych przez Twój projekt."
+            },
+            "translationProgress": {
+                "title": "Postęp tłumaczenia",
+                "excerpt": "Dowiedz się, czego brakuje.",
+                "description": "Zidentyfikuj treści, które nie zostały jeszcze przetłumaczone, i monitoruj stopień zaawansowania tłumaczenia w całym projekcie."
+            },
+            "AIAssistedTranslations": {
+                "title": "Tłumaczenia wspomagane sztuczną inteligencją",
+                "excerpt": "Tłumacz, poświęcając mniej czasu na ręczne czynności.",
+                "description": "Twórz tłumaczenia za pomocą sztucznej inteligencji DeepL i edytuj wyniki bezpośrednio w ramach swojego procesu pracy."
+            }
+        },
+        "howItWorks": {
+            "eyebrow": "JAK TO DZIAŁA",
+            "title": "Od kluczy tłumaczeniowych do produktu wielojęzycznego",
+            "description": "Zarządzaj tekstem źródłowym, porządkuj tłumaczenia i śledź, które tłumaczenia są już gotowe dla poszczególnych języków.",
+            "steps": {
+                "create": {
+                    "title": "Utwórz swój projekt",
+                    "description": "Utwórz projekt, wybierz język źródłowy oraz języki docelowe, które chcesz obsługiwać."
+                },
+                "manage": {
+                    "title": "Zarządzaj swoimi tłumaczeniami",
+                    "description": "Dodaj klucze tłumaczeniowe, wprowadź tekst źródłowy i tłumaczenia dla każdego języka docelowego lub skorzystaj z sztucznej inteligencji DeepL, aby przyspieszyć proces tłumaczenia."
+                },
+                "track": {
+                    "title": "Śledź postęp tłumaczenia",
+                    "description": "Zidentyfikuj treści, które nie zostały jeszcze przetłumaczone, i monitoruj stopień pokrycia tłumaczeniami we wszystkich językach projektu."
+                }
+            }
+        },
+        "finalCTA": {
+            "title": "Twoje tłumaczenia – wszystko pod kontrolą.",
+            "description": "Wszystko, czego potrzebujesz do zarządzania tłumaczeniami we wszystkich swoich projektach.",
+            "getStarted": "Zacznij"
+        }
+    },
+    "projects": {
+        "title": "Lista projektów",
+        "empty": "Nie masz żadnych projektów.",
+        "greetings": {
             "morning": "Dzień dobry,",
             "afternoon": "Dzień dobry,",
             "evening": "Dobry wieczór,",
             "late": "Zostajesz do późna?"
         },
-        "question": "Co chciałbyś teraz zrobić?"
-    },
-    "projects": {
-        "title": "Lista projektów",
-        "empty": "Nie masz żadnych projektów."
+        "meta": {
+            "title": "Moje projekty",
+            "description": "Zarządzaj projektami lokalizacyjnymi, porządkuj klucze tłumaczeniowe i śledź postępy w tłumaczeniu w poszczególnych językach."
+        }
     },
     "project": {
         "sourceLanguage": "Język źródłowy",
@@ -111,10 +174,18 @@
             "description": "Prześlij pliki lokalizacyjne w formacie JSON, aby zaimportować klucze tłumaczeń, teksty źródłowe i istniejące tłumaczenia do swojego projektu."
         },
         "required": "Pola obowiązkowe",
-        "create": "Utwórz"
+        "create": "Utwórz",
+        "meta": {
+            "title": "Utwórz projekt",
+            "description": "Utwórz projekt lokalizacyjny, wybierz język źródłowy oraz języki, które chcesz obsłużyć."
+        }
     },
     "profile": {
-        "since": "Z Interna od"
+        "since": "Z Interna od",
+        "meta": {
+            "title": "Profil",
+            "description": "Wyświetl informacje o swoim koncie."
+        }
     },
     "settings": {
         "currentPassword": "Obecne hasło",
@@ -122,7 +193,11 @@
         "confirmNewPassword": "Potwierdź nowe hasło",
         "changeButton": "Zmiana",
         "changePassword": "Zmień hasło",
-        "required": "Pola obowiązkowe"
+        "required": "Pola obowiązkowe",
+        "meta": {
+            "title": "Ustawienia",
+            "description": "Zarządzaj ustawieniami konta i zmień hasło."
+        }
     },
     "error": {
         "notFound": {
@@ -134,6 +209,31 @@
             "title": "Nie znaleziono projektu",
             "description": "Projekt, którego szukasz, nie istnieje lub mógł zostać usunięty.",
             "backButton": "Powrót do projektów"
+        },
+        "password": {
+            "sameAsCurrent": "Nowe hasło musi różnić się od obecnego.",
+            "smallLength": "Hasło musi składać się z co najmniej 8 znaków.",
+            "invalid": "Nieprawidłowe dane w formularzu.",
+            "noMatch": "Nowe hasło nie jest zgodne.",
+            "unexpected": "Wystąpił nieoczekiwany błąd."
+        },
+        "key": {
+            "required": "Konieczne jest podanie tekstu źródłowego i klucza.",
+            "invalidTranslation": "Nieprawidłowe tłumaczenie dla:",
+            "error": "Wystąpił błąd podczas dodawania klucza.",
+            "errorChanges": "Wystąpił błąd podczas zapisywania zmian dotyczących klucza.",
+            "translatingAll": "Wystąpił błąd podczas tłumaczenia na wszystkie języki docelowe.",
+            "translatingOne": "Wystąpił błąd podczas tłumaczenia na język docelowy."
+        },
+        "project": {
+            "invalid": "Nieprawidłowe dane projektu.",
+            "url": "Nieprawidłowy adres URL strony internetowej."
+        },
+        "auth": {
+            "invalid": "Nieprawidłowe dane w formularzu.",
+            "required": "Wszystkie pola są obowiązkowe.",
+            "unexpected": "Wystąpił nieoczekiwany błąd.",
+            "noMatch": "Hasła się nie zgadzają."
         }
     },
     "auth": {
@@ -152,6 +252,39 @@
             "signUpButton": "Zarejestruj się",
             "required": "Pola obowiązkowe",
             "confirmPassword": "Potwierdź hasło"
+        }
+    },
+    "success": {
+        "password": {
+            "changed": "Hasło zostało pomyślnie zmienione."
+        }
+    },
+    "meta": {
+        "title": "Interna — Zarządzanie tłumaczeniami dla programistów",
+        "description": "Zarządzaj kluczami tłumaczeniowymi, porządkuj treści wielojęzyczne i śledź postęp tłumaczenia we wszystkich językach projektu."
+    },
+    "signIn": {
+        "meta": {
+            "title": "Zaloguj się",
+            "description": "Zaloguj się na swoje konto w serwisie Interna, aby zarządzać tłumaczeniami swojej strony internetowej."
+        }
+    },
+    "signUp": {
+        "meta": {
+            "title": "Zarejestruj się",
+            "description": "Załóż konto w serwisie Interna, aby zarządzać tłumaczeniami swojej strony internetowej."
+        }
+    },
+    "addKey": {
+        "meta": {
+            "title": "Dodaj klucz",
+            "description": "Utwórz klucz tłumaczeniowy zawierający tekst źródłowy oraz tłumaczenia na język docelowy."
+        }
+    },
+    "editKey": {
+        "meta": {
+            "title": "Edytuj klucz",
+            "description": "Edytuj klucz tłumaczenia, jego tekst źródłowy oraz tłumaczenia na języki docelowe."
         }
     }
 }

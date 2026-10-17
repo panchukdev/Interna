@@ -1,9 +1,19 @@
 import { auth } from "@/src/lib/auth";
-import { Box, Container, Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import ChangePasswordForm from "./ChangePasswordForm";
 import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("settings.meta");
+
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
 export default async function Settings() {
     const tNav = await getTranslations("navigation");

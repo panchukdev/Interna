@@ -15,17 +15,80 @@
         "rights": "Alle Rechte vorbehalten."
     },
     "landing": {
-        "greeting": {
+        "question": "Was möchtest du jetzt gerne tun?",
+        "hero": {
+            "eyebrow": "FÜR MEHRSPRACHIGE PROJEKTE ENTWICKELT",
+            "title": "Übersetzungsmanagement für Entwickler",
+            "description": "Verwalten Sie Übersetzungsschlüssel, organisieren Sie mehrsprachige Inhalte und verfolgen Sie den Übersetzungsfortschritt – alles an einem Ort.",
+            "getStarted": "Erste Schritte",
+            "card": {
+                "title": "Projektarbeitsbereich",
+                "description": "Übersetzungsschlüssel verwalten, Sprachen organisieren sowie Übersetzungen importieren oder exportieren."
+            }
+        },
+        "features": {
+            "eyebrow": "FUNKTIONEN",
+            "title": "Alles, was Sie für die Verwaltung von Übersetzungen benötigen",
+            "description": "Sorgen Sie für Ordnung in Ihren mehrsprachigen Projekten – mit Tools, die Ihren Übersetzungsworkflow vereinfachen.",
+            "translationKeys": {
+                "title": "Übersetzungsschlüssel",
+                "excerpt": "Sorgen Sie dafür, dass Ihre Übersetzungen übersichtlich geordnet sind.",
+                "description": "Erstellen und verwalten Sie Übersetzungsschlüssel zusammen mit dem Quelltext – alles an einem Ort."
+            },
+            "multilingualSupport": {
+                "title": "Mehrsprachige Unterstützung",
+                "excerpt": "Ein Projekt, mehrere Sprachen.",
+                "description": "Organisieren Sie Übersetzungen für jede Sprache, die Ihr Projekt unterstützt."
+            },
+            "translationProgress": {
+                "title": "Übersetzungsfortschritt",
+                "excerpt": "Finde heraus, was fehlt.",
+                "description": "Ermitteln Sie noch nicht übersetzte Inhalte und verfolgen Sie den Übersetzungsfortschritt in Ihrem gesamten Projekt."
+            },
+            "AIAssistedTranslations": {
+                "title": "KI-gestützte Übersetzungen",
+                "excerpt": "Übersetzen mit weniger manuellem Aufwand.",
+                "description": "Erstellen Sie Übersetzungen mit DeepL AI und bearbeiten Sie die Ergebnisse direkt in Ihrem Arbeitsablauf."
+            }
+        },
+        "howItWorks": {
+            "eyebrow": "SO FUNKTIONIERT ES",
+            "title": "Von Übersetzungsschlüsseln zu einem mehrsprachigen Produkt",
+            "description": "Verwalten Sie Ihren Ausgangstext, organisieren Sie Übersetzungen und behalten Sie den Überblick darüber, was für jede Sprache bereits fertig ist.",
+            "steps": {
+                "create": {
+                    "title": "Erstellen Sie Ihr Projekt",
+                    "description": "Erstellen Sie ein Projekt, wählen Sie eine Ausgangssprache aus und legen Sie die Zielsprachen fest, die Sie unterstützen möchten."
+                },
+                "manage": {
+                    "title": "Verwalten Sie Ihre Übersetzungen",
+                    "description": "Fügen Sie Übersetzungsschlüssel hinzu, geben Sie den Ausgangstext und die Übersetzungen für jede Zielsprache ein oder nutzen Sie DeepL AI, um Ihren Übersetzungsworkflow zu beschleunigen."
+                },
+                "track": {
+                    "title": "Übersetzungsfortschritt verfolgen",
+                    "description": "Ermitteln Sie noch nicht übersetzte Inhalte und überwachen Sie den Übersetzungsgrad in allen Sprachen Ihres Projekts."
+                }
+            }
+        },
+        "finalCTA": {
+            "title": "Ihre Übersetzungen – alles im Griff.",
+            "description": "Alles, was Sie benötigen, um Übersetzungen in Ihren Projekten zu verwalten.",
+            "getStarted": "Erste Schritte"
+        }
+    },
+    "projects": {
+        "title": "Projektliste",
+        "empty": "Du hast keine Projekte.",
+        "greetings": {
             "morning": "Guten Morgen,",
             "afternoon": "Guten Nachmittag,",
             "evening": "Guten Abend,",
             "late": "Bleibst du lange auf?"
         },
-        "question": "Was möchtest du jetzt gerne tun?"
-    },
-    "projects": {
-        "title": "Projektliste",
-        "empty": "Du hast keine Projekte."
+        "meta": {
+            "title": "Meine Projekte",
+            "description": "Verwalten Sie Ihre Lokalisierungsprojekte, organisieren Sie Übersetzungsschlüssel und verfolgen Sie den Fortschritt der Übersetzungen in allen Sprachen."
+        }
     },
     "project": {
         "sourceLanguage": "Ausgangssprache",
@@ -111,10 +174,18 @@
             "description": "Laden Sie JSON-Lokalisierungsdateien hoch, um Übersetzungsschlüssel, Quelltexte und vorhandene Übersetzungen in Ihr Projekt zu importieren."
         },
         "required": "Pflichtfelder",
-        "create": "Erstellen"
+        "create": "Erstellen",
+        "meta": {
+            "title": "Projekt erstellen",
+            "description": "Erstellen Sie ein Lokalisierungsprojekt, legen Sie die Ausgangssprache fest und wählen Sie die Sprachen aus, die Sie unterstützen möchten."
+        }
     },
     "profile": {
-        "since": "Bei Interna seit"
+        "since": "Bei Interna seit",
+        "meta": {
+            "title": "Profil",
+            "description": "Rufen Sie Ihre Kontoinformationen ab."
+        }
     },
     "settings": {
         "currentPassword": "Aktuelles Passwort",
@@ -122,7 +193,11 @@
         "confirmNewPassword": "Neues Passwort bestätigen",
         "changeButton": "Ändern",
         "changePassword": "Passwort ändern",
-        "required": "Pflichtfelder"
+        "required": "Pflichtfelder",
+        "meta": {
+            "title": "Einstellungen",
+            "description": "Verwalten Sie Ihre Kontoeinstellungen und ändern Sie Ihr Passwort."
+        }
     },
     "error": {
         "notFound": {
@@ -134,6 +209,31 @@
             "title": "Projekt nicht gefunden",
             "description": "Das gesuchte Projekt existiert nicht oder wurde möglicherweise gelöscht.",
             "backButton": "Zurück zu den Projekten"
+        },
+        "password": {
+            "sameAsCurrent": "Das neue Passwort muss sich vom aktuellen Passwort unterscheiden.",
+            "smallLength": "Das Passwort muss mindestens 8 Zeichen lang sein.",
+            "invalid": "Ungültige Formulardaten.",
+            "noMatch": "Das neue Passwort stimmt nicht überein.",
+            "unexpected": "Es ist ein unerwarteter Fehler aufgetreten."
+        },
+        "key": {
+            "required": "Der Schlüsseltext und der Quelltext sind erforderlich.",
+            "invalidTranslation": "Ungültige Übersetzung für:",
+            "error": "Fehler beim Hinzufügen des Schlüssels.",
+            "errorChanges": "Fehler beim Speichern der Änderungen für einen Schlüssel.",
+            "translatingAll": "Fehler beim Übersetzen aller Zielsprachen.",
+            "translatingOne": "Fehler bei der Übersetzung in die Zielsprache."
+        },
+        "project": {
+            "invalid": "Ungültige Projektdaten.",
+            "url": "Ungültige Website-URL."
+        },
+        "auth": {
+            "invalid": "Ungültige Formulardaten.",
+            "required": "Alle Felder müssen ausgefüllt werden.",
+            "unexpected": "Es ist ein unerwarteter Fehler aufgetreten.",
+            "noMatch": "Die Passwörter stimmen nicht überein."
         }
     },
     "auth": {
@@ -152,6 +252,39 @@
             "signUpButton": "Anmelden",
             "required": "Pflichtfelder",
             "confirmPassword": "Passwort bestätigen"
+        }
+    },
+    "success": {
+        "password": {
+            "changed": "Das Passwort wurde erfolgreich geändert."
+        }
+    },
+    "meta": {
+        "title": "Interna – Übersetzungsmanagement für Entwickler",
+        "description": "Verwalten Sie Übersetzungsschlüssel, organisieren Sie mehrsprachige Inhalte und verfolgen Sie den Übersetzungsfortschritt in allen Sprachen Ihres Projekts."
+    },
+    "signIn": {
+        "meta": {
+            "title": "Anmelden",
+            "description": "Melden Sie sich bei Ihrem Interna-Konto an, um die Übersetzungen Ihrer Website zu verwalten."
+        }
+    },
+    "signUp": {
+        "meta": {
+            "title": "Anmelden",
+            "description": "Erstellen Sie ein Interna-Konto, um die Übersetzungen Ihrer Website zu verwalten."
+        }
+    },
+    "addKey": {
+        "meta": {
+            "title": "Schlüssel hinzufügen",
+            "description": "Erstellen Sie einen Übersetzungsschlüssel mit dem Ausgangstext und den Übersetzungen in die Zielsprache."
+        }
+    },
+    "editKey": {
+        "meta": {
+            "title": "Schlüssel bearbeiten",
+            "description": "Bearbeiten Sie einen Übersetzungsschlüssel, dessen Quelltext und die Übersetzungen in die Zielsprachen."
         }
     }
 }

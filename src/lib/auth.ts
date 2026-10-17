@@ -1,6 +1,7 @@
 import { betterAuth } from "better-auth";
 import { Pool } from "pg";
 import { nextCookies } from "better-auth/next-js";
+import { i18n, locales } from "@better-auth/i18n";
 
 export const auth = betterAuth({
     database: new Pool({
@@ -10,5 +11,15 @@ export const auth = betterAuth({
     emailAndPassword: {
         enabled: true,
     },
-    plugins: [nextCookies()],
+    plugins: [
+        i18n({
+            translations: {
+                ...locales,
+            },
+            detection: ["cookie", "header"],
+            localeCookie: "interna-locale",
+            defaultLocale: "en",
+        }),
+        nextCookies(),
+    ],
 });

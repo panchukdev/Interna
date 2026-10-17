@@ -3,6 +3,8 @@
 import { redirect } from "next/navigation";
 import { auth } from "../lib/auth";
 import { APIError } from "better-auth/api";
+import { headers } from "next/headers";
+import { getTranslations } from "next-intl/server";
 
 type SignupState = {
     error: string | null;
@@ -12,6 +14,8 @@ export async function signup(
     prevState: SignupState,
     formData: FormData,
 ): Promise<SignupState> {
+    const t = await getTranslations("error.auth");
+
     const email = formData.get("email");
     const name = formData.get("name");
     const password = formData.get("password");
@@ -23,15 +27,15 @@ export async function signup(
         typeof password !== "string" ||
         typeof passwordConfirm !== "string"
     ) {
-        return { error: "Invalid form data" };
+        return { error: t("invalid") };
     }
 
     if (!email.trim() || !name.trim() || !password || !passwordConfirm) {
-        return { error: "All fields are required" };
+        return { error: t("required") };
     }
 
     if (password !== passwordConfirm) {
-        return { error: "Passwords do not match" };
+        return { error: t("noMatch") };
     }
 
     try {
@@ -42,13 +46,14 @@ export async function signup(
                 password,
                 callbackURL: "/",
             },
+            headers: await headers(),
         });
     } catch (error) {
         if (error instanceof APIError) {
             return { error: error.message };
         }
 
-        return { error: "An unexpected error occurred." };
+        return { error: t("unexpected") };
     }
 
     redirect("/");

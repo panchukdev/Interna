@@ -2,6 +2,8 @@
 
 import { auth } from "../lib/auth";
 import { APIError } from "better-auth/api";
+import { getTranslations } from "next-intl/server";
+import { headers } from "next/headers";
 
 type SignupState = {
     error: string | null;
@@ -12,15 +14,17 @@ export async function signIn(
     prevState: SignupState,
     formData: FormData,
 ): Promise<SignupState> {
+    const t = await getTranslations("error.auth");
+
     const email = formData.get("email");
     const password = formData.get("password");
 
     if (typeof email !== "string" || typeof password !== "string") {
-        return { error: "Invalid form data" };
+        return { error: t("invalid") };
     }
 
     if (!email.trim() || !password) {
-        return { error: "All fields are required" };
+        return { error: t("required") };
     }
 
     try {
@@ -30,13 +34,14 @@ export async function signIn(
                 password,
                 callbackURL: "/",
             },
+            headers: await headers(),
         });
     } catch (error) {
         if (error instanceof APIError) {
             return { error: error.message };
         }
 
-        return { error: "An unexpected error occurred." };
+        return { error: t("unexpected") };
     }
 
     return { error: null, success: true };

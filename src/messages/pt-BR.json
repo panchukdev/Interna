@@ -15,17 +15,80 @@
         "rights": "Todos os direitos reservados."
     },
     "landing": {
-        "greeting": {
+        "question": "O que você gostaria de fazer agora?",
+        "hero": {
+            "eyebrow": "FEITO PARA PROJETOS MULTILÍNGUES",
+            "title": "Gerenciamento de tradução para desenvolvedores",
+            "description": "Gerencie chaves de tradução, organize conteúdos multilíngues e acompanhe o andamento das traduções — tudo em um só lugar.",
+            "getStarted": "Comece agora",
+            "card": {
+                "title": "Área de Trabalho do Projeto",
+                "description": "Gerencie chaves de tradução, organize idiomas e importe ou exporte traduções."
+            }
+        },
+        "features": {
+            "eyebrow": "CARACTERÍSTICAS",
+            "title": "Tudo o que você precisa para gerenciar traduções",
+            "description": "Mantenha seus projetos multilíngues organizados com ferramentas criadas para simplificar seu fluxo de trabalho de tradução.",
+            "translationKeys": {
+                "title": "Chaves de tradução",
+                "excerpt": "Mantenha suas traduções organizadas.",
+                "description": "Crie e gerencie chaves de tradução juntamente com o texto de origem, tudo em um único lugar."
+            },
+            "multilingualSupport": {
+                "title": "Suporte multilíngue",
+                "excerpt": "Um projeto, vários idiomas.",
+                "description": "Organize as traduções para todos os idiomas compatíveis com o seu projeto."
+            },
+            "translationProgress": {
+                "title": "Progresso da tradução",
+                "excerpt": "Saiba o que está faltando.",
+                "description": "Identifique o conteúdo ainda não traduzido e acompanhe a cobertura da tradução em todo o seu projeto."
+            },
+            "AIAssistedTranslations": {
+                "title": "Traduções assistidas por IA",
+                "excerpt": "Traduza com menos trabalho manual.",
+                "description": "Gere traduções com a IA do DeepL e edite os resultados diretamente no seu fluxo de trabalho."
+            }
+        },
+        "howItWorks": {
+            "eyebrow": "COMO FUNCIONA",
+            "title": "De chaves de tradução a um produto multilíngue",
+            "description": "Gerencie seu texto original, organize as traduções e acompanhe o que já está pronto para cada idioma.",
+            "steps": {
+                "create": {
+                    "title": "Crie seu projeto",
+                    "description": "Crie um projeto, escolha um idioma de origem e selecione os idiomas de destino que deseja oferecer."
+                },
+                "manage": {
+                    "title": "Gerencie suas traduções",
+                    "description": "Adicione chaves de tradução, insira o texto de origem e as traduções para cada idioma de destino ou use a IA do DeepL para agilizar seu fluxo de trabalho de tradução."
+                },
+                "track": {
+                    "title": "Acompanhar o andamento da tradução",
+                    "description": "Identifique o conteúdo não traduzido e monitore a cobertura da tradução em todos os idiomas do seu projeto."
+                }
+            }
+        },
+        "finalCTA": {
+            "title": "Suas traduções, sob controle.",
+            "description": "Tudo o que você precisa para gerenciar traduções em todos os seus projetos.",
+            "getStarted": "Comece agora"
+        }
+    },
+    "projects": {
+        "title": "Lista de projetos",
+        "empty": "Você não tem projetos.",
+        "greetings": {
             "morning": "Bom dia,",
             "afternoon": "Boa tarde,",
             "evening": "Boa noite,",
             "late": "Vai ficar acordado até tarde?"
         },
-        "question": "O que você gostaria de fazer agora?"
-    },
-    "projects": {
-        "title": "Lista de projetos",
-        "empty": "Você não tem projetos."
+        "meta": {
+            "title": "Meus projetos",
+            "description": "Gerencie seus projetos de localização, organize as chaves de tradução e acompanhe o andamento das traduções em todos os idiomas."
+        }
     },
     "project": {
         "sourceLanguage": "Língua de origem",
@@ -111,10 +174,18 @@
             "description": "Envie arquivos JSON de localização para importar chaves de tradução, textos de origem e traduções existentes para o seu projeto."
         },
         "required": "Campos obrigatórios",
-        "create": "Criar"
+        "create": "Criar",
+        "meta": {
+            "title": "Criar projeto",
+            "description": "Crie um projeto de localização, escolha o idioma de origem e selecione os idiomas que deseja oferecer."
+        }
     },
     "profile": {
-        "since": "Na Interna desde"
+        "since": "Na Interna desde",
+        "meta": {
+            "title": "Perfil",
+            "description": "Visualize as informações da sua conta."
+        }
     },
     "settings": {
         "currentPassword": "Senha atual",
@@ -122,7 +193,11 @@
         "confirmNewPassword": "Confirme a nova senha",
         "changeButton": "Alterar",
         "changePassword": "Alterar senha",
-        "required": "Campos obrigatórios"
+        "required": "Campos obrigatórios",
+        "meta": {
+            "title": "Configurações",
+            "description": "Gerencie as configurações da sua conta e altere sua senha."
+        }
     },
     "error": {
         "notFound": {
@@ -134,6 +209,31 @@
             "title": "Projeto não encontrado",
             "description": "O projeto que você está procurando não existe ou talvez tenha sido excluído.",
             "backButton": "Voltar aos projetos"
+        },
+        "password": {
+            "sameAsCurrent": "A nova senha deve ser diferente da senha atual.",
+            "smallLength": "A senha deve ter pelo menos 8 caracteres.",
+            "invalid": "Dados do formulário inválidos.",
+            "noMatch": "A nova senha não corresponde.",
+            "unexpected": "Ocorreu um erro inesperado."
+        },
+        "key": {
+            "required": "É necessário fornecer o texto-chave e o texto de origem.",
+            "invalidTranslation": "Tradução inválida para:",
+            "error": "Erro ao adicionar a chave.",
+            "errorChanges": "Erro ao salvar as alterações de uma chave.",
+            "translatingAll": "Erro durante a tradução de todos os idiomas de destino.",
+            "translatingOne": "Erro durante a tradução para o idioma de destino."
+        },
+        "project": {
+            "invalid": "Dados do projeto inválidos.",
+            "url": "URL inválida do site."
+        },
+        "auth": {
+            "invalid": "Dados do formulário inválidos.",
+            "required": "Todos os campos são obrigatórios.",
+            "unexpected": "Ocorreu um erro inesperado.",
+            "noMatch": "As senhas não coincidem."
         }
     },
     "auth": {
@@ -152,6 +252,39 @@
             "signUpButton": "Inscreva-se",
             "required": "Campos obrigatórios",
             "confirmPassword": "Confirmar senha"
+        }
+    },
+    "success": {
+        "password": {
+            "changed": "A senha foi alterada com sucesso."
+        }
+    },
+    "meta": {
+        "title": "Interna — Gerenciamento de tradução para desenvolvedores",
+        "description": "Gerencie chaves de tradução, organize conteúdos multilíngues e acompanhe o andamento da tradução em todos os idiomas do seu projeto."
+    },
+    "signIn": {
+        "meta": {
+            "title": "Entrar",
+            "description": "Faça login na sua conta da Interna para gerenciar as traduções do seu site."
+        }
+    },
+    "signUp": {
+        "meta": {
+            "title": "Inscreva-se",
+            "description": "Crie uma conta no Interna para gerenciar as traduções do seu site."
+        }
+    },
+    "addKey": {
+        "meta": {
+            "title": "Adicionar chave",
+            "description": "Crie uma chave de tradução com o texto de origem e as traduções para o idioma de destino."
+        }
+    },
+    "editKey": {
+        "meta": {
+            "title": "Editar chave",
+            "description": "Edite uma chave de tradução, seu texto de origem e as traduções para os idiomas de destino."
         }
     }
 }

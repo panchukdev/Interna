@@ -10,9 +10,36 @@ import KeysDataGrid from "./KeysDataGrid";
 import { getProjectTranslations } from "@/src/lib/translations";
 import Export from "@/src/components/project/Export";
 import Import from "@/src/components/project/Import";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { auth } from "@/src/lib/auth";
 import { headers } from "next/headers";
-import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ projectSlug: string }>;
+}): Promise<Metadata> {
+    const { projectSlug } = await params;
+
+    const session = await auth.api.getSession({
+        headers: await headers(),
+    });
+
+    if (!session) {
+        return {};
+    }
+
+    const project = await getProject(projectSlug, session.user.id);
+
+    if (!project) {
+        return {};
+    }
+
+    return {
+        title: project.title,
+    };
+}
 
 export default async function Project({
     params,

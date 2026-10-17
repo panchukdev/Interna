@@ -15,17 +15,80 @@
         "rights": "無断転載・複製を禁じます。"
     },
     "landing": {
-        "greeting": {
+        "question": "これから何をしたいですか？",
+        "hero": {
+            "eyebrow": "多言語プロジェクト向けに設計",
+            "title": "開発者向け翻訳管理",
+            "description": "翻訳キーの管理、多言語コンテンツの整理、翻訳進捗の追跡――これらすべてを一か所で行えます。",
+            "getStarted": "はじめに",
+            "card": {
+                "title": "プロジェクトワークスペース",
+                "description": "翻訳キーの管理、言語の整理、翻訳のインポートやエクスポートを行います。"
+            }
+        },
+        "features": {
+            "eyebrow": "特長",
+            "title": "翻訳管理に必要なすべて",
+            "description": "翻訳ワークフローを効率化するために設計されたツールを活用して、多言語プロジェクトを整理整頓しましょう。",
+            "translationKeys": {
+                "title": "翻訳キー",
+                "excerpt": "翻訳を整理整頓しておきましょう。",
+                "description": "翻訳キーと原文を1か所でまとめて作成・管理できます。"
+            },
+            "multilingualSupport": {
+                "title": "多言語対応",
+                "excerpt": "1つのプロジェクトで、複数の言語に対応。",
+                "description": "プロジェクトで対応しているすべての言語について、翻訳を整理してください。"
+            },
+            "translationProgress": {
+                "title": "翻訳の進捗状況",
+                "excerpt": "何が欠けているかを知ること。",
+                "description": "翻訳されていないコンテンツを特定し、プロジェクト全体の翻訳完了率を追跡します。"
+            },
+            "AIAssistedTranslations": {
+                "title": "AIを活用した翻訳",
+                "excerpt": "手作業を減らして翻訳しましょう。",
+                "description": "DeepL AI を使って翻訳を生成し、その結果をワークフロー内で直接編集できます。"
+            }
+        },
+        "howItWorks": {
+            "eyebrow": "仕組み",
+            "title": "翻訳キーから多言語対応製品まで",
+            "description": "原文を管理し、翻訳を整理し、各言語ごとにどの翻訳が完成しているかを把握しましょう。",
+            "steps": {
+                "create": {
+                    "title": "プロジェクトを作成する",
+                    "description": "プロジェクトを作成し、ソース言語を選択し、サポートしたいターゲット言語を選択します。"
+                },
+                "manage": {
+                    "title": "翻訳を管理する",
+                    "description": "翻訳キーを追加し、原文と各対象言語の翻訳を入力するか、DeepL AI を利用して翻訳作業を効率化しましょう。"
+                },
+                "track": {
+                    "title": "翻訳の進捗状況を追跡する",
+                    "description": "未翻訳のコンテンツを特定し、プロジェクトの対象言語全体にわたる翻訳の網羅状況を監視します。"
+                }
+            }
+        },
+        "finalCTA": {
+            "title": "翻訳作業をしっかりと管理します。",
+            "description": "プロジェクト全体の翻訳を管理するために必要な機能がすべて揃っています。",
+            "getStarted": "はじめに"
+        }
+    },
+    "projects": {
+        "title": "プロジェクト一覧",
+        "empty": "プロジェクトはありません。",
+        "greetings": {
             "morning": "おはようございます、",
             "afternoon": "こんにちは、",
             "evening": "こんばんは、",
             "late": "夜更かししてるの？"
         },
-        "question": "これから何をしたいですか？"
-    },
-    "projects": {
-        "title": "プロジェクト一覧",
-        "empty": "プロジェクトはありません。"
+        "meta": {
+            "title": "私のプロジェクト",
+            "description": "ローカライズプロジェクトを管理し、翻訳キーを整理し、各言語の翻訳進捗状況を追跡します。"
+        }
     },
     "project": {
         "sourceLanguage": "原文",
@@ -111,10 +174,18 @@
             "description": "JSONロケールファイルをアップロードして、翻訳キー、原文、および既存の翻訳をプロジェクトに取り込みます。"
         },
         "required": "必須項目",
-        "create": "作成"
+        "create": "作成",
+        "meta": {
+            "title": "プロジェクトを作成する",
+            "description": "ローカライズプロジェクトを作成し、ソース言語を選択して、対応させたい言語を選択します。"
+        }
     },
     "profile": {
-        "since": "Internaの利用開始日："
+        "since": "Internaの利用開始日：",
+        "meta": {
+            "title": "プロフィール",
+            "description": "アカウント情報を確認してください。"
+        }
     },
     "settings": {
         "currentPassword": "現在のパスワード",
@@ -122,7 +193,11 @@
         "confirmNewPassword": "新しいパスワードの確認",
         "changeButton": "変更",
         "changePassword": "パスワードの変更",
-        "required": "必須項目"
+        "required": "必須項目",
+        "meta": {
+            "title": "設定",
+            "description": "アカウント設定の管理やパスワードの変更を行ってください。"
+        }
     },
     "error": {
         "notFound": {
@@ -134,6 +209,31 @@
             "title": "プロジェクトが見つかりません",
             "description": "お探しのプロジェクトは存在しないか、削除された可能性があります。",
             "backButton": "プロジェクト一覧に戻る"
+        },
+        "password": {
+            "sameAsCurrent": "新しいパスワードは、現在のパスワードとは異なるものにしてください。",
+            "smallLength": "パスワードは8文字以上である必要があります。",
+            "invalid": "フォームデータが無効です。",
+            "noMatch": "新しいパスワードが一致しません。",
+            "unexpected": "予期せぬエラーが発生しました。"
+        },
+        "key": {
+            "required": "鍵文と原文の入力が必要です。",
+            "invalidTranslation": "以下の翻訳が不正です：",
+            "error": "キーの追加中にエラーが発生しました。",
+            "errorChanges": "キーの変更を保存中にエラーが発生しました。",
+            "translatingAll": "すべての対象言語への翻訳中にエラーが発生しました。",
+            "translatingOne": "対象言語への翻訳中にエラーが発生しました。"
+        },
+        "project": {
+            "invalid": "プロジェクトデータが無効です。",
+            "url": "無効なウェブサイトのURLです。"
+        },
+        "auth": {
+            "invalid": "フォームデータが無効です。",
+            "required": "すべての項目は入力必須です。",
+            "unexpected": "予期せぬエラーが発生しました。",
+            "noMatch": "パスワードが一致しません。"
         }
     },
     "auth": {
@@ -152,6 +252,39 @@
             "signUpButton": "登録する",
             "required": "必須項目",
             "confirmPassword": "パスワードの確認"
+        }
+    },
+    "success": {
+        "password": {
+            "changed": "パスワードの変更が完了しました。"
+        }
+    },
+    "meta": {
+        "title": "Interna — 開発者向け翻訳管理ツール",
+        "description": "翻訳キーを管理し、多言語コンテンツを整理し、すべてのプロジェクト言語にわたる翻訳の進捗状況を追跡します。"
+    },
+    "signIn": {
+        "meta": {
+            "title": "ログイン",
+            "description": "Internaアカウントにログインして、ウェブサイトの翻訳を管理してください。"
+        }
+    },
+    "signUp": {
+        "meta": {
+            "title": "登録する",
+            "description": "Internaアカウントを作成して、ウェブサイトの翻訳を管理しましょう。"
+        }
+    },
+    "addKey": {
+        "meta": {
+            "title": "キーを追加",
+            "description": "原文と翻訳文を含む翻訳キーを作成してください。"
+        }
+    },
+    "editKey": {
+        "meta": {
+            "title": "キーの編集",
+            "description": "翻訳キー、その原文、および各ターゲット言語への翻訳を編集します。"
         }
     }
 }

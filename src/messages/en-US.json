@@ -15,17 +15,80 @@
         "rights": "All rights reserved."
     },
     "landing": {
-        "greeting": {
+        "question": "What would you like to do now?",
+        "hero": {
+            "eyebrow": "BUILT FOR MULTILINGUAL PROJECTS",
+            "title": "Translation Management for Developers",
+            "description": "Manage translation keys, organize multilingual content, and track translation progress — all in one place.",
+            "getStarted": "Get Started",
+            "card": {
+                "title": "Project Workspace",
+                "description": "Manage translation keys, organize languages, and import or export translations."
+            }
+        },
+        "features": {
+            "eyebrow": "FEATURES",
+            "title": "Everything you need to manage translations",
+            "description": "Keep your multilingual projects organized with tools designed to simplify your translation workflow.",
+            "translationKeys": {
+                "title": "Translation Keys",
+                "excerpt": "Keep your translations organized.",
+                "description": "Create and manage translation keys alongside their source text, all in one place."
+            },
+            "multilingualSupport": {
+                "title": "Multilingual Support",
+                "excerpt": "One project, multiple languages.",
+                "description": "Organize translations for every language your project supports."
+            },
+            "translationProgress": {
+                "title": "Translation Progress",
+                "excerpt": "Know what's missing.",
+                "description": "Identify untranslated content and track translation coverage across your project."
+            },
+            "AIAssistedTranslations": {
+                "title": "AI-Assisted Translations",
+                "excerpt": "Translate with less manual work.",
+                "description": "Generate translations with DeepL AI and edit the results directly in your workflow."
+            }
+        },
+        "howItWorks": {
+            "eyebrow": "HOW IT WORKS",
+            "title": "From translation keys to a multilingual product",
+            "description": "Manage your source text, organize translations, and keep track of what is ready for every language.",
+            "steps": {
+                "create": {
+                    "title": "Create your project",
+                    "description": "Create a project, choose a source language, and select target languages you want to support."
+                },
+                "manage": {
+                    "title": "Manage your translations",
+                    "description": "Add translation keys, enter source text and translations for each target language, or use DeepL AI to speed up your translation workflow."
+                },
+                "track": {
+                    "title": "Track translation progress",
+                    "description": "Identify untranslated content and monitor translation coverage across your project's languages."
+                }
+            }
+        },
+        "finalCTA": {
+            "title": "Your translations, under control.",
+            "description": "Everything you need to manage translations across your projects.",
+            "getStarted": "Get Started"
+        }
+    },
+    "projects": {
+        "title": "Projects list",
+        "empty": "You have no projects.",
+        "greetings": {
             "morning": "Good morning,",
             "afternoon": "Good afternoon,",
             "evening": "Good evening,",
             "late": "Staying up late?"
         },
-        "question": "What would you like to do now?"
-    },
-    "projects": {
-        "title": "Projects list",
-        "empty": "You have no projects."
+        "meta": {
+            "title": "My Projects",
+            "description": "Manage your localization projects, organize translation keys, and track translation progress across languages."
+        }
     },
     "project": {
         "sourceLanguage": "Source language",
@@ -111,10 +174,18 @@
             "description": "Upload JSON locale files to import translation keys, source texts, and existing translations into your project."
         },
         "required": "Required fields",
-        "create": "Create"
+        "create": "Create",
+        "meta": {
+            "title": "Create Project",
+            "description": "Create a localization project, choose its source language, and select the languages you want to support."
+        }
     },
     "profile": {
-        "since": "With Interna since"
+        "since": "With Interna since",
+        "meta": {
+            "title": "Profile",
+            "description": "View your account information."
+        }
     },
     "settings": {
         "currentPassword": "Current password",
@@ -122,7 +193,11 @@
         "confirmNewPassword": "Confirm new password",
         "changeButton": "Change",
         "changePassword": "Change Password",
-        "required": "Required fields"
+        "required": "Required fields",
+        "meta": {
+            "title": "Settings",
+            "description": "Manage your account settings and change your password."
+        }
     },
     "error": {
         "notFound": {
@@ -134,6 +209,31 @@
             "title": "Project not found",
             "description": "The project you’re looking for doesn’t exist or may have been deleted.",
             "backButton": "Back to projects"
+        },
+        "password": {
+            "sameAsCurrent": "New password must be different from the current password.",
+            "smallLength": "Password must be at least 8 characters long.",
+            "invalid": "Invalid form data.",
+            "noMatch": "New password doesn't match.",
+            "unexpected": "An unexpected error occurred."
+        },
+        "key": {
+            "required": "Key and source text are required.",
+            "invalidTranslation": "Invalid translation for:",
+            "error": "Error during adding key.",
+            "errorChanges": "Error during saving changes for a key.",
+            "translatingAll": "Error during translating all target languages.",
+            "translatingOne": "Error during translating target language."
+        },
+        "project": {
+            "invalid": "Invalid project data.",
+            "url": "Invalid website URL."
+        },
+        "auth": {
+            "invalid": "Invalid form data.",
+            "required": "All fields are required.",
+            "unexpected": "An unexpected error occurred.",
+            "noMatch": "Passwords do not match."
         }
     },
     "auth": {
@@ -152,6 +252,39 @@
             "signUpButton": "Sign up",
             "required": "Required fields",
             "confirmPassword": "Confirm password"
+        }
+    },
+    "success": {
+        "password": {
+            "changed": "Password changed successfully."
+        }
+    },
+    "meta": {
+        "title": "Interna — Translation Management for Developers",
+        "description": "Manage translation keys, organize multilingual content, and track translation progress across all your project languages."
+    },
+    "signIn": {
+        "meta": {
+            "title": "Sign In",
+            "description": "Sign in to your Interna account to manage your website translations."
+        }
+    },
+    "signUp": {
+        "meta": {
+            "title": "Sign Up",
+            "description": "Create an Interna account to manage your website translations."
+        }
+    },
+    "addKey": {
+        "meta": {
+            "title": "Add Key",
+            "description": "Create a translation key with source text and target language translations."
+        }
+    },
+    "editKey": {
+        "meta": {
+            "title": "Edit Key",
+            "description": "Edit a translation key, its source text, and translations into target languages."
         }
     }
 }

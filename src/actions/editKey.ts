@@ -5,6 +5,7 @@ import { db } from "../prisma/db";
 import { getProjectTranslations } from "../lib/translations";
 import { auth } from "../lib/auth";
 import { headers } from "next/headers";
+import { getTranslations } from "next-intl/server";
 
 export async function editKey(keyId: number, slug: string, formData: FormData) {
     const session = await auth.api.getSession({
@@ -15,6 +16,8 @@ export async function editKey(keyId: number, slug: string, formData: FormData) {
         redirect("/sign-in");
     }
 
+    const t = await getTranslations("error.key");
+
     const key = formData.get("key");
     const sourceText = formData.get("sourceText");
 
@@ -24,7 +27,7 @@ export async function editKey(keyId: number, slug: string, formData: FormData) {
         typeof sourceText !== "string" ||
         !sourceText.trim()
     ) {
-        throw new Error("Key and source text are required.");
+        throw new Error(t("required"));
     }
 
     const userId = session.user.id;
@@ -114,7 +117,7 @@ export async function editKey(keyId: number, slug: string, formData: FormData) {
             }
         });
     } catch (error) {
-        throw new Error("Error during saving changes for a key.", {
+        throw new Error(t("errorChanges"), {
             cause: error,
         });
     }

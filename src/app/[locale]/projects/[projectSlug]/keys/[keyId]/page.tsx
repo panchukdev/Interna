@@ -5,6 +5,17 @@ import { getKey } from "@/src/lib/keys";
 import { auth } from "@/src/lib/auth";
 import { headers } from "next/headers";
 import { getProjectTranslations } from "@/src/lib/translations";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("editKey.meta");
+
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
 export default async function AddKey({
     params,

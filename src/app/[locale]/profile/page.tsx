@@ -3,6 +3,16 @@ import { Avatar, Box, Container, Typography } from "@mui/material";
 import { getTranslations } from "next-intl/server";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("profile.meta");
+
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
 export default async function Profile() {
     const t = await getTranslations("profile");

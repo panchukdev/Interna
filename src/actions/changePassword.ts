@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { auth } from "../lib/auth";
 import { headers } from "next/headers";
 import { APIError } from "better-auth/api";
+import { getTranslations } from "next-intl/server";
 
 export type ChangePasswordState = {
     error?: string;
@@ -22,6 +23,9 @@ export async function changePassword(
         redirect("/sign-in");
     }
 
+    const t = await getTranslations("error.password");
+    const tS = await getTranslations("success.password");
+
     const currentPassword = formData.get("currentPassword");
     const newPassword = formData.get("newPassword");
     const confirmNewPassword = formData.get("confirmNewPassword");
@@ -31,7 +35,7 @@ export async function changePassword(
         typeof newPassword !== "string" ||
         typeof confirmNewPassword !== "string"
     ) {
-        return { error: "Invalid form data." };
+        return { error: t("invalid") };
     }
 
     if (
@@ -39,17 +43,17 @@ export async function changePassword(
         newPassword.length < 8 ||
         confirmNewPassword.length < 8
     ) {
-        return { error: "Password must be at least 8 characters long." };
+        return { error: t("smallLength") };
     }
 
     if (currentPassword === newPassword) {
         return {
-            error: "New password must be different from the current password.",
+            error: t("sameAsCurrent"),
         };
     }
 
     if (newPassword !== confirmNewPassword) {
-        return { error: "New password doesn't match" };
+        return { error: t("noMatch") };
     }
 
     try {
@@ -60,12 +64,12 @@ export async function changePassword(
             },
             headers: await headers(),
         });
-        return { success: "Password changed successfully." };
+        return { success: tS("changed") };
     } catch (error) {
         if (error instanceof APIError) {
             return { error: error.message };
         }
 
-        return { error: "An unexpected error occurred." };
+        return { error: t("unexpected") };
     }
 }

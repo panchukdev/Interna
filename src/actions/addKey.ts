@@ -4,12 +4,15 @@ import { notFound, redirect } from "next/navigation";
 import { db } from "../prisma/db";
 import { auth } from "../lib/auth";
 import { headers } from "next/headers";
+import { getTranslations } from "next-intl/server";
 
 export async function addKey(
     projectId: number,
     slug: string,
     formData: FormData,
 ) {
+    const t = await getTranslations("error.key");
+
     const session = await auth.api.getSession({
         headers: await headers(),
     });
@@ -37,7 +40,7 @@ export async function addKey(
         typeof sourceText !== "string" ||
         !sourceText.trim()
     ) {
-        throw new Error("Key and source text are required.");
+        throw new Error(t("required"));
     }
 
     const allowedLanguages = new Set(project.targetLanguages);
@@ -46,7 +49,7 @@ export async function addKey(
         .filter(([name]) => allowedLanguages.has(name))
         .map(([language, value]) => {
             if (typeof value !== "string") {
-                throw new Error(`Invalid translation for: ${language}`);
+                throw new Error(`${t("invalidTranslation")} ${language}`);
             }
 
             return {
@@ -75,7 +78,6 @@ export async function addKey(
             }
         });
     } catch (error) {
-        console.error("Error during adding key:", error);
         throw error;
     }
     redirect(`/projects/${slug}`);

@@ -27,6 +27,7 @@ export default function AddKeyForm({
     };
 }) {
     const t = useTranslations("project.addKey");
+    const tE = useTranslations("error.key");
 
     async function handleTranslateAll() {
         if (!sourceText.trim()) return;
@@ -38,7 +39,7 @@ export default function AddKeyForm({
                 await handleTranslate(language);
             }
         } catch (error) {
-            throw new Error("Error during translating all target languages.", {
+            throw new Error(t("translatingAll"), {
                 cause: error,
             });
         } finally {
@@ -62,7 +63,7 @@ export default function AddKeyForm({
                 [language]: translatedText,
             }));
         } catch (error) {
-            throw new Error("Error during translating target language.", {
+            throw new Error(t("translatingOne"), {
                 cause: error,
             });
         } finally {

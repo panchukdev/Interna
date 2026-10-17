@@ -180,9 +180,9 @@ export default function Navbar({ session }) {
                         <>
                             <Box
                                 sx={{
-                                    flexGrow: 1,
+                                    ml: "auto",
                                     display: { xs: "none", md: "flex" },
-                                    gap: 1,
+                                    mr: 2,
                                 }}
                             >
                                 {pages.map((page) => (
@@ -202,7 +202,7 @@ export default function Navbar({ session }) {
                                 ))}
                             </Box>
                             <Box sx={{ flexGrow: 0 }}>
-                                <Tooltip title="Open menu">
+                                <Tooltip title={t("openMenu")}>
                                     <IconButton
                                         onClick={handleOpenUserMenu}
                                         sx={{ p: 0 }}

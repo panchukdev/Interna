@@ -3,6 +3,17 @@ import { getProject } from "@/src/lib/projects";
 import AddKeyForm from "./AddKeyForm";
 import { auth } from "@/src/lib/auth";
 import { headers } from "next/headers";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("addKey.meta");
+
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
 export default async function AddKey({
     params,

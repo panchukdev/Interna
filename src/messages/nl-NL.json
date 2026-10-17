@@ -15,17 +15,80 @@
         "rights": "Alle rechten voorbehouden."
     },
     "landing": {
-        "greeting": {
+        "question": "Wat wil je nu doen?",
+        "hero": {
+            "eyebrow": "ONTWORPEN VOOR MEERTALIGE PROJECTEN",
+            "title": "Vertaalbeheer voor ontwikkelaars",
+            "description": "Beheer vertaalsleutels, organiseer meertalige inhoud en houd de voortgang van vertalingen bij — allemaal op één plek.",
+            "getStarted": "Aan de slag",
+            "card": {
+                "title": "Projectwerkruimte",
+                "description": "Beheer vertaalsleutels, organiseer talen en importeer of exporteer vertalingen."
+            }
+        },
+        "features": {
+            "eyebrow": "KENMERKEN",
+            "title": "Alles wat je nodig hebt om vertalingen te beheren",
+            "description": "Houd uw meertalige projecten overzichtelijk met hulpmiddelen die zijn ontworpen om uw vertaalworkflow te vereenvoudigen.",
+            "translationKeys": {
+                "title": "Vertaalsleutels",
+                "excerpt": "Zorg ervoor dat je vertalingen overzichtelijk blijven.",
+                "description": "Maak vertaalsleutels aan en beheer deze samen met de brontekst, allemaal op één plek."
+            },
+            "multilingualSupport": {
+                "title": "Meertalige ondersteuning",
+                "excerpt": "Eén project, meerdere talen.",
+                "description": "Zorg ervoor dat er vertalingen beschikbaar zijn voor elke taal die je project ondersteunt."
+            },
+            "translationProgress": {
+                "title": "Voortgang van de vertaling",
+                "excerpt": "Weet wat er ontbreekt.",
+                "description": "Breng niet-vertaalde inhoud in kaart en houd de vertaalvoortgang binnen uw project bij."
+            },
+            "AIAssistedTranslations": {
+                "title": "Door AI ondersteunde vertalingen",
+                "excerpt": "Vertaal met minder handmatig werk.",
+                "description": "Maak vertalingen aan met DeepL AI en bewerk de resultaten direct in je workflow."
+            }
+        },
+        "howItWorks": {
+            "eyebrow": "HOE HET WERKT",
+            "title": "Van vertaalsleutels tot een meertalig product",
+            "description": "Beheer je brontekst, organiseer vertalingen en houd bij wat er voor elke taal klaar is.",
+            "steps": {
+                "create": {
+                    "title": "Maak je project aan",
+                    "description": "Maak een project aan, kies een brontaal en selecteer de doeltalen die u wilt ondersteunen."
+                },
+                "manage": {
+                    "title": "Beheer je vertalingen",
+                    "description": "Voeg vertaalsleutels toe, voer de brontekst en vertalingen voor elke doeltaal in, of gebruik DeepL AI om uw vertaalproces te versnellen."
+                },
+                "track": {
+                    "title": "De voortgang van de vertaling bijhouden",
+                    "description": "Breng nog niet vertaalde inhoud in kaart en houd de vertaalvoortgang bij voor alle talen van uw project."
+                }
+            }
+        },
+        "finalCTA": {
+            "title": "Uw vertalingen, volledig onder controle.",
+            "description": "Alles wat je nodig hebt om vertalingen binnen al je projecten te beheren.",
+            "getStarted": "Aan de slag"
+        }
+    },
+    "projects": {
+        "title": "Lijst met projecten",
+        "empty": "Je hebt geen projecten.",
+        "greetings": {
             "morning": "Goedemorgen,",
             "afternoon": "Goedemiddag,",
             "evening": "Goedenavond,",
             "late": "Blijf je laat op?"
         },
-        "question": "Wat wil je nu doen?"
-    },
-    "projects": {
-        "title": "Lijst met projecten",
-        "empty": "Je hebt geen projecten."
+        "meta": {
+            "title": "Mijn projecten",
+            "description": "Beheer uw lokalisatieprojecten, organiseer vertaalsleutels en houd de voortgang van de vertalingen per taal bij."
+        }
     },
     "project": {
         "sourceLanguage": "Brontaal",
@@ -111,10 +174,18 @@
             "description": "Upload JSON-lokalisatiebestanden om vertaalsleutels, bronteksten en bestaande vertalingen in je project te importeren."
         },
         "required": "Verplichte velden",
-        "create": "Aanmaken"
+        "create": "Aanmaken",
+        "meta": {
+            "title": "Project aanmaken",
+            "description": "Maak een lokalisatieproject aan, kies de brontaal en selecteer de talen die u wilt ondersteunen."
+        }
     },
     "profile": {
-        "since": "Op Interna sinds"
+        "since": "Op Interna sinds",
+        "meta": {
+            "title": "Profiel",
+            "description": "Bekijk uw accountgegevens."
+        }
     },
     "settings": {
         "currentPassword": "Huidig wachtwoord",
@@ -122,7 +193,11 @@
         "confirmNewPassword": "Bevestig het nieuwe wachtwoord",
         "changeButton": "Wijzigen",
         "changePassword": "Wachtwoord wijzigen",
-        "required": "Verplichte velden"
+        "required": "Verplichte velden",
+        "meta": {
+            "title": "Instellingen",
+            "description": "Beheer je accountinstellingen en wijzig je wachtwoord."
+        }
     },
     "error": {
         "notFound": {
@@ -134,6 +209,31 @@
             "title": "Project niet gevonden",
             "description": "Het project dat je zoekt, bestaat niet of is mogelijk verwijderd.",
             "backButton": "Terug naar projecten"
+        },
+        "password": {
+            "sameAsCurrent": "Het nieuwe wachtwoord moet anders zijn dan het huidige wachtwoord.",
+            "smallLength": "Het wachtwoord moet uit minimaal 8 tekens bestaan.",
+            "invalid": "Ongeldige formuliergegevens.",
+            "noMatch": "Het nieuwe wachtwoord klopt niet.",
+            "unexpected": "Er is een onverwachte fout opgetreden."
+        },
+        "key": {
+            "required": "De sleuteltekst en de brontekst zijn verplicht.",
+            "invalidTranslation": "Ongeldige vertaling voor:",
+            "error": "Fout bij het toevoegen van de sleutel.",
+            "errorChanges": "Fout bij het opslaan van wijzigingen voor een sleutel.",
+            "translatingAll": "Fout opgetreden tijdens het vertalen van alle doeltalen.",
+            "translatingOne": "Fout bij het vertalen naar de doeltaal."
+        },
+        "project": {
+            "invalid": "Ongeldige projectgegevens.",
+            "url": "Ongeldige website-URL."
+        },
+        "auth": {
+            "invalid": "Ongeldige formuliergegevens.",
+            "required": "Alle velden zijn verplicht.",
+            "unexpected": "Er is een onverwachte fout opgetreden.",
+            "noMatch": "De wachtwoorden komen niet overeen."
         }
     },
     "auth": {
@@ -152,6 +252,39 @@
             "signUpButton": "Aanmelden",
             "required": "Verplichte velden",
             "confirmPassword": "Wachtwoord bevestigen"
+        }
+    },
+    "success": {
+        "password": {
+            "changed": "Het wachtwoord is succesvol gewijzigd."
+        }
+    },
+    "meta": {
+        "title": "Interna — Vertaalbeheer voor ontwikkelaars",
+        "description": "Beheer vertaalsleutels, organiseer meertalige inhoud en houd de voortgang van de vertalingen bij in alle talen van uw project."
+    },
+    "signIn": {
+        "meta": {
+            "title": "Inloggen",
+            "description": "Log in op je Interna-account om de vertalingen van je website te beheren."
+        }
+    },
+    "signUp": {
+        "meta": {
+            "title": "Aanmelden",
+            "description": "Maak een Interna-account aan om de vertalingen van je website te beheren."
+        }
+    },
+    "addKey": {
+        "meta": {
+            "title": "Sleutel toevoegen",
+            "description": "Maak een vertaaltabel aan met de brontekst en de vertalingen in de doeltaal."
+        }
+    },
+    "editKey": {
+        "meta": {
+            "title": "Bewerkingssleutel",
+            "description": "Een vertaalsleutel, de brontekst en de vertalingen naar de doeltalen bewerken."
         }
     }
 }

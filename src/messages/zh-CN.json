@@ -15,17 +15,80 @@
         "rights": "保留所有权利。"
     },
     "landing": {
-        "greeting": {
+        "question": "您现在想做什么？",
+        "hero": {
+            "eyebrow": "专为多语言项目打造",
+            "title": "面向开发人员的翻译管理",
+            "description": "管理翻译键、整理多语言内容并跟踪翻译进度——所有操作均可在同一处完成。",
+            "getStarted": "开始使用",
+            "card": {
+                "title": "项目工作区",
+                "description": "管理翻译键、整理语言，以及导入或导出翻译内容。"
+            }
+        },
+        "features": {
+            "eyebrow": "功能",
+            "title": "管理翻译所需的一切",
+            "description": "借助专为简化翻译工作流程而设计的工具，让您的多语言项目井井有条。",
+            "translationKeys": {
+                "title": "翻译键",
+                "excerpt": "请将您的翻译整理好。",
+                "description": "在同一处创建和管理翻译键及其源文本。"
+            },
+            "multilingualSupport": {
+                "title": "多语言支持",
+                "excerpt": "一个项目，多种语言。",
+                "description": "为项目支持的每种语言组织翻译工作。"
+            },
+            "translationProgress": {
+                "title": "翻译进度",
+                "excerpt": "知道缺少了什么。",
+                "description": "识别未翻译的内容，并跟踪整个项目中的翻译覆盖情况。"
+            },
+            "AIAssistedTranslations": {
+                "title": "人工智能辅助翻译",
+                "excerpt": "减少人工操作，轻松完成翻译。",
+                "description": "使用 DeepL AI 生成翻译，并直接在您的工作流程中编辑翻译结果。"
+            }
+        },
+        "howItWorks": {
+            "eyebrow": "工作原理",
+            "title": "从翻译键到多语言产品",
+            "description": "管理源文本、整理译文，并跟踪每种语言的译文完成情况。",
+            "steps": {
+                "create": {
+                    "title": "创建您的项目",
+                    "description": "创建一个项目，选择源语言，并选择您希望支持的目标语言。"
+                },
+                "manage": {
+                    "title": "管理您的翻译",
+                    "description": "添加翻译键，为每种目标语言输入源文本和翻译内容，或使用 DeepL AI 来加快您的翻译工作流程。"
+                },
+                "track": {
+                    "title": "跟踪翻译进度",
+                    "description": "识别未翻译的内容，并监控项目中各语言版本的翻译覆盖率。"
+                }
+            }
+        },
+        "finalCTA": {
+            "title": "您的翻译，尽在掌握。",
+            "description": "管理各项目翻译所需的一切功能。",
+            "getStarted": "开始使用"
+        }
+    },
+    "projects": {
+        "title": "项目列表",
+        "empty": "您没有项目。",
+        "greetings": {
             "morning": "早上好，",
             "afternoon": "大家下午好，",
             "evening": "大家晚上好，",
             "late": "要熬夜吗？"
         },
-        "question": "您现在想做什么？"
-    },
-    "projects": {
-        "title": "项目列表",
-        "empty": "您没有项目。"
+        "meta": {
+            "title": "我的项目",
+            "description": "管理您的本地化项目，整理翻译键，并跟踪各语言的翻译进度。"
+        }
     },
     "project": {
         "sourceLanguage": "源语言",
@@ -111,10 +174,18 @@
             "description": "上传 JSON 语言环境文件，将翻译键、源文本和现有翻译导入到您的项目中。"
         },
         "required": "必填字段",
-        "create": "创建"
+        "create": "创建",
+        "meta": {
+            "title": "创建项目",
+            "description": "创建一个本地化项目，选择其源语言，并选择要支持的语言。"
+        }
     },
     "profile": {
-        "since": "自开始使用 Interna 起"
+        "since": "自开始使用 Interna 起",
+        "meta": {
+            "title": "简介",
+            "description": "查看您的账户信息。"
+        }
     },
     "settings": {
         "currentPassword": "当前密码",
@@ -122,7 +193,11 @@
         "confirmNewPassword": "确认新密码",
         "changeButton": "更改",
         "changePassword": "更改密码",
-        "required": "必填字段"
+        "required": "必填字段",
+        "meta": {
+            "title": "设置",
+            "description": "管理您的账户设置并更改密码。"
+        }
     },
     "error": {
         "notFound": {
@@ -134,6 +209,31 @@
             "title": "未找到该项目",
             "description": "您要查找的项目不存在，或者可能已被删除。",
             "backButton": "返回项目列表"
+        },
+        "password": {
+            "sameAsCurrent": "新密码必须与当前密码不同。",
+            "smallLength": "密码长度必须至少为 8 个字符。",
+            "invalid": "表单数据无效。",
+            "noMatch": "新密码不匹配。",
+            "unexpected": "发生了一个意外错误。"
+        },
+        "key": {
+            "required": "必须提供译文和源文本。",
+            "invalidTranslation": "以下翻译不正确：",
+            "error": "添加密钥时发生错误。",
+            "errorChanges": "在保存某个键的更改时发生错误。",
+            "translatingAll": "在翻译所有目标语言时发生错误。",
+            "translatingOne": "在翻译目标语言时发生错误。"
+        },
+        "project": {
+            "invalid": "项目数据无效。",
+            "url": "网站网址无效。"
+        },
+        "auth": {
+            "invalid": "表单数据无效。",
+            "required": "所有字段均为必填项。",
+            "unexpected": "发生了一个意外错误。",
+            "noMatch": "密码不匹配。"
         }
     },
     "auth": {
@@ -152,6 +252,39 @@
             "signUpButton": "注册",
             "required": "必填字段",
             "confirmPassword": "确认密码"
+        }
+    },
+    "success": {
+        "password": {
+            "changed": "密码已成功更改。"
+        }
+    },
+    "meta": {
+        "title": "Interna — 面向开发者的翻译管理工具",
+        "description": "管理翻译键、整理多语言内容，并跟踪所有项目语言的翻译进度。"
+    },
+    "signIn": {
+        "meta": {
+            "title": "登录",
+            "description": "登录您的 Interna 账户，以管理您的网站翻译。"
+        }
+    },
+    "signUp": {
+        "meta": {
+            "title": "注册",
+            "description": "创建一个 Interna 账户来管理您的网站翻译。"
+        }
+    },
+    "addKey": {
+        "meta": {
+            "title": "添加密钥",
+            "description": "创建一个包含源文本及其目标语言译文的翻译对照表。"
+        }
+    },
+    "editKey": {
+        "meta": {
+            "title": "编辑键",
+            "description": "编辑翻译键、其源文本以及目标语言的翻译内容。"
         }
     }
 }

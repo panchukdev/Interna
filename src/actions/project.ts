@@ -2,8 +2,11 @@
 
 import { redirect } from "next/navigation";
 import { db } from "../prisma/db";
+import { getTranslations } from "next-intl/server";
 
 export async function createProject(userId: string, formData: FormData) {
+    const t = await getTranslations("error.project");
+
     // await new Promise((resolve) => setTimeout(resolve, 5000));
 
     const projectName = formData.get("projectName");
@@ -25,7 +28,7 @@ export async function createProject(userId: string, formData: FormData) {
                 typeof language === "string" && language.trim().length > 0,
         )
     ) {
-        throw new Error("Invalid project data.");
+        throw new Error(t("invalid"));
     }
 
     const slug = projectName.trim().replace(/\s+/g, "-").toLowerCase();
@@ -43,7 +46,7 @@ export async function createProject(userId: string, formData: FormData) {
                 throw new Error();
             }
         } catch {
-            throw new Error("Invalid website URL.");
+            throw new Error(t("url"));
         }
     }
 

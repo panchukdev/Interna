@@ -1,10 +1,20 @@
 import { auth } from "@/src/lib/auth";
 import { getProjects } from "@/src/lib/projects";
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { getTranslations } from "next-intl/server";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata(): Promise<Metadata> {
+    const t = await getTranslations("projects.meta");
+
+    return {
+        title: t("title"),
+        description: t("description"),
+    };
+}
 
 export default async function Projects() {
     const t = await getTranslations("projects");
@@ -15,6 +25,34 @@ export default async function Projects() {
 
     if (!session) {
         redirect("/sign-in");
+    }
+
+    let greetings;
+
+    const name = (
+        <span style={{ whiteSpace: "nowrap" }}>{session.user.name}</span>
+    );
+    const time = new Date().getHours();
+    if (time >= 6 && time < 12) {
+        greetings = (
+            <>
+                {t("greetings.morning")} {name}!
+            </>
+        );
+    } else if (time >= 12 && time < 18) {
+        greetings = (
+            <>
+                {t("greetings.afternoon")} {name}!
+            </>
+        );
+    } else if (time >= 18 && time < 22) {
+        greetings = (
+            <>
+                {t("greetings.evening")} {name}!
+            </>
+        );
+    } else {
+        greetings = <>{t("greetings.late")}</>;
     }
 
     const projects = await getProjects(session.user.id);
@@ -30,8 +68,11 @@ export default async function Projects() {
             }}
         >
             <Typography variant="h4" component="h1" sx={{ fontWeight: 600 }}>
-                {t("title")}
+                {greetings}
             </Typography>
+            {/* <Typography variant="h4" component="h1" sx={{ fontWeight: 600 }}>
+                {t("title")}
+            </Typography> */}
 
             {!projects || projects.length === 0 ? (
                 <Typography variant="body1" sx={{ fontWeight: 300 }}>
