@@ -242,7 +242,8 @@
             "email": "E-mail",
             "password": "Wachtwoord",
             "required": "Verplichte velden",
-            "signInButton": "Inloggen"
+            "signInButton": "Inloggen",
+            "signUpButton": "Heb je nog geen account?"
         },
         "signUp": {
             "title": "Nieuw account aanmaken",
@@ -251,7 +252,8 @@
             "password": "Wachtwoord",
             "signUpButton": "Aanmelden",
             "required": "Verplichte velden",
-            "confirmPassword": "Wachtwoord bevestigen"
+            "confirmPassword": "Wachtwoord bevestigen",
+            "signInButton": "Heb je al een account?"
         }
     },
     "success": {

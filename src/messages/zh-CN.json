@@ -242,7 +242,8 @@
             "email": "电子邮件",
             "password": "密码",
             "required": "必填字段",
-            "signInButton": "登录"
+            "signInButton": "登录",
+            "signUpButton": "还没有账号吗？"
         },
         "signUp": {
             "title": "创建新账户",
@@ -251,7 +252,8 @@
             "password": "密码",
             "signUpButton": "注册",
             "required": "必填字段",
-            "confirmPassword": "确认密码"
+            "confirmPassword": "确认密码",
+            "signInButton": "已有账户了吗？"
         }
     },
     "success": {

@@ -242,7 +242,8 @@
             "email": "E-Mail",
             "password": "Passwort",
             "required": "Pflichtfelder",
-            "signInButton": "Anmelden"
+            "signInButton": "Anmelden",
+            "signUpButton": "Sie haben noch kein Konto?"
         },
         "signUp": {
             "title": "Neues Konto erstellen",
@@ -251,7 +252,8 @@
             "password": "Passwort",
             "signUpButton": "Anmelden",
             "required": "Pflichtfelder",
-            "confirmPassword": "Passwort bestätigen"
+            "confirmPassword": "Passwort bestätigen",
+            "signInButton": "Hast du schon ein Konto?"
         }
     },
     "success": {

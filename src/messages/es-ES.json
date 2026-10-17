@@ -242,7 +242,8 @@
             "email": "Correo electrónico",
             "password": "Contraseña",
             "required": "Campos obligatorios",
-            "signInButton": "Iniciar sesión"
+            "signInButton": "Iniciar sesión",
+            "signUpButton": "¿No tienes una cuenta?"
         },
         "signUp": {
             "title": "Crear una cuenta nueva",
@@ -251,7 +252,8 @@
             "password": "Contraseña",
             "signUpButton": "Regístrate",
             "required": "Campos obligatorios",
-            "confirmPassword": "Confirmar contraseña"
+            "confirmPassword": "Confirmar contraseña",
+            "signInButton": "¿Ya tienes una cuenta?"
         }
     },
     "success": {

@@ -242,7 +242,8 @@
             "email": "Eメール",
             "password": "パスワード",
             "required": "必須項目",
-            "signInButton": "ログイン"
+            "signInButton": "ログイン",
+            "signUpButton": "アカウントをお持ちではありませんか？"
         },
         "signUp": {
             "title": "新しいアカウントを作成する",
@@ -251,7 +252,8 @@
             "password": "パスワード",
             "signUpButton": "登録する",
             "required": "必須項目",
-            "confirmPassword": "パスワードの確認"
+            "confirmPassword": "パスワードの確認",
+            "signInButton": "すでにアカウントをお持ちですか？"
         }
     },
     "success": {

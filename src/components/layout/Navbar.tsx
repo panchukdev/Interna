@@ -264,7 +264,13 @@ export default function Navbar({ session }) {
                         </>
                     )}
                     {!session && (
-                        <Box sx={{ display: "flex", gap: 2, ml: "auto" }}>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                gap: { xs: 0.5, md: 2 },
+                                ml: "auto",
+                            }}
+                        >
                             <LinkButton href="/sign-in">
                                 <Typography
                                     sx={{
@@ -276,17 +282,17 @@ export default function Navbar({ session }) {
                                     {t("signIn")}
                                 </Typography>
                             </LinkButton>
-                            <LinkButton href="/sign-up">
+                            {/* <LinkButton href="/sign-up">
                                 <Typography
                                     sx={{
                                         textAlign: "center",
                                         color: "white",
-                                        fontSize: { xs: 14, md: "1rem" },
+                                        fontSize: { xs: 10, md: "1rem" },
                                     }}
                                 >
                                     {t("signUp")}
                                 </Typography>
-                            </LinkButton>
+                            </LinkButton> */}
                         </Box>
                     )}
                 </Toolbar>

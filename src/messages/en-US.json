@@ -242,7 +242,8 @@
             "email": "Email",
             "password": "Password",
             "required": "Required fields",
-            "signInButton": "Sign in"
+            "signInButton": "Sign in",
+            "signUpButton": "Don't have an account?"
         },
         "signUp": {
             "title": "Create new account",
@@ -251,7 +252,8 @@
             "password": "Password",
             "signUpButton": "Sign up",
             "required": "Required fields",
-            "confirmPassword": "Confirm password"
+            "confirmPassword": "Confirm password",
+            "signInButton": "Already have an account?"
         }
     },
     "success": {

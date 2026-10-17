@@ -1,12 +1,20 @@
 "use client";
 import SubmitButton from "@/src/components/forms/SubmitButton";
-import { Alert, Box, Container, TextField, Typography } from "@mui/material";
+import {
+    Alert,
+    Box,
+    Container,
+    Divider,
+    TextField,
+    Typography,
+} from "@mui/material";
 import PersonAddAlt1Icon from "@mui/icons-material/PersonAddAlt1";
 import { useActionState, useEffect, useState } from "react";
 import { signup } from "@/src/actions/signup";
 import { useTranslations } from "next-intl";
 import { authClient } from "@/src/lib/auth-client";
 import { useRouter } from "next/navigation";
+import LinkButton from "@/src/components/LinkButton";
 
 export default function SignUp() {
     const {
@@ -18,6 +26,7 @@ export default function SignUp() {
     const router = useRouter();
 
     const t = useTranslations("auth.signUp");
+    const tNav = useTranslations("navigation");
 
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -63,8 +72,8 @@ export default function SignUp() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "center",
-                mt: 15,
+                justifyContent: { xs: "flex-start", md: "center" },
+                mt: { xs: 4, md: 15 },
             }}
         >
             <Typography variant="h5" component="h1" sx={{ fontWeight: 500 }}>
@@ -176,7 +185,7 @@ export default function SignUp() {
                             sx={{
                                 display: "flex",
                                 flexDirection: "column",
-                                width: "50%",
+                                width: { xs: "100%", md: "50%" },
                             }}
                         >
                             <SubmitButton
@@ -193,6 +202,35 @@ export default function SignUp() {
             <Typography variant="body1" sx={{ fontWeight: 300 }}>
                 * {t("required")}
             </Typography>
+            <Box sx={{ width: "100%", my: 2 }}>
+                <Divider />
+            </Box>
+
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 2,
+                    alignItems: "center",
+                }}
+            >
+                <Typography variant="body1" sx={{ fontWeight: 300 }}>
+                    {t("signInButton")}
+                </Typography>
+                <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+                    <LinkButton href="/sign-in" variant="outlined" fullWidth>
+                        <Typography
+                            sx={{
+                                textAlign: "center",
+                                color: "white",
+                                fontSize: { xs: 14, md: "1rem" },
+                            }}
+                        >
+                            {tNav("signIn")}
+                        </Typography>
+                    </LinkButton>
+                </Box>
+            </Box>
         </Container>
     );
 }

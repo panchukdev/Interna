@@ -242,7 +242,8 @@
             "email": "Електронна пошта",
             "password": "Пароль",
             "required": "Обов’язкові поля",
-            "signInButton": "Увійти"
+            "signInButton": "Увійти",
+            "signUpButton": "Ще не маєте облікового запису?"
         },
         "signUp": {
             "title": "Створити новий обліковий запис",
@@ -251,7 +252,8 @@
             "password": "Пароль",
             "signUpButton": "Зареєструватися",
             "required": "Обов’язкові поля",
-            "confirmPassword": "Підтвердіть пароль"
+            "confirmPassword": "Підтвердіть пароль",
+            "signInButton": "У вас вже є обліковий запис?"
         }
     },
     "success": {

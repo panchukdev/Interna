@@ -242,7 +242,8 @@
             "email": "E-mail",
             "password": "Mot de passe",
             "required": "Champs obligatoires",
-            "signInButton": "Se connecter"
+            "signInButton": "Se connecter",
+            "signUpButton": "Vous n'avez pas encore de compte ?"
         },
         "signUp": {
             "title": "Créer un nouveau compte",
@@ -251,7 +252,8 @@
             "password": "Mot de passe",
             "signUpButton": "S'inscrire",
             "required": "Champs obligatoires",
-            "confirmPassword": "Confirmer le mot de passe"
+            "confirmPassword": "Confirmer le mot de passe",
+            "signInButton": "Vous avez déjà un compte ?"
         }
     },
     "success": {

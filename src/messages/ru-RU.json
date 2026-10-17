@@ -242,7 +242,8 @@
             "email": "Электронная почта",
             "password": "Пароль",
             "required": "Обязательные поля",
-            "signInButton": "Войти"
+            "signInButton": "Войти",
+            "signUpButton": "У вас нет учётной записи?"
         },
         "signUp": {
             "title": "Создать новую учетную запись",
@@ -251,7 +252,8 @@
             "password": "Пароль",
             "signUpButton": "Зарегистрироваться",
             "required": "Обязательные поля",
-            "confirmPassword": "Подтвердите пароль"
+            "confirmPassword": "Подтвердите пароль",
+            "signInButton": "У вас уже есть аккаунт?"
         }
     },
     "success": {
