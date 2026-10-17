@@ -185,7 +185,7 @@ export default function SignIn() {
                 <Typography variant="body1" sx={{ fontWeight: 300 }}>
                     {t("signUpButton")}
                 </Typography>
-                <Box sx={{ width: { xs: "100%", md: "50%" } }}>
+                <Box sx={{ width: "100%" }}>
                     <LinkButton href="/sign-up" variant="outlined" fullWidth>
                         <Typography
                             sx={{
