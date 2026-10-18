@@ -222,9 +222,9 @@ export default function SignUp() {
                         <Typography
                             sx={{
                                 textAlign: "center",
-                                color: "white",
                                 fontSize: { xs: 14, md: "1rem" },
                             }}
+                            color="inherit"
                         >
                             {tNav("signIn")}
                         </Typography>
