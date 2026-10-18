@@ -101,7 +101,12 @@
             "noKeys": "Pas de clés",
             "translated": "Traduit",
             "untranslated": "Non traduit",
-            "showColumn": "Afficher la colonne"
+            "showColumn": "Afficher la colonne",
+            "delete": "Supprimer",
+            "deleteTitle": "Supprimer cette clé",
+            "deleteDescription": "Êtes-vous sûr de vouloir supprimer cette clé ? Cela entraînera également la suppression de toutes les traductions associées à cette clé. Cette action ne peut pas être annulée.",
+            "deleteConfirm": "Supprimer",
+            "deleteError": "Impossible de supprimer la clé. Veuillez réessayer."
         },
         "export": {
             "title": "Exporter les traductions",
@@ -146,6 +151,14 @@
                 "updated": "Dernière mise à jour :"
             },
             "saveChangesButton": "Enregistrer les modifications"
+        },
+        "deleteProject": {
+            "button": "Supprimer le projet",
+            "title": "Supprimer le projet",
+            "description": "Êtes-vous sûr de vouloir supprimer ce projet ? Toutes les clés et leurs traductions seront également supprimées définitivement. Cette action ne peut pas être annulée.",
+            "cancel": "Annuler",
+            "confirm": "Supprimer le projet",
+            "error": "La suppression du projet a échoué. Veuillez réessayer."
         }
     },
     "create": {
@@ -223,7 +236,9 @@
             "error": "Erreur lors de l'ajout de la clé.",
             "errorChanges": "Erreur lors de l'enregistrement des modifications apportées à une clé.",
             "translatingAll": "Erreur lors de la traduction de toutes les langues cibles.",
-            "translatingOne": "Erreur lors de la traduction vers la langue cible."
+            "translatingOne": "Erreur lors de la traduction vers la langue cible.",
+            "duplicate": "Une clé portant ce nom existe déjà dans ce projet.",
+            "pathConflict": "Cette clé entre en conflit avec une clé imbriquée existante. Une clé ne peut pas comporter à la fois une valeur et des clés imbriquées."
         },
         "project": {
             "invalid": "Données de projet non valides.",

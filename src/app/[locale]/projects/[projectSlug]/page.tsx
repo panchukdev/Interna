@@ -10,6 +10,7 @@ import KeysDataGrid from "./KeysDataGrid";
 import { getProjectTranslations } from "@/src/lib/translations";
 import Export from "@/src/components/project/Export";
 import Import from "@/src/components/project/Import";
+import DeleteProject from "@/src/components/project/Delete";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { auth } from "@/src/lib/auth";
@@ -114,10 +115,10 @@ export default async function Project({
                 <Box
                     sx={{
                         display: "flex",
-                        gap: 1,
+                        gap: 2,
                         justifyContent: "space-between",
-                        alignItems: { xs: "flex-start", sm: "flex-end" },
-                        flexDirection: { xs: "column", sm: "row" },
+                        alignItems: { xs: "flex-start", lg: "flex-end" },
+                        flexDirection: { xs: "column", lg: "row" },
                     }}
                 >
                     <Box
@@ -163,12 +164,20 @@ export default async function Project({
                         sx={{
                             display: "flex",
                             gap: 1,
-                            justifyContent: "space-between",
+                            justifyContent: "flex-end",
+                            flexDirection: { xs: "column", md: "row" },
+                            flexWrap: { xs: "nowrap", md: "wrap" },
+                            alignItems: { xs: "stretch", md: "center" },
+                            width: { xs: "100%", md: "auto" },
                         }}
                     >
-                        {/* import */}
+                        <DeleteProject
+                            projectSlug={project.slug}
+                            projectTitle={project.title}
+                        />
+
                         <Import projectSlug={project.slug} />
-                        {/* export */}
+
                         <Export
                             projectSlug={project.slug}
                             languages={[
@@ -176,6 +185,7 @@ export default async function Project({
                                 ...project.targetLanguages,
                             ]}
                         />
+
                         <LinkButton
                             variant="contained"
                             href={`/projects/${project.slug}/add-key`}

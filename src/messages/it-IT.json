@@ -101,7 +101,12 @@
             "noKeys": "Senza chiavi",
             "translated": "Tradotto",
             "untranslated": "Non tradotto",
-            "showColumn": "Mostra colonna"
+            "showColumn": "Mostra colonna",
+            "delete": "Elimina",
+            "deleteTitle": "Elimina questa chiave",
+            "deleteDescription": "Sei sicuro di voler eliminare questa chiave? In questo modo verranno eliminate anche tutte le traduzioni associate a questa chiave. Questa azione non può essere annullata.",
+            "deleteConfirm": "Elimina",
+            "deleteError": "Impossibile eliminare la chiave. Riprovare."
         },
         "export": {
             "title": "Esporta traduzioni",
@@ -146,6 +151,14 @@
                 "updated": "Ultimo aggiornamento:"
             },
             "saveChangesButton": "Salva le modifiche"
+        },
+        "deleteProject": {
+            "button": "Elimina progetto",
+            "title": "Elimina progetto",
+            "description": "Sei sicuro di voler eliminare questo progetto? Verranno eliminate definitivamente anche tutte le chiavi e le relative traduzioni. Questa azione non può essere annullata.",
+            "cancel": "Annulla",
+            "confirm": "Elimina progetto",
+            "error": "Impossibile eliminare il progetto. Riprovare."
         }
     },
     "create": {
@@ -223,7 +236,9 @@
             "error": "Errore durante l'aggiunta della chiave.",
             "errorChanges": "Errore durante il salvataggio delle modifiche relative a una chiave.",
             "translatingAll": "Errore durante la traduzione in tutte le lingue di destinazione.",
-            "translatingOne": "Errore durante la traduzione nella lingua di destinazione."
+            "translatingOne": "Errore durante la traduzione nella lingua di destinazione.",
+            "duplicate": "In questo progetto esiste già una chiave con questo nome.",
+            "pathConflict": "Questa chiave è in conflitto con una chiave annidata esistente. Una chiave non può avere sia un valore che chiavi annidate."
         },
         "project": {
             "invalid": "Dati del progetto non validi.",

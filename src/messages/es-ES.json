@@ -101,7 +101,12 @@
             "noKeys": "Sin llaves",
             "translated": "Traducido",
             "untranslated": "Sin traducir",
-            "showColumn": "Mostrar columna"
+            "showColumn": "Mostrar columna",
+            "delete": "Eliminar",
+            "deleteTitle": "Elimina esta clave",
+            "deleteDescription": "¿Estás seguro de que quieres eliminar esta clave? Esto también eliminará todas las traducciones asociadas a esta clave. Esta acción no se puede deshacer.",
+            "deleteConfirm": "Eliminar",
+            "deleteError": "No se ha podido eliminar la clave. Inténtalo de nuevo."
         },
         "export": {
             "title": "Exportar traducciones",
@@ -146,6 +151,14 @@
                 "updated": "Última actualización:"
             },
             "saveChangesButton": "Guardar cambios"
+        },
+        "deleteProject": {
+            "button": "Eliminar proyecto",
+            "title": "Eliminar proyecto",
+            "description": "¿Estás seguro de que quieres eliminar este proyecto? Todas las claves y sus traducciones también se eliminarán de forma definitiva. Esta acción no se puede deshacer.",
+            "cancel": "Cancelar",
+            "confirm": "Eliminar proyecto",
+            "error": "No se ha podido eliminar el proyecto. Inténtalo de nuevo."
         }
     },
     "create": {
@@ -223,7 +236,9 @@
             "error": "Se ha producido un error al añadir la clave.",
             "errorChanges": "Se ha producido un error al guardar los cambios de una clave.",
             "translatingAll": "Se ha producido un error al traducir a todos los idiomas de destino.",
-            "translatingOne": "Se ha producido un error al traducir al idioma de destino."
+            "translatingOne": "Se ha producido un error al traducir al idioma de destino.",
+            "duplicate": "Ya existe una clave con este nombre en este proyecto.",
+            "pathConflict": "Esta clave entra en conflicto con una clave anidada ya existente. Una clave no puede tener a la vez un valor y claves anidadas."
         },
         "project": {
             "invalid": "Datos del proyecto no válidos.",

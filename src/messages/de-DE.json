@@ -101,7 +101,12 @@
             "noKeys": "Keine Schlüssel",
             "translated": "Übersetzt",
             "untranslated": "Nicht übersetzt",
-            "showColumn": "Spalte anzeigen"
+            "showColumn": "Spalte anzeigen",
+            "delete": "Löschen",
+            "deleteTitle": "Diesen Schlüssel löschen",
+            "deleteDescription": "Möchten Sie diesen Schlüssel wirklich löschen? Dadurch werden auch alle mit diesem Schlüssel verknüpften Übersetzungen gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+            "deleteConfirm": "Löschen",
+            "deleteError": "Der Schlüssel konnte nicht gelöscht werden. Bitte versuchen Sie es erneut."
         },
         "export": {
             "title": "Übersetzungen exportieren",
@@ -146,6 +151,14 @@
                 "updated": "Zuletzt aktualisiert:"
             },
             "saveChangesButton": "Änderungen speichern"
+        },
+        "deleteProject": {
+            "button": "Projekt löschen",
+            "title": "Projekt löschen",
+            "description": "Möchten Sie dieses Projekt wirklich löschen? Alle Schlüssel und deren Übersetzungen werden ebenfalls endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.",
+            "cancel": "Abbrechen",
+            "confirm": "Projekt löschen",
+            "error": "Das Projekt konnte nicht gelöscht werden. Bitte versuchen Sie es erneut."
         }
     },
     "create": {
@@ -223,7 +236,9 @@
             "error": "Fehler beim Hinzufügen des Schlüssels.",
             "errorChanges": "Fehler beim Speichern der Änderungen für einen Schlüssel.",
             "translatingAll": "Fehler beim Übersetzen aller Zielsprachen.",
-            "translatingOne": "Fehler bei der Übersetzung in die Zielsprache."
+            "translatingOne": "Fehler bei der Übersetzung in die Zielsprache.",
+            "duplicate": "Ein Schlüssel mit diesem Namen existiert in diesem Projekt bereits.",
+            "pathConflict": "Dieser Schlüssel steht im Konflikt mit einem bereits vorhandenen verschachtelten Schlüssel. Ein Schlüssel kann nicht gleichzeitig einen Wert und verschachtelte Schlüssel enthalten."
         },
         "project": {
             "invalid": "Ungültige Projektdaten.",

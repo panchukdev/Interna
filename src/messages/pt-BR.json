@@ -101,7 +101,12 @@
             "noKeys": "Sem chaves",
             "translated": "Traduzido",
             "untranslated": "Não traduzido",
-            "showColumn": "Mostrar coluna"
+            "showColumn": "Mostrar coluna",
+            "delete": "Excluir",
+            "deleteTitle": "Exclua esta chave",
+            "deleteDescription": "Tem certeza de que deseja excluir esta chave? Isso também excluirá todas as traduções associadas a esta chave. Esta ação não pode ser desfeita.",
+            "deleteConfirm": "Excluir",
+            "deleteError": "Não foi possível excluir a chave. Tente novamente."
         },
         "export": {
             "title": "Exportar traduções",
@@ -146,6 +151,14 @@
                 "updated": "Última atualização:"
             },
             "saveChangesButton": "Salvar alterações"
+        },
+        "deleteProject": {
+            "button": "Excluir projeto",
+            "title": "Excluir projeto",
+            "description": "Tem certeza de que deseja excluir este projeto? Todas as chaves e suas traduções também serão excluídas permanentemente. Essa ação não pode ser desfeita.",
+            "cancel": "Cancelar",
+            "confirm": "Excluir projeto",
+            "error": "Não foi possível excluir o projeto. Tente novamente."
         }
     },
     "create": {
@@ -223,7 +236,9 @@
             "error": "Erro ao adicionar a chave.",
             "errorChanges": "Erro ao salvar as alterações de uma chave.",
             "translatingAll": "Erro durante a tradução de todos os idiomas de destino.",
-            "translatingOne": "Erro durante a tradução para o idioma de destino."
+            "translatingOne": "Erro durante a tradução para o idioma de destino.",
+            "duplicate": "Já existe uma chave com esse nome neste projeto.",
+            "pathConflict": "Essa chave entra em conflito com uma chave aninhada já existente. Uma chave não pode ter um valor e chaves aninhadas ao mesmo tempo."
         },
         "project": {
             "invalid": "Dados do projeto inválidos.",

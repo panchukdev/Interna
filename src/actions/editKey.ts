@@ -7,7 +7,16 @@ import { auth } from "../lib/auth";
 import { headers } from "next/headers";
 import { getTranslations } from "next-intl/server";
 
-export async function editKey(keyId: number, slug: string, formData: FormData) {
+export type EditKeyState = {
+    error?: "required" | "duplicate" | "pathConflict" | "generic";
+};
+
+export async function editKey(
+    keyId: number,
+    slug: string,
+    _prevState: EditKeyState,
+    formData: FormData,
+): Promise<EditKeyState> {
     const session = await auth.api.getSession({
         headers: await headers(),
     });
@@ -27,7 +36,7 @@ export async function editKey(keyId: number, slug: string, formData: FormData) {
         typeof sourceText !== "string" ||
         !sourceText.trim()
     ) {
-        throw new Error(t("required"));
+        return { error: "required" };
     }
 
     const userId = session.user.id;
@@ -52,6 +61,30 @@ export async function editKey(keyId: number, slug: string, formData: FormData) {
 
     const cleanKey = key.trim();
     const cleanSourceText = sourceText.trim();
+
+    const existingKeys = await db.orm.public.Key.where({
+        projectId: project.id,
+    }).all();
+
+    const otherKeys = existingKeys.filter(
+        (existing) => existing.id !== checkedKey.id,
+    );
+
+    const duplicate = otherKeys.some((existing) => existing.key === cleanKey);
+
+    if (duplicate) {
+        return { error: "duplicate" };
+    }
+
+    const hasPathConflict = otherKeys.some(
+        (existing) =>
+            existing.key.startsWith(`${cleanKey}.`) ||
+            cleanKey.startsWith(`${existing.key}.`),
+    );
+
+    if (hasPathConflict) {
+        return { error: "pathConflict" };
+    }
 
     const languages = project.targetLanguages;
 
@@ -117,9 +150,8 @@ export async function editKey(keyId: number, slug: string, formData: FormData) {
             }
         });
     } catch (error) {
-        throw new Error(t("errorChanges"), {
-            cause: error,
-        });
+        console.error("Failed to edit key:", error);
+        return { error: "generic" };
     }
     redirect(`/projects/${slug}`);
 }

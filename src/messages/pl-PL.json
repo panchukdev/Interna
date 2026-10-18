@@ -101,7 +101,12 @@
             "noKeys": "Brak kluczy",
             "translated": "Przetłumaczone",
             "untranslated": "Nieprzetłumaczone",
-            "showColumn": "Pokaż kolumnę"
+            "showColumn": "Pokaż kolumnę",
+            "delete": "Usuń",
+            "deleteTitle": "Usuń ten klucz",
+            "deleteDescription": "Czy na pewno chcesz usunąć ten klucz? Spowoduje to również usunięcie wszystkich tłumaczeń powiązanych z tym kluczem. Tego działania nie można cofnąć.",
+            "deleteConfirm": "Usuń",
+            "deleteError": "Nie udało się usunąć klucza. Spróbuj ponownie."
         },
         "export": {
             "title": "Eksportuj tłumaczenia",
@@ -146,6 +151,14 @@
                 "updated": "Ostatnia aktualizacja:"
             },
             "saveChangesButton": "Zapisz zmiany"
+        },
+        "deleteProject": {
+            "button": "Usuń projekt",
+            "title": "Usuń projekt",
+            "description": "Czy na pewno chcesz usunąć ten projekt? Wszystkie klucze i ich tłumaczenia również zostaną trwale usunięte. Tego działania nie można cofnąć.",
+            "cancel": "Anuluj",
+            "confirm": "Usuń projekt",
+            "error": "Nie udało się usunąć projektu. Spróbuj ponownie."
         }
     },
     "create": {
@@ -223,7 +236,9 @@
             "error": "Wystąpił błąd podczas dodawania klucza.",
             "errorChanges": "Wystąpił błąd podczas zapisywania zmian dotyczących klucza.",
             "translatingAll": "Wystąpił błąd podczas tłumaczenia na wszystkie języki docelowe.",
-            "translatingOne": "Wystąpił błąd podczas tłumaczenia na język docelowy."
+            "translatingOne": "Wystąpił błąd podczas tłumaczenia na język docelowy.",
+            "duplicate": "W tym projekcie istnieje już klucz o tej nazwie.",
+            "pathConflict": "Ten klucz koliduje z istniejącym kluczem zagnieżdżonym. Klucz nie może zawierać jednocześnie wartości i kluczy zagnieżdżonych."
         },
         "project": {
             "invalid": "Nieprawidłowe dane projektu.",

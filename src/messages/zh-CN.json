@@ -101,7 +101,12 @@
             "noKeys": "没有钥匙",
             "translated": "已翻译",
             "untranslated": "未翻译",
-            "showColumn": "显示列"
+            "showColumn": "显示列",
+            "delete": "删除",
+            "deleteTitle": "删除此键",
+            "deleteDescription": "您确定要删除此键吗？这也会删除与该键关联的所有翻译。此操作无法撤销。",
+            "deleteConfirm": "删除",
+            "deleteError": "删除键失败。请重试。"
         },
         "export": {
             "title": "导出翻译",
@@ -146,6 +151,14 @@
                 "updated": "最后更新时间："
             },
             "saveChangesButton": "保存更改"
+        },
+        "deleteProject": {
+            "button": "删除项目",
+            "title": "删除项目",
+            "description": "您确定要删除此项目吗？所有键及其翻译也将被永久删除。此操作无法撤销。",
+            "cancel": "取消",
+            "confirm": "删除项目",
+            "error": "无法删除该项目。请重试。"
         }
     },
     "create": {
@@ -223,7 +236,9 @@
             "error": "添加密钥时发生错误。",
             "errorChanges": "在保存某个键的更改时发生错误。",
             "translatingAll": "在翻译所有目标语言时发生错误。",
-            "translatingOne": "在翻译目标语言时发生错误。"
+            "translatingOne": "在翻译目标语言时发生错误。",
+            "duplicate": "该项目中已经存在一个同名的键。",
+            "pathConflict": "该键与现有的嵌套键冲突。一个键不能同时具有值和嵌套键。"
         },
         "project": {
             "invalid": "项目数据无效。",

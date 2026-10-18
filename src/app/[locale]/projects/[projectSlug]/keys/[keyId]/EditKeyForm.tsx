@@ -6,15 +6,29 @@ import {
     getLanguagePlaceholder,
     type SupportedLocale,
 } from "@/src/lib/languages";
-import { Box, Button, Container, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { useState, useActionState } from "react";
 import SaveIcon from "@mui/icons-material/Save";
-import { editKey } from "@/src/actions/editKey";
+import { editKey, type EditKeyState } from "@/src/actions/editKey";
 import LocalDate from "@/src/components/LocalDate";
 import { translateText } from "@/src/actions/translateText";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useTranslations } from "next-intl";
+import { deleteKey } from "@/src/actions/deleteKey";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import {
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogContentText,
+    DialogTitle,
+    Box,
+    Button,
+    Container,
+    TextField,
+    Typography,
+} from "@mui/material";
+import { useRouter } from "next/navigation";
 
 export default function EditKeyForm({
     project,
@@ -42,6 +56,43 @@ export default function EditKeyForm({
     }[];
 }) {
     const t = useTranslations("project.addKey");
+    const tE = useTranslations("error.key");
+
+    const tDelete = useTranslations("project.key");
+    const tNav = useTranslations("navigation");
+    const router = useRouter();
+
+    const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+    const [deleting, setDeleting] = useState(false);
+    const [deleteError, setDeleteError] = useState("");
+
+    const handleCloseDelete = () => {
+        if (deleting) return;
+
+        setDeleteDialogOpen(false);
+        setDeleteError("");
+    };
+
+    const handleDelete = async () => {
+        setDeleting(true);
+        setDeleteError("");
+
+        try {
+            const result = await deleteKey(keyData.id, project.slug);
+
+            if (result.error) {
+                setDeleteError(tDelete("deleteError"));
+                return;
+            }
+
+            router.push(`/projects/${project.slug}`);
+            router.refresh();
+        } catch {
+            setDeleteError(tDelete("deleteError"));
+        } finally {
+            setDeleting(false);
+        }
+    };
 
     async function handleTranslateAll() {
         if (!sourceText.trim()) return;
@@ -116,6 +167,12 @@ export default function EditKeyForm({
             return translationValues[lang] !== originalTranslation;
         });
 
+    const editKeyWithId = editKey.bind(null, keyData.id, project.slug);
+    const [state, formAction] = useActionState<EditKeyState, FormData>(
+        editKeyWithId,
+        {},
+    );
+
     return (
         <Container
             maxWidth="xl"
@@ -137,8 +194,30 @@ export default function EditKeyForm({
             </Typography>
 
             <Container maxWidth="xl" disableGutters>
+                <Box
+                    sx={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        gap: 2,
+                        width: "100%",
+                        mt: 2,
+                    }}
+                >
+                    <Button
+                        variant="outlined"
+                        color="error"
+                        startIcon={<DeleteForeverIcon />}
+                        onClick={() => {
+                            setDeleteError("");
+                            setDeleteDialogOpen(true);
+                        }}
+                    >
+                        {tDelete("delete")}
+                    </Button>
+                </Box>
                 {/* form + action={createKey*/}
-                <form action={editKey.bind(null, keyData.id, project.slug)}>
+                <form action={formAction}>
                     <Container
                         maxWidth="xl"
                         sx={{
@@ -179,9 +258,19 @@ export default function EditKeyForm({
                                 variant="outlined"
                                 required
                                 sx={{ width: "100%" }}
-
                                 value={key}
                                 onChange={(event) => setKey(event.target.value)}
+                                error={
+                                    state.error === "duplicate" ||
+                                    state.error === "pathConflict"
+                                }
+                                helperText={
+                                    state.error === "duplicate"
+                                        ? tE("duplicate")
+                                        : state.error === "pathConflict"
+                                          ? tE("pathConflict")
+                                          : undefined
+                                }
                             />
                             <Typography
                                 variant="caption"
@@ -413,6 +502,55 @@ export default function EditKeyForm({
                         {t("saveChangesButton")}
                     </SubmitButton>
                 </form>
+
+                {/* delete key */}
+                <Dialog
+                    open={deleteDialogOpen}
+                    onClose={handleCloseDelete}
+                    fullWidth
+                    maxWidth="sm"
+                >
+                    <DialogTitle>{tDelete("deleteTitle")}</DialogTitle>
+
+                    <DialogContent>
+                        <DialogContentText>
+                            {tDelete("deleteDescription", {
+                                key: keyData.key,
+                            })}
+                        </DialogContentText>
+
+                        {deleteError && (
+                            <DialogContentText color="error" sx={{ mt: 2 }}>
+                                {deleteError}
+                            </DialogContentText>
+                        )}
+                    </DialogContent>
+
+                    <DialogActions sx={{ px: 3, pb: 2 }}>
+                        <Button onClick={handleCloseDelete} disabled={deleting}>
+                            {tNav("cancel")}
+                        </Button>
+
+                        <Button
+                            variant="contained"
+                            color="error"
+                            onClick={handleDelete}
+                            disabled={deleting}
+                            endIcon={
+                                deleting ? (
+                                    <CircularProgress
+                                        size={18}
+                                        color="inherit"
+                                    />
+                                ) : (
+                                    <DeleteForeverIcon />
+                                )
+                            }
+                        >
+                            {tDelete("deleteConfirm")}
+                        </Button>
+                    </DialogActions>
+                </Dialog>
             </Container>
         </Container>
     );

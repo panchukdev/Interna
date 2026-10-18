@@ -101,7 +101,12 @@
             "noKeys": "Geen sleutels",
             "translated": "Vertaald",
             "untranslated": "Niet vertaald",
-            "showColumn": "Kolom weergeven"
+            "showColumn": "Kolom weergeven",
+            "delete": "Verwijderen",
+            "deleteTitle": "Verwijder deze sleutel",
+            "deleteDescription": "Weet u zeker dat u deze sleutel wilt verwijderen? Hiermee worden ook alle vertalingen verwijderd die aan deze sleutel zijn gekoppeld. Deze handeling kan niet ongedaan worden gemaakt.",
+            "deleteConfirm": "Verwijderen",
+            "deleteError": "Het verwijderen van de sleutel is mislukt. Probeer het nog eens."
         },
         "export": {
             "title": "Vertalingen exporteren",
@@ -146,6 +151,14 @@
                 "updated": "Laatst bijgewerkt:"
             },
             "saveChangesButton": "Wijzigingen opslaan"
+        },
+        "deleteProject": {
+            "button": "Project verwijderen",
+            "title": "Project verwijderen",
+            "description": "Weet u zeker dat u dit project wilt verwijderen? Alle sleutels en hun vertalingen worden dan ook definitief verwijderd. Deze handeling kan niet ongedaan worden gemaakt.",
+            "cancel": "Annuleren",
+            "confirm": "Project verwijderen",
+            "error": "Het project kon niet worden verwijderd. Probeer het nog eens."
         }
     },
     "create": {
@@ -223,7 +236,9 @@
             "error": "Fout bij het toevoegen van de sleutel.",
             "errorChanges": "Fout bij het opslaan van wijzigingen voor een sleutel.",
             "translatingAll": "Fout opgetreden tijdens het vertalen van alle doeltalen.",
-            "translatingOne": "Fout bij het vertalen naar de doeltaal."
+            "translatingOne": "Fout bij het vertalen naar de doeltaal.",
+            "duplicate": "Er bestaat al een sleutel met deze naam in dit project.",
+            "pathConflict": "Deze sleutel is in conflict met een bestaande geneste sleutel. Een sleutel kan niet zowel een waarde als geneste sleutels hebben."
         },
         "project": {
             "invalid": "Ongeldige projectgegevens.",

@@ -7,9 +7,9 @@ import {
     type SupportedLocale,
 } from "@/src/lib/languages";
 import { Box, Button, Container, TextField, Typography } from "@mui/material";
-import { useState } from "react";
+import { useActionState, useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
-import { addKey } from "@/src/actions/addKey";
+import { addKey, type AddKeyState } from "@/src/actions/addKey";
 import { translateText } from "@/src/actions/translateText";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -39,7 +39,7 @@ export default function AddKeyForm({
                 await handleTranslate(language);
             }
         } catch (error) {
-            throw new Error(t("translatingAll"), {
+            throw new Error(tE("translatingAll"), {
                 cause: error,
             });
         } finally {
@@ -63,7 +63,7 @@ export default function AddKeyForm({
                 [language]: translatedText,
             }));
         } catch (error) {
-            throw new Error(t("translatingOne"), {
+            throw new Error(tE("translatingOne"), {
                 cause: error,
             });
         } finally {
@@ -71,6 +71,10 @@ export default function AddKeyForm({
         }
     }
     const addKeyWithProject = addKey.bind(null, project.id, project.slug);
+    const [state, formAction] = useActionState<AddKeyState, FormData>(
+        addKeyWithProject,
+        {},
+    );
 
     const sourceLanguageName = getLanguageName(project.sourceLanguage);
     const targetLanguagesNames: string[] = [];
@@ -108,7 +112,7 @@ export default function AddKeyForm({
             </Typography>
 
             <Container maxWidth="xl" disableGutters>
-                <form action={addKeyWithProject}>
+                <form action={formAction}>
                     <Container
                         maxWidth="xl"
                         sx={{
@@ -149,9 +153,19 @@ export default function AddKeyForm({
                                 variant="outlined"
                                 required
                                 sx={{ width: "100%" }}
-
                                 value={key}
                                 onChange={(event) => setKey(event.target.value)}
+                                error={
+                                    state.error === "duplicate" ||
+                                    state.error === "pathConflict"
+                                }
+                                helperText={
+                                    state.error === "duplicate"
+                                        ? tE("duplicate")
+                                        : state.error === "pathConflict"
+                                          ? tE("pathConflict")
+                                          : undefined
+                                }
                             />
                         </Box>
                     </Container>

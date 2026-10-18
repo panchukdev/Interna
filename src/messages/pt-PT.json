@@ -101,7 +101,12 @@
             "noKeys": "Sem chaves",
             "translated": "Traduzido",
             "untranslated": "Não traduzido",
-            "showColumn": "Mostrar coluna"
+            "showColumn": "Mostrar coluna",
+            "delete": "Apagar",
+            "deleteTitle": "Apagar esta chave",
+            "deleteDescription": "Tem a certeza de que quer eliminar esta chave? Isto também eliminará todas as traduções associadas a esta chave. Esta ação não pode ser desfeita.",
+            "deleteConfirm": "Apagar",
+            "deleteError": "Não foi possível eliminar a chave. Por favor, tente novamente."
         },
         "export": {
             "title": "Exportar traduções",
@@ -146,6 +151,14 @@
                 "updated": "Última atualização:"
             },
             "saveChangesButton": "Guardar alterações"
+        },
+        "deleteProject": {
+            "button": "Apagar projeto",
+            "title": "Apagar projeto",
+            "description": "Tem a certeza de que quer eliminar este projeto? Todas as chaves e as respetivas traduções serão também eliminadas de forma definitiva. Esta ação não pode ser desfeita.",
+            "cancel": "Cancelar",
+            "confirm": "Apagar projeto",
+            "error": "Não foi possível eliminar o projeto. Por favor, tente novamente."
         }
     },
     "create": {
@@ -223,7 +236,9 @@
             "error": "Erro ao adicionar a chave.",
             "errorChanges": "Erro ao guardar as alterações relativas a uma chave.",
             "translatingAll": "Erro durante a tradução de todas as línguas de destino.",
-            "translatingOne": "Erro durante a tradução para a língua de destino."
+            "translatingOne": "Erro durante a tradução para a língua de destino.",
+            "duplicate": "Já existe uma chave com este nome neste projeto.",
+            "pathConflict": "Esta chave entra em conflito com uma chave aninhada já existente. Uma chave não pode ter simultaneamente um valor e chaves aninhadas."
         },
         "project": {
             "invalid": "Dados do projeto inválidos.",

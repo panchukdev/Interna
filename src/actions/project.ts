@@ -52,7 +52,7 @@ export async function createProject(userId: string, formData: FormData) {
 
     // create the project in DB (Prisma)
 
-    const result = await db.transaction(async (tx) => {
+    await db.transaction(async (tx) => {
         const project = await tx.orm.public.Project.create({
             title: projectName,
             slug,
@@ -63,8 +63,6 @@ export async function createProject(userId: string, formData: FormData) {
         });
         return project;
     });
-
-    console.log(result);
 
     // redirect
     if (initialContent) {

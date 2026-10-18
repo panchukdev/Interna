@@ -85,7 +85,6 @@ export default function Import({ projectSlug }: ImportProps) {
                 throw new Error(data.error ?? "Failed to import translations");
             }
 
-            console.log(data.results);
             setOpen(false);
             setFiles([]);
             setError("");
