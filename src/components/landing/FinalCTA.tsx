@@ -19,11 +19,12 @@ export default async function FinalCTA() {
                     display: "flex",
                     width: "100%",
                     minHeight: {
-                        xs: "calc(100dvh - 56px)",
+                        xs: "calc(100% - 56px)",
                         sm: "calc(100dvh - 64px)",
                     },
+                    mb: { xs: 10, md: 0 },
                     alignItems: "center",
-                    justifyContent: "center",
+                    justifyContent: { xs: "flex-start", md: "center" },
                     flexDirection: "column",
                     gap: { xs: 4, md: 8 },
                 }}

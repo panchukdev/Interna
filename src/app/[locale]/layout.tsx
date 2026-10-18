@@ -19,12 +19,37 @@ export async function generateMetadata({
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: "meta" });
 
+    const ogImage = `/images/og/interna-og-${locale}.png`;
+
     return {
         title: {
             default: t("title"),
             template: `%s | Interna`,
         },
         description: t("description"),
+
+        openGraph: {
+            type: "website",
+            siteName: "Interna",
+            title: t("title"),
+            description: t("description"),
+            locale: locale.replace("-", "_"),
+            images: [
+                {
+                    url: ogImage,
+                    width: 1200,
+                    height: 630,
+                    alt: t("title"),
+                },
+            ],
+        },
+
+        twitter: {
+            card: "summary_large_image",
+            title: t("title"),
+            description: t("description"),
+            images: [ogImage],
+        },
     };
 }
 
