@@ -1,15 +1,20 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 import SignIn from "./SignIn";
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata(
+    {},
+    parent: ResolvingMetadata,
+): Promise<Metadata> {
     const t = await getTranslations("signIn.meta");
+    const parentMetadata = await parent;
 
     return {
         title: t("title"),
         description: t("description"),
 
         openGraph: {
+            ...parentMetadata.openGraph,
             type: "website",
             title: t("title"),
             description: t("description"),
@@ -17,7 +22,8 @@ export async function generateMetadata(): Promise<Metadata> {
         },
 
         twitter: {
-            card: "summary",
+            ...parentMetadata.twitter,
+            card: "summary_large_image",
             title: t("title"),
             description: t("description"),
         },
