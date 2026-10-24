@@ -17,8 +17,13 @@ function loadComposerDatabase() {
 export const db =
     loadComposerDatabase() ??
     (process.env.DATABASE_URL
-        ? postgres<Contract>({ contractJson, url: process.env.DATABASE_URL })
-        : postgres<Contract>({ contractJson }));
+        ? postgres<Contract>({
+              contract: contractJson as unknown as Contract,
+              url: process.env.DATABASE_URL,
+          })
+        : postgres<Contract>({
+              contract: contractJson as unknown as Contract,
+          }));
 
 let connection: Promise<void> | undefined;
 
@@ -30,5 +35,6 @@ export function connectDatabase(): Promise<void> {
             connection = undefined;
             throw error;
         });
+
     return connection;
 }
